@@ -83,3 +83,5 @@
 - [音效](./sounds/intro.md)
 - [用户输入](./io/intro.md)
 - [与其他mod的兼容](./compatible/intro.md)
+- [Access Transformer](./at/intro.md)
+- [CoreMod](./coremode/intro.md)
