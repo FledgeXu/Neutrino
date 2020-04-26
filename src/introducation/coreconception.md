@@ -8,7 +8,7 @@
 
 ## ResourceLocation
 
-你可以把ResourceLocation想成一种特殊格式的字符串，它大概长成这样:`minecraft:textures/block/stone.png`，一个ResouceLocation指定了资源包下的一个特定的文件。举例来说，前面这个这个ResourceLocation代表了原版资源包下的石头的材质图片。ResouceLocation分成两部分，冒号前面的叫做「域（domain）」，在原版中只有一个域即`minecraft`域，但是如果你开始开发mod，那么每个mod都会有一个或者多个域。冒号的后半部分是和`asserts`文件夹内的目录结构一一对应的。从某种程度上来说，ResourceLocation就是一个特殊的URL。
+你可以把ResourceLocation想成一种特殊格式的字符串，它大概长成这样:`minecraft:textures/block/stone.png`，一个ResouceLocation指定了资源包下的一个特定的文件。举例来说，前面这个这个ResourceLocation代表了原版资源包下的石头的材质图片。ResouceLocation分成两部分，冒号前面的叫做「域（domain）」，在原版中只有一个域即`minecraft`域，但是如果你开始开发mod，那么每个mod都会有一个或者多个域。冒号的后半部分是和`assets`文件夹内的目录结构一一对应的。从某种程度上来说，ResourceLocation就是一个特殊的URL。
 
 ## 模型和材质
 
