@@ -8,6 +8,7 @@
 - [环境配置](./devenvironment/intro.md)
   - [Forge开发环境的配置](./devenvironment/setup.md)
   - [开发环境的介绍](./devenvironment/folderintro.md)
+  - [自定义mod信息](./devenvironment/modinfo.md)
 - [物品](./items/intro.md)
   - [第一个物品](./items/firstitem.md)
   - [物品材质与模型](./items/modelandtextures.md)
