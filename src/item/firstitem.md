@@ -109,6 +109,8 @@ public class Neutrino {
 
 虽然这个物品还是很丑，但这就是我们第一个物品了。
 
+[源码链接](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_item)
+
 ## 开发小课堂
 
 在开发大型项目的过程中，要学会看函数名猜函数功能，这是一个非常重要的能力。当你不清楚一个函数的功能是什么，就翻译翻译它的名字猜猜看它的功能吧。
