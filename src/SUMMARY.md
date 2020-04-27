@@ -10,6 +10,7 @@
   - [开发环境的介绍](./devenvironment/folderintro.md)
   - [自定义mod信息](./devenvironment/modinfo.md)
 - [物品](./item/intro.md)
+  - [Item和ItemStack](./item/itemstack.md)
   - [第一个物品](./item/firstitem.md)
   - [物品材质与模型](./item/modelandtextures.md)
   - [食物](./item/food.md)
