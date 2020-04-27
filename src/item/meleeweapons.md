@@ -1,1 +1,85 @@
 # 近战武器
+
+在这一节中，我们讲解如何创建一个新的剑，这里我们以黑曜石剑举例。
+
+同样的我们先创建一个`ObsidianSword`但是这次的继承的类有些不一样，这次我们直接继承原版的`SwordItem`类，如果你查看继承关系图，你就可以发现，`SwordItem`是`Item`的子类。
+
+![image-20200427182723660](meleeweapons.assets/image-20200427182723660.png)
+
+内容如下:
+
+```java
+public class ObsidianSword extends SwordItem {
+    private static IItemTier iItemTier = new IItemTier() {
+        @Override
+        public int getMaxUses() {
+            return 2000;
+        }
+
+        @Override
+        public float getEfficiency() {
+            return 10.0F;
+        }
+
+        @Override
+        public float getAttackDamage() {
+            return 4.0F;
+        }
+
+        @Override
+        public int getHarvestLevel() {
+            return 3;
+        }
+
+        @Override
+        public int getEnchantability() {
+            return 30;
+        }
+
+        @Override
+        public Ingredient getRepairMaterial() {
+            return Ingredient.fromItems(ItemRegistry.obsidianIngot.get());
+        }
+    };
+
+    public ObsidianSword() {
+        super(iItemTier, 3, -2.4F, new Item.Properties().group(ItemGroup.COMBAT));
+    }
+}
+```
+
+同样的，这个内容看上去非常的多，但其实并没有你想象那么复杂。
+
+首先我们实现一个`IItemTier`接口的匿名内部类。首先什么是`IItemTier`呢？Tier的英文意思是「层、等级」，你可以把`IItemTier`理解成一种材质，比如钻石剑，钻石稿都是钻石做的，同样的铁剑，铁搞都是铁做的。
+
+那么为什么要自己实现这个匿名内部类呢？原因是原版的`net.minecraft.item.IItemTier`是用enum实现的，我们没法自己向里面添加内容，所以只能自己实现了，原版的所有属性也都在这个类里，大家可以参考。至于这个匿名内部类里的各种方法，我在这里就不多加解释了，有了之前几个物品的经验，相信读者阅读到这里时已经有了通过函数名猜测函数功能的能力了。同样的关于构造函数里的`3`和`-2.4F`的作用也请读者参考原版物品的实现（原版所有物品的实例都写在`net.minecraft.item.Items`类中）猜测功能。
+
+同样的接下去注册物品
+
+```java
+public static RegistryObject<Item> obsidianSword = ITEMS.register("obsidian_sword", () -> {
+  return new ObsidianSword();
+});
+```
+
+添加模型文件：
+
+```json
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "neutrino:item/obsidian_sword"
+  }
+}
+```
+
+以及材质
+
+<img src="meleeweapons.assets/obsidian_sword.png" alt="obsidian_sword" style="zoom:300%;" />
+
+创建完成之后打开游戏看看吧。
+
+![image-20200427184918516](meleeweapons.assets/image-20200427184918516.png)
+
+[源代码地址](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/melee_weapons)
+
