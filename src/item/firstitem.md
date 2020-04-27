@@ -45,7 +45,7 @@ public static RegistryObject<Item> obsidianIngot = ITEMS.register("obsidian_ingo
 });
 ```
 
-第一个参数很好理解`”obsidian_ingot”`就对应着注册名，第二个参数看上去非常复杂，但是其实也挺简单的。
+第一个参数很好理解`”obsidian_ingot”`就对应着注册名，请注意这里的注册名也不要用大写字母，第二个参数看上去非常复杂，但是其实也挺简单的。
 
 首先我们先来看一下`ITEMS`的`register`的函数签名。
 
