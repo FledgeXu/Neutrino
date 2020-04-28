@@ -17,9 +17,7 @@ public class ObsidianGroup extends ItemGroup {
 }
 ```
 
-第一个方法用于设置创造模式物品栏的标题名，第二个提供了创造模式物品栏的图标，这里我们用了黑曜石碇作为图标。这里是一个ItemStack，可能有的读者还没有阅读关于ItemStack的内容，在这里我稍微讲解一下。
-
-ItemStack故名思义相当于是「一堆」物品，当然这个一堆物品的数量也可以是一个，ItemStack是一个具体的东西，你物品栏中每个槽位的物品都是一个ItemStack，ItemStack比起Item类来说它提供了数量，是否为空等信息，其中最为重要的是ItemStack还能附加NBT标签。
+第一个方法用于设置创造模式物品栏的标题名，第二个提供了创造模式物品栏的图标，这里我们用了黑曜石碇作为图标，请注意这个函数的返回值类型是`ItemStac`k，而不`Item`。
 
 然后我们需要在实例化这个类，创建`ModGroup`
 
