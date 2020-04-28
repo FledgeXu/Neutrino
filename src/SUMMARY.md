@@ -17,7 +17,7 @@
   - [近战武器](./item/meleeweapons.md)
   - [自定义创造模式物品栏](./item/group.md)
 - [语言文件与本地化](./i18n/i18n.md)
-- [方块](./blocks/intro.md)
+- [方块](./block/intro.md)
   - [第一个方块](./block/firstblock.md)
   - [方块模型和材质](./block/modelandtextures.md)
   - [方块状态](./block/blocksstates.md)
