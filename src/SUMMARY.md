@@ -19,6 +19,7 @@
 - [语言文件与本地化](./i18n/i18n.md)
 - [方块](./block/intro.md)
   - [第一个方块](./block/firstblock.md)
+  - [Block和BlockState](./block/blockandblockstate.md)
   - [方块模型和材质](./block/modelandtextures.md)
   - [方块状态](./block/blocksstates.md)
   - [非实心方块与自定义模型](./block/nonesoildblock.md)
