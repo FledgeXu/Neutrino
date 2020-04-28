@@ -22,7 +22,7 @@ public class ObsidianApple extends Item {
 
 我们一行一行的解释。
 
-首先我们创建了一个`EffectInstance`，什么是`EffectInstance`？`EffectInstance`正如他名字暗示的那样是一个药水效果的实例。我们先来思考一下，原版的在玩家身上的药水效果都有哪些属性：效果的种类、时间以及药水登记。而`EffectInstance`就是这三种属性的一个集合。`new EffectInstance(Effects.POISON, 3 * 20, 1)`可以看到我们填入的三种属性分别是：原版的中毒药水效果（原版所有的药水效果都在`Effects`类内）、持续时间是`3*20`tick，药水等级为1。
+首先我们创建了一个`EffectInstance`，什么是`EffectInstance`？`EffectInstance`正如他名字暗示的那样是一个药水效果的实例。我们先来思考一下，原版的在玩家身上的药水效果都有哪些属性：效果的种类、时间以及药水等级。而`EffectInstance`就是这三种属性的一个集合。`new EffectInstance(Effects.POISON, 3 * 20, 1)`可以看到我们填入的三种属性分别是：原版的中毒药水效果（原版所有的药水效果都在`Effects`类内）、持续时间是`3*20`tick，药水等级为1。
 
 接下来我们创建了一个`Food`类型的变量，这个变量规定了这个这个食物的一些属性，比如：`saturation`方法设置了饱食度，`hunger`设置了回复的饥饿度，`effect`方法设置了吃食物时可能会有的药水效果，其中第二个参数代表出发效果的可能性（想想原版的生鸡肉），这里我们设置成`1`代表100%触发。这里其实用到称为「建造者模式」的设计模式，有兴趣的同学可以自己查阅。
 
