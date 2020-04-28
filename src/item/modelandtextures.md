@@ -40,6 +40,8 @@ resources
 
 <img src="./modelandtextures.assets/obsidian_ingot.png" style="zoom:300%;" />
 
+这里的加载流程是：游戏先根据的你注册名获取相对应的模型文件，然后通过模型文件中的`textures`加载对应的材质文件。
+
 创建完成的目录树如下：
 
 ```
