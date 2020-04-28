@@ -50,7 +50,7 @@ resources
 
 可以看到，和物品模型相比，只是继承的东西不太一样，至于具体模型文件的格式请参考[Wiki](https://minecraft-zh.gamepedia.com/index.php?title=模型&variant=zh)。在模型里，我们调用了`obsidian_block_texture.png`作为我们的材质。
 
-接下来让我们在`textures/block`下添加我们的材质。
+接下来让我们在`textures/block`下添加我们的材质，同样的请注意材质文件的比例是1:1，并且最好不要大于32x32像素。
 
 <img src="modelandtextures.assets/obsdian_block.png" alt="obsdian_block" style="zoom:300%;" />
 
