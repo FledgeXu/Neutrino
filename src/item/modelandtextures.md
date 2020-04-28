@@ -36,7 +36,7 @@ resources
 
 模型文件的详细格式大家可以自行阅读[Wiki]([https://minecraft-zh.gamepedia.com/index.php?title=%E6%A8%A1%E5%9E%8B&variant=zh](https://minecraft-zh.gamepedia.com/index.php?title=模型&variant=zh))。
 
-接下来我们在``textures/item/obsidian_ingot.png`下放入我们制作好的材质文件，请注意材质文件的比例是1:1，并且最好不要大于32x32像素。
+接下来我们在`textures/item/obsidian_ingot.png`下放入我们制作好的材质文件，请注意材质文件的比例是1:1，并且最好不要大于32x32像素。
 
 <img src="./modelandtextures.assets/obsidian_ingot.png" style="zoom:300%;" />
 
