@@ -17,7 +17,7 @@ ItemStack顾名思义就是「物品堆」。实际上在游戏中，所有物�
 
 这里值得注意的是，ItemStack的数量为0，虽然代表是空了，这不代表它就变成null了，所以在你必须得用ItemStack下的`isEmpty()`方法来判断是否为空。
 
-ItemStack中所包含的Item其实是同一个实例，原因非常简单，如果不是同一个实例，会无谓的产生非常多相同的实例，处于优化的考虑，当然是共用一个实例合适，这同时意味着你可通过`result.getItem() == Items.AIR`来判断ItemStack存放了哪一个Item。
+ItemStack中所包含的Item其实是同一个实例，原因非常简单，如果不是同一个实例，会无谓地产生非常多相同的实例，处于优化的考虑，当然是共用一个实例合适，这同时意味着你可通过`result.getItem() == Items.AIR`来判断ItemStack存放了哪一个Item。
 
 至于更加详细的解释，[harbinger](https://harbinger.covertdragon.team/chapter-04/item-stack.html)已经写的很清楚了。
 
