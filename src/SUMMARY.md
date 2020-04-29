@@ -31,6 +31,7 @@
   - [第一个方块实体和其数据保存](./tileentity/firsttileentity.md)
   - [ITickableTileEntity](./tileentity/itickabletileentity.md)
   - [方块实体内置的数据同步](./tileentity/datasync.md)
+- [事件系统](./event/intro.md)
 - [特殊渲染](./specialrender/intro.md)
   - [IBakedModel(烘培模型)](./specialrender/ibakedmodel.md)
   - [TileEntityRenderer(方块实体渲染器)](./specialrender/ter.md)
