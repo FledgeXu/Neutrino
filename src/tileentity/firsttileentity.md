@@ -26,7 +26,7 @@ public class ObsidianCounter extends Block {
         if (!worldIn.isRemote && handIn == Hand.MAIN_HAND) {
             ObsidianCounterTileEntity obsidianCounterTileEntity = (ObsidianCounterTileEntity) worldIn.getTileEntity(pos);
             int counter = obsidianCounterTileEntity.increase();
-            TranslationTextComponent translationTextComponent = new TranslationTextComponent("message.tour14.counter", counter);
+            TranslationTextComponent translationTextComponent = new TranslationTextComponent("message.neutrino.counter", counter);
             player.sendStatusMessage(translationTextComponent, false);
         }
         return ActionResultType.SUCCESS;
@@ -118,7 +118,7 @@ public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockP
   if (!worldIn.isRemote && handIn == Hand.MAIN_HAND) {
     ObsidianCounterTileEntity obsidianCounterTileEntity = (ObsidianCounterTileEntity) worldIn.getTileEntity(pos);
     int counter = obsidianCounterTileEntity.increase();
-    TranslationTextComponent translationTextComponent = new TranslationTextComponent("message.tour14.counter", counter);
+    TranslationTextComponent translationTextComponent = new TranslationTextComponent("message.neutrino.counter", counter);
     player.sendStatusMessage(translationTextComponent, false);
   }
   return ActionResultType.SUCCESS;
@@ -155,7 +155,7 @@ public int increase() {
 `increase`方法内容非常简单，相信大家都能看懂。
 
 ```java
-TranslationTextComponent translationTextComponent = new TranslationTextComponent("message.tour14.counter", counter);
+TranslationTextComponent translationTextComponent = new TranslationTextComponent("message.neutrino.counter", counter);
 ```
 
 然后是句话，首先我们创建了一个`TranslationTextComponent`，这个是一个这里就是我们要发送到玩家聊天框里的内容。正如它的名字暗示的那样，这个是一个翻译文本，所以它的填入一个应该是一个「键」而不是具体的内容，`"message.tour14.counter”`就是「键」值，后面我们还传入了我们获取到的计数值，这样做的原因，我们先按下不表。
@@ -163,7 +163,7 @@ TranslationTextComponent translationTextComponent = new TranslationTextComponent
 首先我们在语言文件里添加如下内容（以简体中文举例）。
 
 ```json
- "message.tour14.counter": "计数: %d"
+ "message.neutrino.counter": "计数: %d"
 ```
 
 可以看到这里具体内容里有一个`%d`，如果这时候为什么要传入我们的值的理由就很清楚了，其实就是通过`%d`，把我们的`counter`变量的值格式化的显示了出来。
