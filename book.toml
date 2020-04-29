@@ -1,6 +1,6 @@
 [book]
 authors = ["FledgeXu"]
-language = "en"
+language = "zh_cn"
 multilingual = false
 src = "src"
 title = "Minecraft Forge Mod Dev tutorial"
