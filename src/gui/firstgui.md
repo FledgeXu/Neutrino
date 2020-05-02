@@ -1,6 +1,6 @@
 # 第一个Gui
 
-在这一节中，我们将来创建一个自定义的Gui，在开始教程之前，我必须要强调一点，打开Gui等操作只能在客户端执行，不能在服务端执行。
+在这一节中，我们将创建一个自定义的Gui，在开始教程之前，我必须要强调一点，打开Gui等操作只能在客户端执行，不能在服务端执行。
 
 与GUI相关的最直接的一个类就是`Screen`类，自然我们要创建一个类并继承`Screen`。
 
@@ -81,14 +81,14 @@ protected void init() {
 }
 ```
 
-在这里我们创建了三个「Widget（组件）」——Button（按钮）、TextFieldWidget（文本框）以及Slider（滑条）。Widget 是Minecraft GUI 中最小可交互的对象。在GUI中添加Wdget大体上可以分成两步骤：
+在这里我们创建了三个「Widget（组件）」——Button（按钮）、TextFieldWidget（文本框）以及Slider（滑条）。Widget 是Minecraft GUI中最小可交互的对象。在GUI中添加Wdget大体上可以分成两步骤：
 
-1. 创建：你需要先创建一个组件，在创建组件时你需要指定它的宽和高、X坐标和Y坐标，对于一个特殊的组件，你还得指定它的回掉函数，也就是你当你操作组件后它需要执行的内容。比如说，当你按下按钮，你需要执行的内容就是一个回调函数。
-2. 添加，为了你的GUI可以使用组件，你需要在创建完组件之后讲组件添加到GUI上，对于绝大部分的组件你只需要调用`this.children.add(组件实例)`即可，按钮比较特殊，你需要调用`this.addButton(按钮实例)`。
+1. 创建：你需要先创建一个组件，在创建组件时你需要指定它的宽和高、X坐标和Y坐标，对于一个特殊的组件，你还得指定它的回调函数，也就是当你操作组件后它需要执行的内容。比如说，当你按下按钮，你需要执行的内容就是一个回调函数。
+2. 添加，为了你的GUI可以使用组件，你需要在创建完组件之后将组件添加到GUI上，对于绝大部分的组件你只需要调用`this.children.add(组件实例)`即可，按钮比较特殊，你需要调用`this.addButton(按钮实例)`。
 
 接下来我们来讲解一下窗口布局，对于我们的这个Screen类来说，你可以通过`this.width`和`this.height`来获取宽度和高度。请注意，在GUI中，X轴是从左上角向下，Y轴是从左上角向右。
 
-因为这里涉及到的方法很多，这里我就稍微讲解一下，大体上所以的组件创建的都有X，Y位置设定，以及宽和高的设定，大家可以自己看方法签名。
+因为这里涉及到的方法很多，我就稍微讲解一下，大体上所有的组件创建的都有X、Y位置设定，以及宽和高的设定，大家可以自己看方法签名。
 
 其中值得一讲的是:
 
@@ -105,9 +105,9 @@ this.sliderPercentageOption = new SliderPercentageOption("neutrino.sliderbar", 5
   }, (gameSettings, sliderPercentageOption1) -> "test");
  ```
 
-接下来是滑条，它比较特殊，你得先创建一个`SliderPercentageOption`，然后调用它的`createWidget`的组件，之所以这么做的原因是划块必须要和一个数据范围相对应。
+接下来是滚动条，它比较特殊，你得先创建一个`SliderPercentageOption`，然后调用它的`createWidget`的组件，之所以这么做是因为滚动条必须要和一个数据范围相对应。
 
-这里的第五和第六个参数是`getter`和`setter`，这个是用来设置滑条相对应的数值用的，你可在这里写上非常复杂的逻辑。当你调用它相对应的`set`和`get`方法时，会先执行你设置的这两个方法，然后仔获取值。这里我们不进行任何的设置，返回值也设置成0，最后一个方法是用来设置滑条底部文字的，因为要实现滑条处于不同地方，内容不同，所以这里是也是一个闭包（虽然我们没有用到这个功能），其他参数的意义请自行查看函数签名。
+这里的第五和第六个参数是`getter`和`setter`，这个是用来设置滚动条相对应的数值用的，你可在这里写上非常复杂的逻辑。当你调用它相对应的`set`和`get`方法时，会先执行你设置的这两个方法，然后获取值。这里我们不进行任何的设置，返回值也设置成0，最后一个方法是用来设置滚动条底部文字的，因为要实现滚动条处于不同地方时呈现不同的内容，所以这里也是一个闭包（虽然我们没有用到这个功能），其他参数的意义请自行查看函数签名。
 
 接下来就`render`方法。
 
@@ -131,7 +131,7 @@ public void render(int p_render_1_, int p_render_2_, float p_render_3_) {
 
 我们将在这里渲染背景图片。
 
-首先你需要用` this.minecraft.getTextureManager().bindTexture(OBSIDIAN_FIRST_GUI_TEXTURE);`帮你需要渲染的图片，这里用`ResouceLocation`指明了你得图片在资源包中的位置，在我们的例子里是:
+首先你需要用`this.minecraft.getTextureManager().bindTexture(OBSIDIAN_FIRST_GUI_TEXTURE);`绑定你需要渲染的图片，这里用`ResouceLocation`指明了你得图片在资源包中的位置，在我们的例子里是:
 
 ```java
 ResourceLocation OBSIDIAN_FIRST_GUI_TEXTURE = new ResourceLocation("neutrino", "textures/gui/first_gui.png");
@@ -153,13 +153,13 @@ blit(int x0, int y0, int z, float u0, float v0, int width, int height, int textu
 
 这几个参数的作用如上图。
 
-其中没有讲到的`U`和`V`（相当于是XY，用UV是计算机图形学的一个传统）是用来指定你背景图片的在实际图片中的左上角位置的。之所以要这么做的原因是，对于GPU来说切换图片是一个非常耗时的工作，所以如果可能的话，你应该把所以要用的的元素放在同一张图片中，然后通过指定不同的UV，来指定它的位置。
+其中没有讲到的`U`和`V`（相当于是XY，用UV是计算机图形学的一个传统）是用来指定你背景图片在实际图片中的左上角位置的。之所以要这么做，是因为对于GPU来说切换图片是一个非常耗时的工作，所以如果可能的话，你应该把所以要用的的元素放在同一张图片中，然后通过指定不同的UV，来指定它的位置。
 
-如果当你的`textureHeight`和`textureWidth`小于`width`和`height`时，渲染结果如下。
+当你的`textureHeight`和`textureWidth`小于`width`和`height`时，渲染结果如下。
 
 ![image-20200501210032253](./firstgui.assets/image-20200501210032253.png)
 
-如果当你的`textureHeight`和`textureWidth`大于`width`和`height`时，渲染结果如下。
+当你的`textureHeight`和`textureWidth`大于`width`和`height`时，渲染结果如下。
 
 ![image-20200501210423881](firstgui.assets/image-20200501210423881.png)
 

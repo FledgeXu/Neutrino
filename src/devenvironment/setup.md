@@ -3,15 +3,15 @@
 ## 需要的工具
 
 -  [JDK8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)，出于兼容性的考虑，**请确保你安装的是JDK8**。
-- [IntelliJ IDEA 2020.1 社区版](https://www.jetbrains.com/zh-cn/idea/download/)，下载完成后请自行安装，介于目标读者的水平，这里有个如何给2020.1之后版本安装官方中文的[教程](https://www.bilibili.com/video/BV1NT4y137nb)。
+- [IntelliJ IDEA 2020.1.1 社区版](https://www.jetbrains.com/zh-cn/idea/download/)，下载完成后请自行安装，介于目标读者的水平，这里有个如何给2020.1之后的版本安装官方中文的[教程](https://www.bilibili.com/video/BV1NT4y137nb)。
 
-- [Forge MDK 1.15.2 - 31.1.0](https://adfoc.us/serve/sitelinks/?id=271228&url=https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.15.2-31.1.0/forge-1.15.2-31.1.0-mdk.zip)，下载后请解压到你喜欢的文件夹。
+- [Forge MDK 1.15.2 - 31.1.0](https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.15.2-31.1.0/forge-1.15.2-31.1.0-mdk.zip)，下载后请解压到你喜欢的文件夹。
 
 **注意，介于预想读者的水平，配置过程十有八九是会失败的，建议直接使用[离线包](https://v2mcdev.com/t/topic/249/2)，安装完离线包之后继续按照下述教程进行配置。**
 
 ## 总体的介绍
 
-Minecraft Forge是一个Gradle项目，Gradle是一个项目构建工具，其主要作用是负责项目的依赖管理，构建等功能。依赖管理指的是帮你自动的下载配置你开发中使用的库，也就是别人写好的方便你自己开发的代码。构建指的是将你写的的mod打包成别人可以安装的jar文件。
+Minecraft Forge是一个Gradle项目，Gradle是一个项目构建工具，其主要作用是负责项目的依赖管理、构建等功能。依赖管理指的是帮你自动地下载和配置你开发中使用的库，也就是别人写好的方便你自己开发的代码。构建指的是将你写的mod打包成别人可以安装的jar文件。
 
 Forge官方写了一个叫做ForgeGradle（以后简称FG）的插件来负责整个mod开发环境的配置（~~为什么要说这个呢，让你知道当环境配置失败时该骂谁~~)。
 
@@ -71,7 +71,7 @@ Forge官方写了一个叫做ForgeGradle（以后简称FG）的插件来负责�
 
 ![image-20200426193439272](setup.assets/image-20200426193439272.png)
 
-然后选择`RunClient`即可启动游戏。
+然后选择`runClient`即可启动游戏。
 
 ![image-20200426193520833](setup.assets/image-20200426193520833.png)
 
