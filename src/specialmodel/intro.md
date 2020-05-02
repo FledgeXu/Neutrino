@@ -1,3 +1,3 @@
 # 特殊模型
 
-在这一节中，我们将来学习如何在Minecraft中使用特殊的物品模型，Forge为Minecraft添加了额外两种物品物品模型的支持：OBJ和B3D。
+在这一节中，我们将学习如何在Minecraft中使用特殊的物品模型，Forge为Minecraft添加了额外两种物品模型的支持：OBJ和B3D。

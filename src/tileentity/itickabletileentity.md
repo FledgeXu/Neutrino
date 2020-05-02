@@ -1,8 +1,8 @@
 # ITickableTileEntity
 
-在这一节中，我们来学习TIleEntity中最为重要的一个借口：`ITickableTileEntity`。
+在这一节中，我们来学习TileEntity中最为重要的一个接口：`ITickableTileEntity`。
 
-这一节我们讲制作一个会自动打招呼的方块，来体现这个例子。
+这一节我们将以制作一个会自动打招呼的方块为例，来体现这个接口的功能。
 
 `ObsidianHelloBlock`:
 
@@ -53,7 +53,7 @@ public class ObsidianHelloTileEntity extends TileEntity implements ITickableTile
 }
 ```
 
-实际上这个方块实体的代码要比我们做的第一个方块实体的代码简单许多。可以看到我们在这里实现了`ITickableTileEntity`接口，这个接口只有一个方法需要实现，就是`tick`方法，故名思义，这个会在每个游戏tick执行一次，我们的这里做了一技术器，然后通过`world.getClosestPlayer`方法获取到了这个方块位置周围10格内最近的一个玩家，然后创建了一个`StringTextComponent`消息（~~之所以用这个消息的原因是因为我懒得写lang文件~~），最后调用了`player.sendMessage`将消息发送给了玩家，`sendMessage` 接受的是一个`ITextComponent`，minecraft已经有很多实现这个接口的常用的类。
+实际上这个方块实体的代码要比我们做的第一个方块实体的代码简单许多。可以看到我们在这里实现了`ITickableTileEntity`接口，这个接口只有一个方法需要实现，就是`tick`方法，故名思义，这个会在每个游戏tick执行一次，我们这里做了一计数器，然后通过`world.getClosestPlayer`方法获取到了这个方块位置周围10格内最近的玩家，然后创建了`StringTextComponent`消息（~~之所以用这个消息的原因是因为我懒得写lang文件~~），最后调用了`player.sendMessage`将消息发送给了玩家，`sendMessage` 接受的是`ITextComponent`接口，minecraft已经有很多实现这个接口的常用的类。
 
 注册`TileEntityType`：
 
