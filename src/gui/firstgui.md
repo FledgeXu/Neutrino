@@ -177,6 +177,26 @@ blit(int x0, int y0, int z, float u0, float v0, int width, int height, int textu
   this.sliderBar.render(p_render_1_, p_render_2_, p_render_3_);
 ```
 
+至于打开一个只存在在客户端的GUI也很简单，`ObsidianFirstGuiItem`:
+
+```java
+public class ObsidianFirstGuiItem extends Item {
+    public ObsidianFirstGuiItem() {
+        super(new Properties().group(ModGroup.itemGroup));
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        if(worldIn.isRemote){
+            Minecraft.getInstance().displayGuiScreen(new ObsidianFirstGui(new StringTextComponent("test")));
+        }
+        return super.onItemRightClick(worldIn, playerIn, handIn);
+    }
+}
+```
+
+你只需要先建成是不是在客户端，然后调用`Minecraft.getInstance().displayGuiScreen`方法显示你的GUI就行，第二个参数是你GUI的标题，我们这里没有渲染标题，但是还是需要填入一个。
+
 打开游戏你就可以看见我们的GUI被渲染出来了。
 
 ![image-20200502103302036](firstgui.assets/image-20200502103302036.png)
