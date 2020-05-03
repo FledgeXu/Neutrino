@@ -121,6 +121,8 @@ public class ObsidianAnimalRender extends MobRenderer<ObsidianAnimal, ObsidianAn
 
 这里我们直接继承了`MobRenderer`来自动的渲染一些类似于影子的东西。之所以这里有两个构造函数是因为，当我们注册Render的时候，Lambda表达式里只给了一个参数，虽然你也可以把预设的内容写在Lambda表达式里，但是如果你那样干了就没法简化代码了，所以我们这里就额外添加了一个构造函数。
 
+这里构造函数的第二个参数是你的动物的模型，第三个参数是影子的大小。
+
 别忘了注册你的实体和你的Render。
 
 组成完成后，输入命令召唤实体。
