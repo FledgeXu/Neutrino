@@ -335,3 +335,10 @@ public class ClientEventHandler {
 
 并且数据也已经同步了。
 
+[源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_entity)
+
+## 编程小课堂
+
+[MinecraftByExample](https://github.com/TheGreyGhost/MinecraftByExample)项目的作者[TheGreyGhost](https://github.com/TheGreyGhost/MinecraftByExample/commits?author=TheGreyGhost)的[博客](http://greyminecraftcoder.blogspot.com/p/list-of-topics-1144.html)里有非常多关于Minecraft渲染相关的内容，大家可以自行阅读。
+
+如果你打不开这个博客，可能是由于你的国家封锁了这个网站，请自行寻找方法解决。
