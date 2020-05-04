@@ -168,7 +168,7 @@ public class ModCapability {
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CommonSetupEventHandler {
     @SubscribeEvent
-    public static void onSetUpEvent(FMLCommonSetupEvent event) {
+    public static void onSetupEvent(FMLCommonSetupEvent event) {
         CapabilityManager.INSTANCE.register(
                 ISimpleCapability.class,
                 new Capability.IStorage<ISimpleCapability>() {
