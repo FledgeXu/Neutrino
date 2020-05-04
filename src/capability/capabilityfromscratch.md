@@ -166,7 +166,7 @@ public class ModCapability {
 
 ```java
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class CommonSetUpEventHandler {
+public class CommonSetupEventHandler {
     @SubscribeEvent
     public static void onSetUpEvent(FMLCommonSetupEvent event) {
         CapabilityManager.INSTANCE.register(
