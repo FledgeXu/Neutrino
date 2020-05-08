@@ -5,6 +5,6 @@ multilingual = false
 src = "src"
 title = "Minecraft Forge Mod Dev tutorial"
 [output.html]
-mathjax-support = true
+# mathjax-support = true
 google-analytics = "UA-80068655-2"
 [output.linkcheck]
