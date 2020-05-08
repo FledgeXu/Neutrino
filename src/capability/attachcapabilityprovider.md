@@ -152,9 +152,9 @@ public static void onAttachCapabilityEvent(AttachCapabilitiesEvent<Entity> event
 }
 ```
 
-这里我们监听了`AttachCapabilitiesEvent<Entity>`事件，我们可以通过这个事件来为特定的对象附加自定义的CapabilityProvider。这里我们就简单了判断了实体是不是玩家，如果是玩家，就附加能力。**请注意：**`event.addCapability`方法，看上去附加的好像不是CapabilityProvider而是Capability，但如果你观察过它的函数签名，你会发现第二个参数需要的类型是`ICapabilityProvider`，所以这个方法我个人觉得应该改名成`event.addCapabilityProvider`。这里的第一个参数是一个标记符，每一个附加的CapabilityProvder都必须是唯一的，`ResourceLocation`第一个参数一般情况填入你的`modId`，后一个参数随你喜好填。
+这里我们监听了`AttachCapabilitiesEvent<Entity>`事件，我们可以通过这个事件来为特定的对象附加自定义的CapabilityProvider。这里我们就简单了判断了实体是不是玩家，如果是玩家，就附加能力。**请注意：**`event.addCapability`方法，看上去附加的好像不是CapabilityProvider而是Capability，但如果你观察过它的函数签名，你会发现第二个参数需要的类型是`ICapabilityProvider`，所以在一开始你可以把这个函数理解成成`event.addCapabilityProvider`。这里的第一个参数是一个标记符，每一个附加的CapabilityProvder都必须是唯一的，`ResourceLocation`第一个参数一般情况填入你的`modId`，后一个参数随你喜好填。
 
-当然我们不仅仅可以给实体添加CapabilityProvider，实际上根据Forge的[文档](https://mcforge.readthedocs.io/en/latest/datastorage/capabilities/#attaching-capabilities)，你可以附加CapabilityProvider的对象如下：
+ 
 
 - Entity
 - TileEntity
