@@ -41,7 +41,7 @@ public class ObsidianFirstGui extends Screen {
     }
 
     @Override
-    public void render(int p_render_1_, int p_render_2_, float p_render_3_) {
+    public void render(int mouseX, int mouseY, float particleTick) {
         this.renderBackground();
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.minecraft.getTextureManager().bindTexture(OBSIDIAN_FIRST_GUI_TEXTURE);
@@ -50,10 +50,10 @@ public class ObsidianFirstGui extends Screen {
         this.blit(this.width / 2 - 150, 10, 0, 0, 300, 200, textureWidth, textureHeight);
         this.drawString(this.font, content, this.width / 2 - 10, 30, 0xeb0505);
 
-        this.textFieldWidget.render(p_render_1_, p_render_2_, p_render_3_);
-        this.button.render(p_render_1_, p_render_2_, p_render_3_);
-        this.sliderBar.render(p_render_1_, p_render_2_, p_render_3_);
-        super.render(p_render_1_, p_render_2_, p_render_3_);
+        this.textFieldWidget.render(mouseX, mouseY, particleTick);
+        this.button.render(mouseX, mouseY, particleTick);
+        this.sliderBar.render(mouseX, mouseY, particleTick);
+        super.render(mouseX, mouseY, particleTick);
     }
 }
 ```
@@ -122,10 +122,10 @@ public void render(int p_render_1_, int p_render_2_, float p_render_3_) {
   this.blit(this.width / 2 - 150, 10, 0, 0, 300, 200, textureWidth, textureHeight);
   this.drawString(this.font, content, this.width / 2 - 10, 30, 0xeb0505);
 
-  this.textFieldWidget.render(p_render_1_, p_render_2_, p_render_3_);
-  this.button.render(p_render_1_, p_render_2_, p_render_3_);
-  this.sliderBar.render(p_render_1_, p_render_2_, p_render_3_);
-  super.render(p_render_1_, p_render_2_, p_render_3_);
+  this.textFieldWidget.render(mouseX, mouseY, particleTick);
+  this.button.render(mouseX, mouseY, particleTick);
+  this.sliderBar.render(mouseX, mouseY, particleTick);
+  super.render(mouseX, mouseY, particleTick);
 }
 ```
 
@@ -172,9 +172,9 @@ blit(int x0, int y0, int z, float u0, float v0, int width, int height, int textu
 然后调用如下方法绘制了我们的组件:
 
 ```java
-  this.textFieldWidget.render(p_render_1_, p_render_2_, p_render_3_);
-  this.button.render(p_render_1_, p_render_2_, p_render_3_);
-  this.sliderBar.render(p_render_1_, p_render_2_, p_render_3_);
+this.textFieldWidget.render(mouseX, mouseY, particleTick);
+this.button.render(mouseX, mouseY, particleTick);
+this.sliderBar.render(mouseX, mouseY, particleTick);
 ```
 
 至于打开一个只存在在客户端的GUI也很简单，`ObsidianFirstGuiItem`:
@@ -203,3 +203,6 @@ public class ObsidianFirstGuiItem extends Item {
 
 [源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_gui)
 
+## 编程小课堂
+
+在Mod开发中请不要使用`Time.sleep`来计时，这种行为非常非常的愚蠢，如果你需要计时，请使用游戏内置的Tick。
