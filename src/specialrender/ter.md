@@ -118,6 +118,13 @@ ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 这两句都是用来获取物品和方块的渲染器。
 
 ```java
+BlockState state = Blocks.CHEST.getDefaultState();
+ItemStack stack = new ItemStack(Items.DIAMOND);
+```
+
+这两个变量的作用是用来指定你要渲染的方块和物品，我们这里将要渲染箱子的方块模型和钻石的物品模型。
+
+```java
 IBakedModel ibakedmodel = itemRenderer.getItemModelWithOverrides(stack, tileEntityIn.getWorld(), null);
 ```
 
