@@ -131,7 +131,9 @@ public void render(int p_render_1_, int p_render_2_, float p_render_3_) {
 
 我们将在这里渲染背景图片。
 
-首先你需要用`this.minecraft.getTextureManager().bindTexture(OBSIDIAN_FIRST_GUI_TEXTURE);`绑定你需要渲染的图片，这里用`ResouceLocation`指明了你得图片在资源包中的位置，在我们的例子里是:
+首先我们调用了` RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F)`来确保我们渲染出来的图片是正常的，这里的三个值分别代表着RGBA，红绿蓝和透明度。你电脑上所有能看到的颜色都是这4个元素的混合，这里的值规定了颜色的范围，如果RGB三个值不相等会出现偏色的现象，如果小于1会出现某些颜色无法显示，整个画面会变暗变灰。具体的效果大家可以自行调式使用。
+
+你需要用`this.minecraft.getTextureManager().bindTexture(OBSIDIAN_FIRST_GUI_TEXTURE);`绑定你需要渲染的图片，这里用`ResouceLocation`指明了你得图片在资源包中的位置，在我们的例子里是:
 
 ```java
 ResourceLocation OBSIDIAN_FIRST_GUI_TEXTURE = new ResourceLocation("neutrino", "textures/gui/first_gui.png");
