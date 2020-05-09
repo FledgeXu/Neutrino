@@ -66,4 +66,7 @@ public class ObsidianGUI extends AbstractGui {
 
 ![image-20200509082639854](hud.assets/image-20200509082639854.png)
 
+[源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/hud)
+
 另外原版的HUD渲染内容都在`IngameGui`这个类中。
+
