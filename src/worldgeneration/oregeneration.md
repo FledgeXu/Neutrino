@@ -46,3 +46,8 @@ Feature.ORE.withConfiguration(
 ![image-20200510194853386](oregeneration.assets/image-20200510194853386.png)
 
 可以看见我们的矿物正常的生成了。
+
+如果你想要更加复杂的自定义矿物生成，可以重写`Feature<OreFeatureConfig>`。
+
+[源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/oregen)
+
