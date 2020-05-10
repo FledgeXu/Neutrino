@@ -85,6 +85,10 @@ Forge官方写了一个叫做ForgeGradle（以后简称FG）的插件来负责�
 
 ![image-20200426201131698](setup.assets/image-20200426201131698.png)
 
+为了之后建包的方便，按照下图将「拼合包」和「压缩空的中间包」取消选择。
+
+![image-20200510143006591](setup.assets/image-20200510143006591.png)
+
 ## JDK常见错误
 
 如果你的电脑里有多个JDK，有可能IntelliJ自动选择的JDK是错误的，导致无法导入，你需要手动修改项目的JDK和Gradle运行所需要的JDK。
