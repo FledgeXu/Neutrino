@@ -16,6 +16,9 @@ Mod开发需要编程和一定的计算机科学的基础，要学好这些并�
 
 那么如果你现在还不会编程怎么办？没关系，这里有个教程推荐给你：[Minecraft mod 开发编程入门 ](https://v2mcdev.com/t/topic/88)
 
+如果你有任何的问题，请去[论坛](https://v2mcdev.com/)上**按照模版**发帖提问。
+
 **许可证**
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+
