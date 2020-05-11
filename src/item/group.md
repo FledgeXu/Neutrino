@@ -44,3 +44,7 @@ public class ObsidianIngot extends Item {
 ![image-20200427211358242](group.assets/image-20200427211358242.png)
 
 [源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/group)
+
+## 编程小课堂
+
+如果在编程中遇见了自己不会的事情，第一件事不应该是想着问别人，而是上网搜索，你遇见的绝大部问题别人都以及遇见过了，如果你没有搜索就问别人，是在同时浪费你自己和别人的时间
