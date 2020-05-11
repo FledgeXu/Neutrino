@@ -31,7 +31,7 @@ public class ObsidianApple extends Item {
 然后我们注册我们的食物，注册名是`obsidian_apple`:
 
 ```java
-public static RegistryObject<Item> obsidianIngot = ITEMS.register("obsidian_apple", () -> {
+public static RegistryObject<Item> obsidianApple = ITEMS.register("obsidian_apple", () -> {
         return new ObsidianApple();
 });
 ```
