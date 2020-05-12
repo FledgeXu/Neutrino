@@ -179,3 +179,7 @@ public class CommonEventHandler {
 ![image-20200512174944649](structuregeneration.assets/image-20200512174944649.png)
 
 [源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/strcutre)
+
+## 编程小课堂
+
+当你不知道应该如何使用一个类时，可以去Github上搜索看看如何使用，一般情况下都能找到别人使用的例子。
