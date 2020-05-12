@@ -2,11 +2,11 @@
 
 从这节起我们就会开始正式的写我们mod了！
 
-## 更新Mapping
+## 更新Mappings
 
 在开始之前我们需要更新一下Mapping文件，如果不知道Mapping文件的作用，请向前翻阅。再提醒一次，你可以在[这里](http://export.mcpbot.bspk.rs/)找到最新的mapping文件。
 
-在我写这段时，1.15最新的mapping文件是`20200426-1.15.1`。
+**请确保你的mappings文件版本新于`20200512-1.15.1`**。
 
 ![image-20200427082638163](modinfo.assets/image-20200427082638163.png)
 
