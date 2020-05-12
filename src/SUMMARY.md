@@ -53,7 +53,7 @@
 - [世界生成](./worldgeneration/intro.md)
   - [矿物生成](./worldgeneration/oregeneration.md)
   - [结构生成](./worldgeneration/structuregeneration.md)
-  - [自定义生物群系](./worldgeneration/biomegeneration.md)
+  - [自定义生物群系和世界类型](./worldgeneration/biomegenerationandworldtype.md)
   - [自定义维度](./worldgeneration/dimensioneneration.md)
 - [数据包](./datapack/intro.md)
   - [合成配方](./datapack/recipes.md)
