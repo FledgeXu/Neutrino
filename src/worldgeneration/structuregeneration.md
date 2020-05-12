@@ -1,6 +1,6 @@
 # 结构生成
 
-在这节中我们将来学习如何创建一个自定义的结构，并且在世界中自动生成它。我们讲以钻石小屋作为例子。
+在这节中我们将来学习如何创建一个自定义的结构，并且在世界中自动生成它。我们将以钻石小屋作为例子。
 
 首先既然我们的要自定义的是一个结构，那么也就需要创建一个结构，内容如下:
 
@@ -51,7 +51,7 @@ public class DiamondHouseStructure extends Structure<NoFeatureConfig> {
 }
 ```
 
-首先可以看见我们的`DiamondHouseStructure`继承了`Structure<NoFeatureConfig>`，这里的`NoFeatureConfig`表明了我们的结构是没有配置的。
+首先可以看见我们的`DiamondHouseStructure`继承了`Structure<NoFeatureConfig>`，这里的`NoFeatureConfig`表明了我们的结构是不需要配置文件的。
 
 其中`canBeGenerated`代表了结构会生成的可能性，这里我们设置为3%。`getStructureName`代表了结构的名字，`getSize`具体作用不明，大部分原版结构值都为3。
 
@@ -85,6 +85,8 @@ this.components.add(diamondHouseStructurePiece);
 ```
 
 首先我们创建了一个自定义的`StructurePiece`，然后将它添加到了`Structure`自带的`components`中，也就是给我们的结构添加了一个结构组件。
+
+最后的`recalculateStructureSize`，用于重新计算结构的边界大小，需要填写。
 
 接下来我们来看看`DiamondHouseStructurePiece`具体的内容。
 
@@ -147,6 +149,8 @@ public class FeatureRegistry {
 
 然后又因为我们的`DiamondHouseStructure`是没有配置文件的，所以传入了一个`NoFeatureConfig.deserialize`。
 
+同样的，别忘了在你的Mod主类中将`FEATURES`注册到Mod总线中。
+
 接下来我们看`StructurePiece`的注册。
 
 ```java
@@ -174,3 +178,4 @@ public class CommonEventHandler {
 
 ![image-20200512174944649](structuregeneration.assets/image-20200512174944649.png)
 
+[源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/strcutre)
