@@ -56,7 +56,7 @@
   - [自定义生物群系和世界类型](./worldgeneration/biomegenerationandworldtype.md)
   - [自定义维度与区块生成器以及生物群系提供器](./worldgeneration/dimensionenerationandchunkgeneratorandbiomeprovider.md)
 - [数据包](./datapack/intro.md)
-  - [合成配方](./datapack/recipes.md)
+  - [配方](./datapack/recipes.md)
   - [掉落物配方](./datapack/lootable.md)
 - [Data Generator](./datagnerator/intro.md)
 - [命令](./command/command.md)
