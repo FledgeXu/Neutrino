@@ -29,10 +29,9 @@ public class ObsidianFrame extends Block {
 }
 ```
 
-<<<<<<< HEAD
-在最上方我们创建了一个`VoxelShape`，我们将在`getShape`方法中返回这个形状，这个``VoxelShape``就是我们方块的碰撞箱，很不幸的是Minecraft的碰撞箱子只能由方块组成，这个方块的大小是`16*16*16`，所以我们在静态代码块中自己创建了一系列的长方体和立方体拼成了我们方块的碰撞箱，其中`Block.makeCuboidShape`的6个参数分别是起始点的XYZ和结束点的XYZ。最后我们用`VoxelShapes`的`or`方法将这些东西拼在了一起。`VoxelShapes` 下还有很多好用的空间操作方法，请自行选用。如果你不给你的方块设置合适的的碰撞箱的话，你的方块内部空间会显得非常的暗。
+在最上方我们创建了一个`VoxelShape`，我们将在`getShape`方法中返回这个形状，这个``VoxelShape``就是我们方块的碰撞箱，很不幸的是Minecraft的碰撞箱子只能由方块组成，这个方块的大小是`16*16*16`，所以我们在静态代码块中自己创建了一系列的长方体和立方体，拼成了我们方块的碰撞箱，其中`Block.makeCuboidShape`的6个参数分别是起始点的XYZ和结束点的XYZ。最后我们用`VoxelShapes`的`or`方法将这些东西拼在了一起。`VoxelShapes` 下还有很多好用的空间操作方法，请自行选用。如果你不给你的方块设置合适的的碰撞箱的话，你的方块内部空间会显得非常的暗。
 
-可以看见这里最为特别的是调用了`noSoild`方法，这个方法是告知Minecraft我们的方块不是一个「实心」方块，需要特殊的渲染措施。之所以这么所做，是因为Minecraft的世界里有非常多的方块，如果方块的每一个面都要渲染，包括那些被遮挡的面和遮挡起来的方块，那么会非常地耗费性能，所以出于优化的考虑，Minecraft只会渲染那些没有被遮挡起来的面。而`noSoild`的作用就是告诉Minecraft，要渲染这个方块周围被遮挡起来方块的面。
+可以看见这里最为特别的是调用了`noSoild`方法，这个方法是告知Minecraft我们的方块不是一个「实心」方块，需要进行特殊的对待。之所以这么做，是因为Minecraft的世界里有非常多的方块，如果方块的每一个面都要渲染，包括那些被遮挡的面和遮挡起来的方块，那么会非常地耗费性能，所以出于优化的考虑，Minecraft只会渲染那些没有被遮挡起来的面。而`noSoild`的作用就是告诉Minecraft，要渲染这个方块遮挡的那些面。
 
 如果不开启这个就会出现这样效果。
 
@@ -161,7 +160,7 @@ public static RegistryObject<Item> obssidianFrame = ITEMS.register("obsidian_fra
 
 这里我的模型和材质都是用BlockBench制作的。
 
-最后是物品模型`obsidian_frame.json`:
+物品模型`obsidian_frame.json`:
 
 ```json
 {
