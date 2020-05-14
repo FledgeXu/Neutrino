@@ -10,9 +10,9 @@
 
 ![image-20200427082638163](modinfo.assets/image-20200427082638163.png)
 
-于是我们需要将`build.gradle`下的`mappings channel: 'snapshot', version: '20190719-1.14.3’`修改为`mappings channel: 'snapshot', version: '20200426-1.15.1’`。
+于是我们需要将`build.gradle`下的`mappings channel: 'snapshot', version: '20190719-1.14.3’`修改为`mappings channel: 'snapshot', version: '20200512-1.15.1’`。
 
-![image-20200427085305020](modinfo.assets/image-20200427085305020.png)
+![image-20200514205243616](modinfo.assets/image-20200514205243616.png)
 
 然后点击右侧Gradle面板的重新导入按钮，重新导入项目，因为`build.gradle`文件非常的重要，请注意不要改错。
 
@@ -48,7 +48,7 @@ java
             └── Neutrino.java
 ```
 
-然后进入`Neutrino`在类名的上方添加一个`@Mod()`注解，其中填入的参数是你的`modId`，那么什么是你的`modId`呢？`modId`就是你mod名字的唯一标识符，请注意`modId`和你的mod名字并不是同一个东西，它不允许大写字母，也不允许空格等内容。在这里我们选用的`modId`是`neutrino`。添加完成后内容如下:
+然后进入`Neutrino`在类名的上方添加一个`@Mod()`注解，其中填入的参数是你的`modId`，那么什么是你的`modId`呢？`modId`就是你mod名字的唯一标识符，请注意`modId`和你的mod名字不是同一个东西，它不允许大写字母，也不允许空格等内容。在这里我们选用的`modId`是`neutrino`。添加完成后内容如下:
 
 ```java
 @Mod("neutrino")
