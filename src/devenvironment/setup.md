@@ -5,7 +5,7 @@
 -  [JDK8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)，出于兼容性的考虑，**请确保你安装的是JDK8**。
 - [IntelliJ IDEA 2020.1.1 社区版](https://www.jetbrains.com/zh-cn/idea/download/)，下载完成后请自行安装，介于目标读者的水平，这里有个如何给2020.1之后的版本安装官方中文的[教程](https://www.bilibili.com/video/BV1NT4y137nb)。
 
-- [Forge MDK 1.15.2 - 31.1.0](https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.15.2-31.1.0/forge-1.15.2-31.1.0-mdk.zip)，下载后请解压到你喜欢的文件夹。
+- [Forge MDK 1.15.2 - 31.2.0](https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.15.2-31.2.0/forge-1.15.2-31.2.0-mdk.zip)，下载后请解压到你喜欢的文件夹。
 
 **注意，介于预想读者的水平，配置过程十有八九是会失败的，建议直接使用[离线包](https://v2mcdev.com/t/topic/249/2)，安装完离线包之后继续按照下述教程进行配置。**
 
