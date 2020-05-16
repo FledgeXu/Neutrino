@@ -17,7 +17,7 @@ public class MyForgeEventHandler {
 
 我们先从实例的方法开始说起。可以看到这里最为特殊的就是`@SubscribeEvent`注解，这个注解的作用就是标记下方的`pickupItem` 方法是一个事件处理器，至于它具体监听的事件是由它的参数类型决定的，在这里它的参数类型是`EntityItemPickupEvent`，说明它监听的是实体捡起物品这个事件。
 
-当然，对于实例方式的事件处理这样还不够，我们还得手动在某个地方实例化它并把它注入到事件总线里，我们之前说过Minecraft里有两条事件总线「Forge总线」和「mod总线」，Mod总线主要负责游戏的生命周期事件，也就是初始化过程的事件，而Forge总线负责的就是除了生命周期事件外的所有事件。你可以用`MinecraftForge.EVENT_BUS.register()`方法将你的事件实例注册到Forge总线中，也可用`FMLJavaModLoadingContext.get().getModEventBus().register()`方法将其注册到Mod总线中，一般情况下你应该在你的Mod主类的初始化方法里注册这些事件。
+当然，对于实例方式的事件处理这样还不够，我们还得手动在某个地方实例化它并把它注入到事件总线里，我们之前说过Minecraft里有两条事件总线「Forge总线」和「Mod总线」，Mod总线主要负责游戏的生命周期事件，也就是初始化过程的事件，而Forge总线负责的就是除了生命周期事件外的所有事件。你可以用`MinecraftForge.EVENT_BUS.register()`方法将你的事件实例注册到Forge总线中，也可用`FMLJavaModLoadingContext.get().getModEventBus().register()`方法将其注册到Mod总线中，一般情况下你应该在你的Mod主类的初始化方法里注册这些事件。
 
 在我们的例子里就是如下:
 
@@ -44,3 +44,4 @@ public class MyStaticClientOnlyEventHandler {
 作为我个人的偏好，我更喜欢后一种静态的事件处理方式，之后的教程也会使用这个方式。
 
 当然事件系统还有很多功能，比如取消，设置结果以及设置优先级，限于篇幅大家可以自行阅读Forge的[文档](https://mcforge.readthedocs.io/en/latest/events/intro/)
+
