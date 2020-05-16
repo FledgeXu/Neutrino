@@ -2,7 +2,7 @@
 
 在这一节我我们将学习如何给方块添加OBJ物品模型。
 
-首先我们先创建我们的方块`ObsidianOBJ.java`：
+首先创建我们的方块`ObsidianOBJ.java`：
 
 ```java
 public class ObsidianOBJ extends Block {
@@ -50,7 +50,7 @@ public static RegistryObject<Item> obsidianObj = ITEMS.register("obsidian_obj", 
 }
 ```
 
-可以看到这里开始就有些特殊了，首先我们用`loader`指定了我们要加载的模型是`obj`格式的，然后在`model`里具体指定了我们的OBJ模型，最后将`flip-v`设置成为`true`，之所以这么做的原因是minecraft里的材质和你在blender等工具里的材质相比是上下颠倒的，所以你得手动翻转你的材质。
+可以看到，从这里开始就有些特殊了，首先我们用`loader`指定了我们要加载的模型是`obj`格式的，然后在`model`里具体指定了我们的OBJ模型，最后将`flip-v`设置成为`true`，这么做的原因是minecraft里的材质和你在blender等工具里的材质是上下颠倒的，所以你得手动翻转你的材质。
 
 接下来是OBJ模型`obsidian_obj.obj`，这里只标注需要修改的地方：
 
@@ -66,7 +66,7 @@ mtllib obsidian_obj.mtl
 map_Kd neutrino:block/obsidian_obj
 ```
 
-你必须通过这样的方式来指定你模型文件的材质。
+你必须这样的方式来指定你模型文件的材质。
 
 你可在这里获取[OBJ文件](obj.assets/obsidian_obj.obj)和[mtl文件](obj.assets/obsidian_obj.mtl)。
 
@@ -78,7 +78,7 @@ map_Kd neutrino:block/obsidian_obj
 
 ![image-20200429095433074](obj.assets/image-20200429095433074.png)
 
-可以看到我们我们的OBJ模型方块已经成功加载出来了。当然我们在这里还没有设置正确的碰撞箱，这就交给读者自己实现了。
+可以看到我们我们的OBJ模型已经成功加载出来了。当然我们在这里还没有设置正确的碰撞箱，这就交给读者自己实现了。
 
 物品同样也是可以使用OBJ模型的，请读者自行探索。
 
