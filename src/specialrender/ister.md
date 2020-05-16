@@ -105,9 +105,11 @@ public class ObsidianWrenchBakedModel implements IBakedModel {
 }
 ```
 
-可以看到，这里和之前创建的`IBakedModel`并无太大差别。同样是保存了一个原本的`IBakedModel`。但是这里有几点不同的。
+可以看到，这里和之前创建的`IBakedModel`并无太大差别。同样是保存了一个原本的`IBakedModel`。
 
-第一，对于物品的`IBakedModel`来说，只会调用`IBakedModel#getQuads`而不会调用`IForgeBakedModel::getQuads`，你可以和之前方块的``IBakedModel`做对比，可以发现刚好是相反的。
+这里我们来说说他们区别：
+
+第一，对于物品的`IBakedModel`来说，只会调用`IBakedModel#getQuads`而不会调用`IForgeBakedModel::getQuads`，你可以和之前方块的`IBakedModel`做对比，可以发现刚好是相反的。
 
 第二，对于物品，你可以通过` handlePerspective`这个方块来选择不同`TransformType`下的`IBakedModel`，具体什`TransformType`请自行翻阅模型相关的Wiki，这里我们希望在第一人称的视角下用`ISTER`渲染我们的模型，所以在`if`语句中返回了`this`，注意只有当你这里返回了`this`的`TransformType`，才会启用`ISTER`渲染。
 

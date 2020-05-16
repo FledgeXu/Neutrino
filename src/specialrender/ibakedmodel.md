@@ -2,7 +2,7 @@
 
 首先我们从IBakedModel开始讲起。在开始正式写代码之前，我们先要了解如何一个方块是如何渲染出来的
 
-首先Minecraft本身会读取`json`和材质文件将其转换成`IModel`接口的实例，然后`IModel`进行了「Bake（烘焙）」处理，变成了`IBakedModel`，这个`IBakedModel`会被放入`BlockRendererDispatcher`中，当游戏需要时会直接从`BlockRendererDispatcher`取出`IBakedModel`进行渲染。至于什么是「Bake」，Bake的作用基本上是对模型的材质进行光照计算等操作，让它变成可以直接被GPU渲染的东西。
+Minecraft本身会读取`json`和材质文件将其转换成`IModel`接口的实例，然后`IModel`进行了「Bake（烘焙）」处理，变成了`IBakedModel`，这个`IBakedModel`会被放入`BlockRendererDispatcher`中，当游戏需要时会直接从`BlockRendererDispatcher`取出`IBakedModel`进行渲染。至于什么是「Bake」，Bake基本上是对模型的材质进行光照计算等操作，让它变成可以直接被GPU渲染的东西。
 
 在这节中我们将来研究如何为我们的方块自定义`IBakedModel`。这节我们将要制作一个「隐藏方块」，这个方块会自动的显示它下方方块的模型的材质（虽然有些Bug，但是为了演示这已经足够了）。
 
