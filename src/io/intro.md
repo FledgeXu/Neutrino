@@ -3,7 +3,7 @@
 这一节中我们将来学习如何获取用户输入。这里我们将以快捷键举例。请注意，所有的用户输入都是客户端行为。
 
 ```java
-Mod.EventBusSubscriber
+@Mod.EventBusSubscriber
 public class KeyBoardInput {
     public static final KeyBinding MESSAGE_KEY = new KeyBinding("key.message",
             KeyConflictContext.IN_GAME,
