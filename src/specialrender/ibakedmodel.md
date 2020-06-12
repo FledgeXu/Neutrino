@@ -298,5 +298,5 @@ public static void onModelBaked(ModelBakeEvent event)
 
 ## 编程小课堂
 
-在Forge里，所以的事件都是`Event`类的之类，所以你可通过查看`Event`类继承树的方式查看到Forge提供的所有事件。
+在Forge里，所以的事件都是`Event`类的子类，所以你可通过查看`Event`类继承树的方式查看到Forge提供的所有事件。
 
