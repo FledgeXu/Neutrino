@@ -65,6 +65,12 @@ minecraft {
 > public-f net.minecraft.item.ItemStack
 > ```
 
+如果你需要获取原版的SRG和MCP映射，你可以运行ForgeGradle提供的`creteMcpToSrg`task.![image-20200620175141140](intro.assets/image-20200620175141140.png)
+
+运行结束后，你就可以在`build/createSrgToMcp`目录下，找到对应的表了。
+
+![image-20200620175534512](intro.assets/image-20200620175534512.png)
+
 但其实，我们不需要直接写`AT`，在discord 上有个叫做`K9`的机器，你可以在MCP Bot的[Discord Server](https://discord.gg/h4whGT9 )中的`#bot-spam`找到它，建议是直接私聊它。
 
 输入`!mcp 你要查询的内容`，在我们的例子里就是`!mcp registerCompostable`，它会自动返回相关的SRG名等信息，其中就包括了AT。
