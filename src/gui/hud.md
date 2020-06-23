@@ -9,10 +9,10 @@ Forge给我提供了一个事件让我们可以渲染HUB，这个事件是`Rende
  ```java
 @Mod.EventBusSubscriber
 public class HudClientEvent {
-    private static ObsidianGUI obsidianGUI = new ObsidianGUI();
-
+  
     @SubscribeEvent
     public static void onOverlayRender(RenderGameOverlayEvent event) {
+        ObsidianGUI obsidianGUI = new ObsidianGUI();
         if (event.getType() != RenderGameOverlayEvent.ElementType.ALL) {
             return;
         }
