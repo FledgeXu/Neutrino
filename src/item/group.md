@@ -2,7 +2,9 @@
 
 在这一节中，我们将研究如何创建一个属于自己的创造模式物品栏，非常简单。
 
-首先创建一个类，让它继承`ItemGroup`，内容如下:
+首先创建一个类，让它继承`ItemGroup`，`ItemGroup`代表的就是创造模式物品栏，因为我们需要创建一个属于自己的创造模式物品栏，自然需要继承它。
+
+内容如下:
 
 ```java
 public class ObsidianGroup extends ItemGroup {
