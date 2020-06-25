@@ -23,6 +23,7 @@
   - [方块模型和材质](./block/modelandtextures.md)
   - [方块状态](./block/blocksstates.md)
   - [非实心方块与自定义模型](./block/nonesoildblock.md)
+  - [方块的渲染类型](./block/rendertype.md)
 - [特殊模型](./specialmodel/intro.md)
   - [OBJ 模型](./specialmodel/obj.md)
   - [B3D 模型](./specialmodel/b3d.md)
