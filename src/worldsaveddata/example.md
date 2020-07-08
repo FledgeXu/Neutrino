@@ -1,6 +1,6 @@
 # WorldSavedData(世界数据保存)
 
-在这节中，我们将来学习另外一种可以保存数据的方法，这就是World Saved Data。World Saved Data 是Minecraft 提供的一种可以让你保存和共享数据的类。World Saved Data 是在维度级别的，你只能指定某个维度拥有一个WorldSavedData，里面保存的数据是所以玩家通用的，并且用World Saved Data保存的数据与存档数据是分开存放的。
+在这节中，我们将来学习另外一种可以保存数据的方法，这就是World Saved Data。World Saved Data 是Minecraft 提供的一种可以让你保存和共享数据的类。World Saved Data 是在维度级别的，你只能指定某个维度拥有一个WorldSavedData，里面保存的数据是所有玩家通用的，并且用World Saved Data保存的数据与存档数据是分开存放的。
 
 在这节中，我们创建一个可以远程传输和储存物品的机器。
 
