@@ -18,7 +18,7 @@ resources
 └── pack.mcmeta
 ```
 
-其中的`data/nmeurino`就是你自己的数据包了。
+其中的`data/neutrino`就是你自己的数据包了。
 
 接下在`recipes`文件夹下创建内容。这里你创建的文件名随意，一般情况下我都会写成和物品注册名同名。
 
