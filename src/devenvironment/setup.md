@@ -7,7 +7,7 @@
 
 - [Forge MDK 1.15.2 - 31.2.0](https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.15.2-31.2.0/forge-1.15.2-31.2.0-mdk.zip)，下载后请解压到你喜欢的文件夹，请注意这里的解压文件夹不要包括任何的中文、空格以及一些特殊符号（比如「！」）。
 
-**注意，介于预想读者的水平，配置过程十有八九是会失败的，建议直接使用[ForgeGradleCN(推荐)](https://v2mcdev.com/t/topic/589)或者[离线包](https://v2mcdev.com/t/topic/249/2)，安装完离线包之后继续按照下述教程进行配置。**
+**注意，介于预想读者的水平，配置过程十有八九是会失败的，建议直接使用[ForgeGradleCN(推荐)](https://v2mcdev.com/t/topic/589)或者[离线包](https://v2mcdev.com/t/topic/249/2)，配置完ForgeGradleCN后继续进行之后的步骤**
 
 ## 总体的介绍
 
