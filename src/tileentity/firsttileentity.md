@@ -34,7 +34,7 @@ public class ObsidianCounter extends Block {
 }
 ```
 
-注册部分我们就不详细说了，这里我们来讲一讲几个函数。首先要讲的是`hasTileEntity`和`createTileEntity`这一组函数（请注意，这里的两个方法没有被`@Deprecated`，，也就是在你重写之后它没有被「划横线」。我们需要重写的是`IForgeBlock`接口下的方法，请注意不要重写错了方法），这组函数让你的方块可以绑定一个方块实体，`hasTileEntity`返回值设置为`true`，说明我们这个方块拥有一个方块实体，`createTileEntity`这个函数决定了我们方块的方块实体具体是哪一个，在我们的例子里是`ObsidianCounterTileEntity`。
+注册部分我们就不详细说了，这里我们来讲一讲几个函数。首先要讲的是`hasTileEntity`和`createTileEntity`这一组函数（**请注意，这里的两个方法没有被`@Deprecated`，，也就是在你重写之后它没有被「划横线」。我们需要重写的是`IForgeBlock`接口下的方法，请注意不要重写错了方法**），这组函数让你的方块可以绑定一个方块实体，`hasTileEntity`返回值设置为`true`，说明我们这个方块拥有一个方块实体，`createTileEntity`这个函数决定了我们方块的方块实体具体是哪一个，在我们的例子里是`ObsidianCounterTileEntity`。
 
 我们先略过`onBlockActivated`方法，来看我们的方块实体里具体是什么内容。
 
