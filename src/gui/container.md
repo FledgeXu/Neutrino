@@ -190,7 +190,7 @@ public class ObsidianFirstContainerItemNumber implements IIntArray {
 }
 ```
 
-这个类的继承了`IIntArray`，具体的内容非常的简单，相信大家都能看懂。接下去的问题就是，什么是`IntArray`。`IntArray`简单是Container可以自动同步数据的两个类中的一个，另外一个类就是我们之前提及过的`Inventory`。`IntArray`的作用是给类似于熔炉这样用进度条的GUI来同步Int值用的（熔炉的进度条是根据Int值的大小按比例绘制的）。
+这个类继承了`IIntArray`，具体的内容非常的简单，相信大家都能看懂。接下去的问题就是，什么是`IntArray`。`IntArray`简单是Container可以自动同步数据的两个类中的一个，另外一个类就是我们之前提及过的`Inventory`。`IntArray`的作用是给类似于熔炉这样用进度条的GUI来同步Int值用的（熔炉的进度条是根据Int值的大小按比例绘制的）。
 
 然后我们回过头去看TileEntity中的
 
