@@ -2,7 +2,7 @@
 
 在这节中我们将来学习如何进行矿物生成。在学习这件之前请阅读本章的介绍，对世界生成有个大概的印象。
 
-正如我们之前所说的，矿物生属于`Biome` 的个`Feature`，而如果你想要添加矿物生成，其实也就是向生物群系中添加一个新的`Feature`。接下来看代码
+正如我们之前所说的，矿物生成属于`Biome` 的个`Feature`，而如果你想要添加矿物生成，其实也就是向生物群系中添加一个新的`Feature`。接下来看代码
 
 ```java
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
