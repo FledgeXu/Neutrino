@@ -326,6 +326,13 @@ public class ObsidianFirstContainerScreen extends ContainerScreen<ObsidianFirstC
     private int textureWidth = 176;
     private int textureHeight = 166;
 
+    @Override
+    public void render(int mouseX, int mouseY, float partialTicks) {
+        renderBackground();
+        super.render(mouseX, mouseY, partialTicks);
+        renderHoveredToolTip(mouseX, mouseY);
+    }
+
     public ObsidianFirstContainerScreen(ObsidianFirstContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
         this.xSize = textureWidth;
@@ -362,6 +369,19 @@ public class ObsidianFirstContainerScreen extends ContainerScreen<ObsidianFirstC
 你应该在`drawGuiContainerBackgroundLayer`渲染你的背景图，而在`drawGuiContainerForegroundLayer`渲染你的组件（字符串，按钮等）。
 
 如果你已经有了上一节的基础，相信渲染部分的内容并不会难到你，这里就不多加解释了。
+
+这里多出来的是`render`方法，为了能让我们的GUI显示ToolTip，这里在render方法里调用了`renderHoveredToolTip`方法，当然这里也不要忘了调用父类的`render`方法。
+
+```java
+@Override
+public void render(int mouseX, int mouseY, float partialTicks) {
+  renderBackground();
+  super.render(mouseX, mouseY, partialTicks);
+  renderHoveredToolTip(mouseX, mouseY);
+}
+```
+
+
 
 接下来时注册，我们首先需要注册`ContainerType`
 
