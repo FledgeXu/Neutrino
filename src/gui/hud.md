@@ -4,7 +4,7 @@
 
 那我们开始吧。
 
-Forge给我提供了一个事件让我们可以渲染HUB，这个事件是`RenderGameOverlayEvent` 。
+Forge给我提供了一个事件让我们可以渲染HUD，这个事件是`RenderGameOverlayEvent` 。
 
  ```java
 @Mod.EventBusSubscriber
