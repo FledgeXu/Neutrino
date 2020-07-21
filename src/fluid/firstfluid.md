@@ -30,15 +30,32 @@ public class FluidRegistry {
     public static RegistryObject<FlowingFluid> obsidianFluidFlowing = FLUIDS.register("obsidian_fluid_flowing", () -> {
         return new ForgeFlowingFluid.Flowing(FluidRegistry.PROPERTIES);
     });
-    public static ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(obsidianFluid, obsidianFluidFlowing, FluidAttributes.builder(STILL_OIL_TEXTURE, FLOWING_OIL_TEXTURE).color(0x311cbb).density(10)).bucket(ItemRegistry.obsidianFluidBucket).block(BlockRegistry.obsidianRubikCube).slopeFindDistance(3).explosionResistance(100F);
+    public static ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(obsidianFluid, obsidianFluidFlowing, FluidAttributes.builder(STILL_OIL_TEXTURE, FLOWING_OIL_TEXTURE).color(0xFF311cbb).density(10)).bucket(ItemRegistry.obsidianFluidBucket).block(BlockRegistry.obsidianRubikCube).slopeFindDistance(3).explosionResistance(100F);
 }
 ```
 
 可以看到，我们同样是使用了`DeferredRegister`来注册，这里只不过这里的泛型变成了`Fluid`。对于每一个流体你都需要做分别注册`Source`和`Flowing`。你可以看到我们分别调用了`ForgeFlowingFluid.Source`和`ForgeFlowingFluid.Flowing`来注册了这两部分。
 
-注册流体时你需要传入一个`ForgeFlowingFluid.Properties`这里属性规定了，`Source`和`Flowing`作为一个整体时的属性，比如当水源没有之后水流消失的速度，相对应的桶是什么，对应的方块是什么等。`bucket(ItemRegistry.obsidianFluidBucket)`这里我们设置的桶，`block(BlockRegistry.obsidianRubikCube)`这里我们设置了相对应的方块，接下去的两个是水流消失速度和防爆等级。
+注册流体时你需要传入一个`ForgeFlowingFluid.Properties`，这里属性规定了，`Source`和`Flowing`作为一个整体时的属性，比如当水源没有之后水流消失的速度，相对应的桶是什么，对应的方块是什么等。`bucket(ItemRegistry.obsidianFluidBucket)`这里我们设置的桶，`block(BlockRegistry.obsidianRubikCube)`这里我们设置了相对应的方块，接下去的两个是水流消失速度和防爆等级。
 
-这个函数的前两个参数就是我们注册的`Source`和`Flowing`相对应的材质，这里我们就直接服用了原版水流的材质（请注意流体的材质需要是「[动态材质](https://minecraft-zh.gamepedia.com/index.php?title=资源包)」才能表现出流动的效果）。最后一个参数是一个`FluidAttributes`，这个是规定了这个流体的一些固有属性，比如颜色，稠度，温度，这里我们调用了`FluidAttributes.builder`来创建。`color(0x311cbb)`这里我们设置了流体的颜色,调用`density(10)`设置了流体的稠度。
+这个函数的前两个参数就是我们注册的`Source`和`Flowing`相对应的材质，这里我们就直接复用了原版水流的材质（请注意流体的材质需要是「[动态材质](https://minecraft-zh.gamepedia.com/index.php?title=资源包)」才能表现出流动的效果）。最后一个参数是一个`FluidAttributes`，这个是规定了这个流体的一些固有属性，比如颜色，稠度，温度，这里我们调用了`FluidAttributes.builder`来创建,调用`density(10)`设置了流体的稠度。
+
+在这里我们还调用了`color(0xFF311cbb)`方法来设置流体的颜色，请注意这里的颜色是在你的贴图基础上叠加的颜色，这里颜色的顺序有点特别，每两位16进制数代表了ARGB的一个分量，顺序分别是alpha, red, green, blue，具体的信息请看`FluidAttributes` 类中`color`字段的相关注释。
+
+当然流体还有很多的属性，具体的属性也请看`FluidAttributes`类中的注释。
+
+在大部分时候流体都应该是半透明的，所以我们需要手动的设置流体的RenderType。
+
+```java
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+public class RenderTypeRegistry {
+    @SubscribeEvent
+    public static void onRenderTypeSetup(FMLClientSetupEvent event) {
+        RenderTypeLookup.setRenderLayer(FluidRegistry.obsidianFluid.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(FluidRegistry.obsidianFluidFlowing.get(), RenderType.getTranslucent());
+    }
+}
+```
 
 当然别忘了将`FLUIDS`添加进注册总线中。
 
@@ -56,17 +73,48 @@ public static RegistryObject<FlowingFluidBlock> obsidianRubikCube = BLOCKS.regis
 
 ```java
 public static RegistryObject<Item> obsidianFluidBucket = ITEMS.register("obsidian_fluid_bucket", () -> {
-  return new BucketItem(FluidRegistry.obsidianFluid, new Item.Properties().group(ModGroup.itemGroup));
+  return new BucketItem(FluidRegistry.obsidianFluid, new Item.Properties().group(ModGroup.itemGroup).containerItem(BUCKET));
 });
 ```
 
 和方块类似这里就不多加说明了。
 
+在流体的桶注册完成后，我还需要给桶设置在发射器发射时，能够放置我们的水源。
+
+```java
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+public class DispenserRegister {
+    @SubscribeEvent
+    public static void onDispenserRegister(FMLCommonSetupEvent event) {
+        DispenserBlock.registerDispenseBehavior(ItemRegistry.obsidianFluidBucket.get(), new DefaultDispenseItemBehavior() {
+            private final DefaultDispenseItemBehavior dispenseItemBehavior = new DefaultDispenseItemBehavior();
+
+            /**
+             * Dispense the specified stack, play the dispense sound and spawn particles.
+             */
+            public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
+                BucketItem bucketitem = (BucketItem) stack.getItem();
+                BlockPos blockpos = source.getBlockPos().offset(source.getBlockState().get(DispenserBlock.FACING));
+                World world = source.getWorld();
+                if (bucketitem.tryPlaceContainedLiquid(null, world, blockpos, null)) {
+                    bucketitem.onLiquidPlaced(world, stack, blockpos);
+                    return new ItemStack(Items.BUCKET);
+                } else {
+                    return this.dispenseItemBehavior.dispense(source, stack);
+                }
+            }
+        });
+    }
+}
+```
+
+这里是照抄了原版的内容，具体的添加方式可以看`IDispenseItemBehavior`原版是怎么添加这个行为的。
+
 当然别忘了给物品添加材质，大家可以按照原版水桶的材质进行修改。
 
-![image-20200509194612081](firstfluid.assets/image-20200509194612081.png)
-
 打开游戏，你就能看到流体出现了。
+
+![image-20200721114031017](firstfluid.assets/image-20200721114031017.png)
 
 但是这时的流体还不能推动实体，你必须为你之前注册的流体添加原版`water`的[Tag(标签)](https://minecraft-zh.gamepedia.com/index.php?title=标签&variant=zh)才能推动实体。
 
