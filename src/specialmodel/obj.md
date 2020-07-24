@@ -1,6 +1,6 @@
 # OBJ 模型
 
-在这一节我我们将学习如何给方块添加OBJ物品模型。
+在这一节我我们将学习如何给方块添加OBJ物品模型，在开始添加OBJ模型之前强烈建议读者先阅读关于OBJ和MTL文件格式的定义以及相关名词的意义，这里有个简短的[说明](https://segmentfault.com/a/1190000021126476)
 
 首先创建我们的方块`ObsidianOBJ.java`：
 
@@ -83,6 +83,24 @@ map_Kd neutrino:block/obsidian_obj
 物品同样也是可以使用OBJ模型的，请读者自行探索。
 
 [源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/obj)
+
+---
+
+**常见坑的处理方法**
+
+## 环境光遮蔽
+
+在默认情况下，你可能会发现你的模型有着像下图一样不自然的黑色阴影，这是因为环境光遮蔽导致的，你可以通过复写`Block`类下的`getAmbientOcclusionLightValue`方法来修改方块的环境光遮蔽，其中默认是`0.2`，最大值为`1`，数值越大环境光遮蔽越小。
+
+![image-20200724230101066](obj.assets/image-20200724230101066.png)
+
+## 夜晚不自然的高光
+
+有时候你会发现你的模型在夜晚也会发出类似这样不自然的高光，这是由于`mtl`文件中多余的属性导致的，对于Mod开发建议只保留`map_Kd`属性，具体可以常见IE的一个[mtl文件](https://github.com/BluSunrize/ImmersiveEngineering/blob/1.14/src/main/resources/assets/immersiveengineering/models/block/balloon.mtl)
+
+![image-20200724230406389](obj.assets/image-20200724230406389.png)
+
+---
 
 ## 开发小课堂
 
