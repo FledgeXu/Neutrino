@@ -96,7 +96,7 @@ map_Kd neutrino:block/obsidian_obj
 
 ## 夜晚不自然的高光
 
-有时候你会发现你的模型在夜晚也会发出类似这样不自然的高光，这是由于`mtl`文件中多余的属性导致的，对于Mod开发建议只保留`map_Kd`属性，具体可以常见IE的一个[mtl文件](https://github.com/BluSunrize/ImmersiveEngineering/blob/1.14/src/main/resources/assets/immersiveengineering/models/block/balloon.mtl)
+有时候你会发现你的模型在夜晚也会发出类似这样不自然的高光，这是由于`mtl`文件中多余的属性导致的，对于Mod开发建议只保留`map_Kd`属性，具体可以看IE的[mtl文件](https://github.com/BluSunrize/ImmersiveEngineering/blob/1.14/src/main/resources/assets/immersiveengineering/models/block/balloon.mtl)。
 
 ![image-20200724230406389](obj.assets/image-20200724230406389.png)
 
