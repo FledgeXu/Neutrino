@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="zh_cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>方块实体内置的数据同步 - Minecraft Forge Mod Dev tutorial</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introducation/intro.html"><strong aria-hidden="true">1.</strong> 导论</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introducation/forge.html"><strong aria-hidden="true">1.1.</strong> Forge是什么</a></li><li class="chapter-item expanded "><a href="../introducation/vanilla.html"><strong aria-hidden="true">1.2.</strong> Minecraft如何运作的</a></li><li class="chapter-item expanded "><a href="../introducation/developmentmodel.html"><strong aria-hidden="true">1.3.</strong> 开发模型</a></li><li class="chapter-item expanded "><a href="../introducation/coreconception.html"><strong aria-hidden="true">1.4.</strong> 一些核心概念</a></li></ol></li><li class="chapter-item expanded "><a href="../devenvironment/intro.html"><strong aria-hidden="true">2.</strong> 环境配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../devenvironment/setup.html"><strong aria-hidden="true">2.1.</strong> Forge开发环境的配置</a></li><li class="chapter-item expanded "><a href="../devenvironment/folderintro.html"><strong aria-hidden="true">2.2.</strong> 开发环境的介绍</a></li><li class="chapter-item expanded "><a href="../devenvironment/modinfo.html"><strong aria-hidden="true">2.3.</strong> 自定义mod信息</a></li></ol></li><li class="chapter-item expanded "><a href="../item/intro.html"><strong aria-hidden="true">3.</strong> 物品</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../item/firstitem.html"><strong aria-hidden="true">3.1.</strong> 第一个物品</a></li><li class="chapter-item expanded "><a href="../item/modelandtextures.html"><strong aria-hidden="true">3.2.</strong> 物品材质与模型</a></li><li class="chapter-item expanded "><a href="../item/itemstack.html"><strong aria-hidden="true">3.3.</strong> Item和ItemStack</a></li><li class="chapter-item expanded "><a href="../item/food.html"><strong aria-hidden="true">3.4.</strong> 食物</a></li><li class="chapter-item expanded "><a href="../item/meleeweapons.html"><strong aria-hidden="true">3.5.</strong> 近战武器</a></li><li class="chapter-item expanded "><a href="../item/group.html"><strong aria-hidden="true">3.6.</strong> 自定义创造模式物品栏</a></li></ol></li><li class="chapter-item expanded "><a href="../i18n/i18n.html"><strong aria-hidden="true">4.</strong> 语言文件与本地化</a></li><li class="chapter-item expanded "><a href="../block/intro.html"><strong aria-hidden="true">5.</strong> 方块</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../block/firstblock.html"><strong aria-hidden="true">5.1.</strong> 第一个方块</a></li><li class="chapter-item expanded "><a href="../block/blockandblockstate.html"><strong aria-hidden="true">5.2.</strong> Block和BlockState</a></li><li class="chapter-item expanded "><a href="../block/modelandtextures.html"><strong aria-hidden="true">5.3.</strong> 方块模型和材质</a></li><li class="chapter-item expanded "><a href="../block/blocksstates.html"><strong aria-hidden="true">5.4.</strong> 方块状态</a></li><li class="chapter-item expanded "><a href="../block/nonesoildblock.html"><strong aria-hidden="true">5.5.</strong> 非实心方块与自定义模型</a></li><li class="chapter-item expanded "><a href="../block/rendertype.html"><strong aria-hidden="true">5.6.</strong> 方块的渲染类型</a></li></ol></li><li class="chapter-item expanded "><a href="../specialmodel/intro.html"><strong aria-hidden="true">6.</strong> 特殊模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../specialmodel/obj.html"><strong aria-hidden="true">6.1.</strong> OBJ 模型</a></li><li class="chapter-item expanded "><a href="../specialmodel/b3d.html"><strong aria-hidden="true">6.2.</strong> B3D 模型</a></li><li class="chapter-item expanded "><a href="../specialmodel/animation.html"><strong aria-hidden="true">6.3.</strong> 动画</a></li></ol></li><li class="chapter-item expanded "><a href="../tileentity/intro.html"><strong aria-hidden="true">7.</strong> 方块实体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tileentity/firsttileentity.html"><strong aria-hidden="true">7.1.</strong> 第一个方块实体和其数据保存</a></li><li class="chapter-item expanded "><a href="../tileentity/itickabletileentity.html"><strong aria-hidden="true">7.2.</strong> ITickableTileEntity</a></li><li class="chapter-item expanded "><a href="../tileentity/datasync.html" class="active"><strong aria-hidden="true">7.3.</strong> 方块实体内置的数据同步</a></li></ol></li><li class="chapter-item expanded "><a href="../specialrender/intro.html"><strong aria-hidden="true">8.</strong> 特殊渲染</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../specialrender/ibakedmodel.html"><strong aria-hidden="true">8.1.</strong> IBakedModel(烘培模型)</a></li><li class="chapter-item expanded "><a href="../specialrender/ter.html"><strong aria-hidden="true">8.2.</strong> TileEntityRenderer(方块实体渲染器)</a></li><li class="chapter-item expanded "><a href="../specialrender/ister.html"><strong aria-hidden="true">8.3.</strong> ItemStackTileEntityRenderer(物品特殊渲染)</a></li></ol></li><li class="chapter-item expanded "><a href="../event/intro.html"><strong aria-hidden="true">9.</strong> 事件系统</a></li><li class="chapter-item expanded "><a href="../networking/intro.html"><strong aria-hidden="true">10.</strong> 自定义网络包</a></li><li class="chapter-item expanded "><a href="../entity/intro.html"><strong aria-hidden="true">11.</strong> 实体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../entity/scratchentity.html"><strong aria-hidden="true">11.1.</strong> 从零构建一个实体和数据同步</a></li><li class="chapter-item expanded "><a href="../entity/passiveentityandai.html"><strong aria-hidden="true">11.2.</strong> 创建一个动物和AI</a></li></ol></li><li class="chapter-item expanded "><a href="../capability/intro.html"><strong aria-hidden="true">12.</strong> 能力系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../capability/capabilityfromscratch.html"><strong aria-hidden="true">12.1.</strong> 从零构建与使用能力</a></li><li class="chapter-item expanded "><a href="../capability/simpleusage.html"><strong aria-hidden="true">12.2.</strong> 开始使用预定义能力</a></li><li class="chapter-item expanded "><a href="../capability/attachcapabilityprovider.html"><strong aria-hidden="true">12.3.</strong> 附加能力提供器</a></li></ol></li><li class="chapter-item expanded "><a href="../worldsaveddata/example.html"><strong aria-hidden="true">13.</strong> WorldSavedData(世界数据保存)</a></li><li class="chapter-item expanded "><a href="../gui/intro.html"><strong aria-hidden="true">14.</strong> Gui</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../gui/firstgui.html"><strong aria-hidden="true">14.1.</strong> 第一个Gui</a></li><li class="chapter-item expanded "><a href="../gui/container.html"><strong aria-hidden="true">14.2.</strong> Container</a></li><li class="chapter-item expanded "><a href="../gui/hud.html"><strong aria-hidden="true">14.3.</strong> HUD</a></li></ol></li><li class="chapter-item expanded "><a href="../fluid/firstfluid.html"><strong aria-hidden="true">15.</strong> 流体</a></li><li class="chapter-item expanded "><a href="../worldgeneration/intro.html"><strong aria-hidden="true">16.</strong> 世界生成</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../worldgeneration/oregeneration.html"><strong aria-hidden="true">16.1.</strong> 矿物生成</a></li><li class="chapter-item expanded "><a href="../worldgeneration/structuregeneration.html"><strong aria-hidden="true">16.2.</strong> 结构生成</a></li><li class="chapter-item expanded "><a href="../worldgeneration/biomegenerationandworldtype.html"><strong aria-hidden="true">16.3.</strong> 自定义生物群系和世界类型</a></li><li class="chapter-item expanded "><a href="../worldgeneration/dimensionenerationandchunkgeneratorandbiomeprovider.html"><strong aria-hidden="true">16.4.</strong> 自定义维度与区块生成器以及生物群系提供器</a></li></ol></li><li class="chapter-item expanded "><a href="../datapack/intro.html"><strong aria-hidden="true">17.</strong> 数据包</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../datapack/recipes.html"><strong aria-hidden="true">17.1.</strong> 配方</a></li><li class="chapter-item expanded "><a href="../datapack/lootable.html"><strong aria-hidden="true">17.2.</strong> 掉落物配方</a></li></ol></li><li class="chapter-item expanded "><a href="../datagnerator/intro.html"><strong aria-hidden="true">18.</strong> Data Generator</a></li><li class="chapter-item expanded "><a href="../command/command.html"><strong aria-hidden="true">19.</strong> 命令</a></li><li class="chapter-item expanded "><a href="../advancements/intro.html"><strong aria-hidden="true">20.</strong> 进度</a></li><li class="chapter-item expanded "><a href="../configure/configure.html"><strong aria-hidden="true">21.</strong> 配置文件</a></li><li class="chapter-item expanded "><a href="../potion/intro.html"><strong aria-hidden="true">22.</strong> 药水</a></li><li class="chapter-item expanded "><a href="../paticles/intro.html"><strong aria-hidden="true">23.</strong> 粒子效果</a></li><li class="chapter-item expanded "><a href="../sounds/intro.html"><strong aria-hidden="true">24.</strong> 音效</a></li><li class="chapter-item expanded "><a href="../io/intro.html"><strong aria-hidden="true">25.</strong> 用户输入</a></li><li class="chapter-item expanded "><a href="../compatible/intro.html"><strong aria-hidden="true">26.</strong> 与其他mod的兼容</a></li><li class="chapter-item expanded "><a href="../at/intro.html"><strong aria-hidden="true">27.</strong> Access Transformer</a></li><li class="chapter-item expanded "><a href="../coremode/intro.html"><strong aria-hidden="true">28.</strong> CoreMod</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#方块实体内置的数据同步" id="方块实体内置的数据同步">方块实体内置的数据同步</a></h1>
+<p>在这节中，我们将学习方块实体中内置的数据同步功能。</p>
+<p>还记得我们之前讲过的服务端和客户端自己的数据同步吗？幸运的是，TileEntity给我们内置了两组数据同步的方法，不幸的是这个两组方法只能实现从服务端到客户端的数据同步，而且只能同步少量的数据。</p>
+<p>在这节中，我们讲学习制作一个每隔几秒中就会播放僵尸吼叫声的方块，我们先从方块开始;</p>
+<p><code>ObsidianZombieBlock</code></p>
+<pre><code class="language-java">public class ObsidianZombieBlock extends Block {
+    public ObsidianZombieBlock() {
+        super(Properties.create(Material.ROCK).hardnessAndResistance(5));
+    }
+
+    @Override
+    public boolean hasTileEntity(BlockState state) {
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new ObsidianZombieTileEntity();
+    }
+}
+</code></pre>
+<p>然后是<code>ObsidianZombieTileEntity</code>。</p>
+<pre><code class="language-java">public class ObsidianZombieTileEntity extends TileEntity implements ITickableTileEntity {
+    private boolean flag = false;
+    private int MAX_TIME = 5 * 20;
+    private int timer = 0;
+
+
+    public ObsidianZombieTileEntity() {
+        super(TileEntityTypeRegistry.obsidianZombieTileentity.get());
+    }
+
+    @Override
+    public void tick() {
+        if (world.isRemote &amp;&amp; flag) {
+            PlayerEntity player = world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 10, false);
+            this.world.playSound(player, pos, SoundEvents.ENTITY_ZOMBIE_AMBIENT, SoundCategory.AMBIENT, 1.0f, 1.0f);
+            flag = false;
+        }
+        if (!world.isRemote) {
+            if (timer == MAX_TIME) {
+                flag = true;
+                world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+                flag = true;
+                timer = 0;
+            }
+            timer++;
+        }
+    }
+
+    @Nullable
+    @Override
+    public SUpdateTileEntityPacket getUpdatePacket() {
+        return new SUpdateTileEntityPacket(pos, 1, getUpdateTag());
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+        handleUpdateTag(pkt.getNbtCompound());
+    }
+
+    @Override
+    public CompoundNBT getUpdateTag() {
+        CompoundNBT compoundNBT = super.getUpdateTag();
+        compoundNBT.putBoolean(&quot;flag&quot;, flag);
+        return compoundNBT;
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundNBT tag) {
+        flag = tag.getBoolean(&quot;flag&quot;);
+    }
+}
+</code></pre>
+<p>首先我们来讲解两组同步数据用的方法。</p>
+<ul>
+<li><code>getUpdatePacket</code></li>
+<li><code>onDataPacket</code></li>
+</ul>
+<p>这两个方法是在正常游戏过程中会被使用的数据同步方法，它们的名字可能会有些迷惑性，因为<code>getUpdatePacket</code>是服务端发送数据包用的方法，而<code>onDataPacket</code>才是客户端接受数据包的方法。</p>
+<p>接下来是:</p>
+<ul>
+<li><code>getUpdateTag</code></li>
+<li><code>handleUpdateTag</code></li>
+</ul>
+<p>这两个方法是在区块刚被载入时被调用的方法，之所以有这两个方法存在，是因为有些装饰性的方块实体并不需要经常性地同步数据，比如告示牌，只需要在区块被载入时同步一次就行。</p>
+<p>为了让你的方块实体能在游戏被载入的时候能自动同步数据，你需要先实现<code>getUpdateTag</code>和<code>handleUpdateTag</code>，然后在<code>getUpdatePacket</code>和<code>onDataPacket</code>中调用它们即可。</p>
+<p>如你你需要触发数据同步，你需要在服务端调用<code>world.notifyBlockUpdate</code>方法。</p>
+<p>当然就和数据保存一样，这些方法默认的序列化和反序列化方式是NBT标签。</p>
+<pre><code class="language-java">@Override
+public CompoundNBT getUpdateTag() {
+  CompoundNBT compoundNBT = super.getUpdateTag();
+  compoundNBT.putBoolean(&quot;flag&quot;, flag);
+   return compoundNBT;
+}
+
+@Override
+public void handleUpdateTag(CompoundNBT tag) {
+  flag = tag.getBoolean(&quot;flag&quot;);
+}
+</code></pre>
+<p>可以看到，用NBT标签传输了数据。</p>
+<pre><code class="language-java">@Override
+public SUpdateTileEntityPacket getUpdatePacket() {
+  return new SUpdateTileEntityPacket(pos, 1, getUpdateTag());
+}
+
+@Override
+public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+  handleUpdateTag(pkt.getNbtCompound());
+}
+</code></pre>
+<p>在这里我们只是简单的调用了之前的两个方法而已，<code>SUpdateTileEntityPacket</code>的第二个参数的序列号值，大家可以随便填写。</p>
+<p>然后就是我们的主要逻辑<code>tick</code>方法:</p>
+<pre><code class="language-java">@Override
+public void tick() {
+  if (world.isRemote &amp;&amp; flag) {
+    PlayerEntity player = world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 10, false);
+    this.world.playSound(player, pos, SoundEvents.ENTITY_ZOMBIE_AMBIENT, SoundCategory.AMBIENT, 1.0f, 1.0f);
+    flag = false;
+  }
+  if (!world.isRemote) {
+    if (timer == MAX_TIME) {
+      flag = true;
+      world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+      flag = true;
+      timer = 0;
+    }
+    timer++;
+  }
+}
+</code></pre>
+<p>为了大家方便理解，我这里用了两个<code>if</code>语句将客户端和服务端的逻辑区分开来</p>
+<p>首先是是客户端:</p>
+<pre><code class="language-java">if (world.isRemote &amp;&amp; flag) {
+  PlayerEntity player = world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 10, false);
+  this.world.playSound(player, pos, SoundEvents.ENTITY_ZOMBIE_AMBIENT, SoundCategory.AMBIENT, 1.0f, 1.0f);
+  flag = false;
+}
+</code></pre>
+<p>首先我们判断是否在客户端，并且flag的值是否为真（为真代表要播放声音），然后获取了最近的玩家，使用了<code>this.world.playSound</code>方法播放了声音，请注意，播放声音可以同时在客户端和服务端执行，如果你在服务端执行会自动发一个数据包到客户端，让客户端播放声音。</p>
+<p><code>playSound</code>的第一个和第二个变量很好懂，第三个变量是需要播放的声音，第三个变量是决定这个声音大小是受到哪一个声音控制分类控制的。</p>
+<p>接下来是服务端:</p>
+<pre><code class="language-java">if (!world.isRemote) {
+  if (timer == MAX_TIME) {
+    flag = true;
+    world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+    flag = true;
+    timer = 0;
+  }
+  timer++;
+}
+</code></pre>
+<p>服务端和之前一样基本上就是一个计数器，唯一特殊的地方就是我们调用了<code> world.notifyBlockUpdate</code>方法，因为我们不需要更新<code>blockstate</code>，所以第二和第三个参数保持相同就行，最后一个参数是需要什么等级的更新，Forge提供给我们了<code>Constants</code>类，里面有详细的说明。</p>
+<p>然后就是添加材质和模型之类的事了，有兴趣的读者可以自己看源代码。</p>
+<p>打开游戏放置完方块，等待一会你应该就能听见僵尸的吼叫声了。</p>
+<p><img src="datasync.assets/image-20200429215140877.png" alt="image-20200429215140877" /></p>
+<p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/tileentitydatasync">源代码</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../tileentity/itickabletileentity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../specialrender/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../tileentity/itickabletileentity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../specialrender/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-80068655-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

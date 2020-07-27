@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="zh_cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>从零构建与使用能力 - Minecraft Forge Mod Dev tutorial</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introducation/intro.html"><strong aria-hidden="true">1.</strong> 导论</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introducation/forge.html"><strong aria-hidden="true">1.1.</strong> Forge是什么</a></li><li class="chapter-item expanded "><a href="../introducation/vanilla.html"><strong aria-hidden="true">1.2.</strong> Minecraft如何运作的</a></li><li class="chapter-item expanded "><a href="../introducation/developmentmodel.html"><strong aria-hidden="true">1.3.</strong> 开发模型</a></li><li class="chapter-item expanded "><a href="../introducation/coreconception.html"><strong aria-hidden="true">1.4.</strong> 一些核心概念</a></li></ol></li><li class="chapter-item expanded "><a href="../devenvironment/intro.html"><strong aria-hidden="true">2.</strong> 环境配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../devenvironment/setup.html"><strong aria-hidden="true">2.1.</strong> Forge开发环境的配置</a></li><li class="chapter-item expanded "><a href="../devenvironment/folderintro.html"><strong aria-hidden="true">2.2.</strong> 开发环境的介绍</a></li><li class="chapter-item expanded "><a href="../devenvironment/modinfo.html"><strong aria-hidden="true">2.3.</strong> 自定义mod信息</a></li></ol></li><li class="chapter-item expanded "><a href="../item/intro.html"><strong aria-hidden="true">3.</strong> 物品</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../item/firstitem.html"><strong aria-hidden="true">3.1.</strong> 第一个物品</a></li><li class="chapter-item expanded "><a href="../item/modelandtextures.html"><strong aria-hidden="true">3.2.</strong> 物品材质与模型</a></li><li class="chapter-item expanded "><a href="../item/itemstack.html"><strong aria-hidden="true">3.3.</strong> Item和ItemStack</a></li><li class="chapter-item expanded "><a href="../item/food.html"><strong aria-hidden="true">3.4.</strong> 食物</a></li><li class="chapter-item expanded "><a href="../item/meleeweapons.html"><strong aria-hidden="true">3.5.</strong> 近战武器</a></li><li class="chapter-item expanded "><a href="../item/group.html"><strong aria-hidden="true">3.6.</strong> 自定义创造模式物品栏</a></li></ol></li><li class="chapter-item expanded "><a href="../i18n/i18n.html"><strong aria-hidden="true">4.</strong> 语言文件与本地化</a></li><li class="chapter-item expanded "><a href="../block/intro.html"><strong aria-hidden="true">5.</strong> 方块</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../block/firstblock.html"><strong aria-hidden="true">5.1.</strong> 第一个方块</a></li><li class="chapter-item expanded "><a href="../block/blockandblockstate.html"><strong aria-hidden="true">5.2.</strong> Block和BlockState</a></li><li class="chapter-item expanded "><a href="../block/modelandtextures.html"><strong aria-hidden="true">5.3.</strong> 方块模型和材质</a></li><li class="chapter-item expanded "><a href="../block/blocksstates.html"><strong aria-hidden="true">5.4.</strong> 方块状态</a></li><li class="chapter-item expanded "><a href="../block/nonesoildblock.html"><strong aria-hidden="true">5.5.</strong> 非实心方块与自定义模型</a></li><li class="chapter-item expanded "><a href="../block/rendertype.html"><strong aria-hidden="true">5.6.</strong> 方块的渲染类型</a></li></ol></li><li class="chapter-item expanded "><a href="../specialmodel/intro.html"><strong aria-hidden="true">6.</strong> 特殊模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../specialmodel/obj.html"><strong aria-hidden="true">6.1.</strong> OBJ 模型</a></li><li class="chapter-item expanded "><a href="../specialmodel/b3d.html"><strong aria-hidden="true">6.2.</strong> B3D 模型</a></li><li class="chapter-item expanded "><a href="../specialmodel/animation.html"><strong aria-hidden="true">6.3.</strong> 动画</a></li></ol></li><li class="chapter-item expanded "><a href="../tileentity/intro.html"><strong aria-hidden="true">7.</strong> 方块实体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tileentity/firsttileentity.html"><strong aria-hidden="true">7.1.</strong> 第一个方块实体和其数据保存</a></li><li class="chapter-item expanded "><a href="../tileentity/itickabletileentity.html"><strong aria-hidden="true">7.2.</strong> ITickableTileEntity</a></li><li class="chapter-item expanded "><a href="../tileentity/datasync.html"><strong aria-hidden="true">7.3.</strong> 方块实体内置的数据同步</a></li></ol></li><li class="chapter-item expanded "><a href="../specialrender/intro.html"><strong aria-hidden="true">8.</strong> 特殊渲染</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../specialrender/ibakedmodel.html"><strong aria-hidden="true">8.1.</strong> IBakedModel(烘培模型)</a></li><li class="chapter-item expanded "><a href="../specialrender/ter.html"><strong aria-hidden="true">8.2.</strong> TileEntityRenderer(方块实体渲染器)</a></li><li class="chapter-item expanded "><a href="../specialrender/ister.html"><strong aria-hidden="true">8.3.</strong> ItemStackTileEntityRenderer(物品特殊渲染)</a></li></ol></li><li class="chapter-item expanded "><a href="../event/intro.html"><strong aria-hidden="true">9.</strong> 事件系统</a></li><li class="chapter-item expanded "><a href="../networking/intro.html"><strong aria-hidden="true">10.</strong> 自定义网络包</a></li><li class="chapter-item expanded "><a href="../entity/intro.html"><strong aria-hidden="true">11.</strong> 实体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../entity/scratchentity.html"><strong aria-hidden="true">11.1.</strong> 从零构建一个实体和数据同步</a></li><li class="chapter-item expanded "><a href="../entity/passiveentityandai.html"><strong aria-hidden="true">11.2.</strong> 创建一个动物和AI</a></li></ol></li><li class="chapter-item expanded "><a href="../capability/intro.html"><strong aria-hidden="true">12.</strong> 能力系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../capability/capabilityfromscratch.html" class="active"><strong aria-hidden="true">12.1.</strong> 从零构建与使用能力</a></li><li class="chapter-item expanded "><a href="../capability/simpleusage.html"><strong aria-hidden="true">12.2.</strong> 开始使用预定义能力</a></li><li class="chapter-item expanded "><a href="../capability/attachcapabilityprovider.html"><strong aria-hidden="true">12.3.</strong> 附加能力提供器</a></li></ol></li><li class="chapter-item expanded "><a href="../worldsaveddata/example.html"><strong aria-hidden="true">13.</strong> WorldSavedData(世界数据保存)</a></li><li class="chapter-item expanded "><a href="../gui/intro.html"><strong aria-hidden="true">14.</strong> Gui</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../gui/firstgui.html"><strong aria-hidden="true">14.1.</strong> 第一个Gui</a></li><li class="chapter-item expanded "><a href="../gui/container.html"><strong aria-hidden="true">14.2.</strong> Container</a></li><li class="chapter-item expanded "><a href="../gui/hud.html"><strong aria-hidden="true">14.3.</strong> HUD</a></li></ol></li><li class="chapter-item expanded "><a href="../fluid/firstfluid.html"><strong aria-hidden="true">15.</strong> 流体</a></li><li class="chapter-item expanded "><a href="../worldgeneration/intro.html"><strong aria-hidden="true">16.</strong> 世界生成</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../worldgeneration/oregeneration.html"><strong aria-hidden="true">16.1.</strong> 矿物生成</a></li><li class="chapter-item expanded "><a href="../worldgeneration/structuregeneration.html"><strong aria-hidden="true">16.2.</strong> 结构生成</a></li><li class="chapter-item expanded "><a href="../worldgeneration/biomegenerationandworldtype.html"><strong aria-hidden="true">16.3.</strong> 自定义生物群系和世界类型</a></li><li class="chapter-item expanded "><a href="../worldgeneration/dimensionenerationandchunkgeneratorandbiomeprovider.html"><strong aria-hidden="true">16.4.</strong> 自定义维度与区块生成器以及生物群系提供器</a></li></ol></li><li class="chapter-item expanded "><a href="../datapack/intro.html"><strong aria-hidden="true">17.</strong> 数据包</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../datapack/recipes.html"><strong aria-hidden="true">17.1.</strong> 配方</a></li><li class="chapter-item expanded "><a href="../datapack/lootable.html"><strong aria-hidden="true">17.2.</strong> 掉落物配方</a></li></ol></li><li class="chapter-item expanded "><a href="../datagnerator/intro.html"><strong aria-hidden="true">18.</strong> Data Generator</a></li><li class="chapter-item expanded "><a href="../command/command.html"><strong aria-hidden="true">19.</strong> 命令</a></li><li class="chapter-item expanded "><a href="../advancements/intro.html"><strong aria-hidden="true">20.</strong> 进度</a></li><li class="chapter-item expanded "><a href="../configure/configure.html"><strong aria-hidden="true">21.</strong> 配置文件</a></li><li class="chapter-item expanded "><a href="../potion/intro.html"><strong aria-hidden="true">22.</strong> 药水</a></li><li class="chapter-item expanded "><a href="../paticles/intro.html"><strong aria-hidden="true">23.</strong> 粒子效果</a></li><li class="chapter-item expanded "><a href="../sounds/intro.html"><strong aria-hidden="true">24.</strong> 音效</a></li><li class="chapter-item expanded "><a href="../io/intro.html"><strong aria-hidden="true">25.</strong> 用户输入</a></li><li class="chapter-item expanded "><a href="../compatible/intro.html"><strong aria-hidden="true">26.</strong> 与其他mod的兼容</a></li><li class="chapter-item expanded "><a href="../at/intro.html"><strong aria-hidden="true">27.</strong> Access Transformer</a></li><li class="chapter-item expanded "><a href="../coremode/intro.html"><strong aria-hidden="true">28.</strong> CoreMod</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#从零构建与使用能力" id="从零构建与使用能力">从零构建与使用能力</a></h1>
+<p>在这一节中，我们将会从0开始构建与使用Capability。在开始之前我们必须要解释一下，什么是Capability。</p>
+<p>Capability 的诞生起源于在写程序时出现的一个问题。考虑如下一种情况，你正在写一个能量转换器，你的能量转换器需要可以转换不同mod中的不同能量：EU、RF，Forge Energy等等。每一个能量都提供了一个接口用来实现输入输出的方法，那么你很快就会发现你的类定义会变成下面这个样子:</p>
+<pre><code class="language-java">class MyTileEntity extends TileEntity implements EnergyInterface1,  EnergyInterface2, EnergyInterface3, FluidsInterface1, FluidsInterface2, FluidsInterface3, ItemsApi1, ItemsApi2, ItemsApi3, ComputerApi1, ComputerApi2, ...
+</code></pre>
+<p>这样的代码简直是地狱级别的可怕。而Capability（能力系统）出现解决了这个问题，再用了能力系统之后你的类定义就可以简化成类似下面的形式:</p>
+<pre><code class="language-java">class MyTileEntity extends CapabilityProvider
+</code></pre>
+<p>这里是演示代码，但是你可以立马发现，你的代码简化了很多。请注意Capability系统并不是Minecraft原版提供的，而是Forge提供的。</p>
+<p>在Capability系统主要由两部分构成，Capability（能力）本身以及CapabilityProvider（能力提供者）。请注意务必要区分清楚Capability和CapabilityProvider，在很多的教程中，这两者都被混为一谈。当然在实际使用的过程中还会牵涉到调用CapabilityProvider的一方。这里我讲一个简单比喻来帮助大家理解这三方的关系。</p>
+<blockquote>
+<p>假设，你是一个投资商，想要投资建一栋商务楼。一般情况下，你就会去找一个建筑方案提供商。如果这个建筑方案提供商拿不出这个建筑方案，你可能就不建了，如果这个建筑方案提供商拿的出建筑方案，你就可以从这个方法中获取一些信息或者直接按照这个方案建筑商务楼。</p>
+</blockquote>
+<p>在Capability系统中，调用CapabilityProvider的方相当于「投资商」，CapabilityProvider相当于是「建筑方案提供商」，而Capability本身就是「建筑方案」。</p>
+<p>而在代码层面，首先调用方会调用CapabilityProvider的<code>getCapability</code>方法并传入一个具体的Capability。然后在实现了<code>CapbilityProvider</code>接口的类中，判断传入的能力是不是自己可以完成的，如果不能换成就会返回一个空值，如果可以完成就会返回传入的Capability所指定类或接口的一个实例。</p>
+<p>接下来我们会创建两个特殊的方块，分为「上方块」和「下方块」。当你把「上方块」放在「下方块」的上方时，「上方块会输出下方块传来的信息」。</p>
+<p>介于篇幅的原因，这里就直接从TilEntity开始了，相关的方块也没什么内容，就只是关联的方块实体而已。</p>
+<p><code>ObsidianUpBlockTileEntity</code></p>
+<pre><code class="language-java">public class ObsidianUpBlockTileEntity extends TileEntity implements ITickableTileEntity {
+    public ObsidianUpBlockTileEntity() {
+        super(TileEntityTypeRegistry.obsidianUpTileEntity.get());
+    }
+
+    private static Logger logger = LogManager.getLogger();
+
+    @Override
+    public void tick() {
+        if (!world.isRemote) {
+            BlockPos pos = this.pos.down();
+            TileEntity tileEntity = world.getTileEntity(pos);
+            if (tileEntity != null) {
+                LazyOptional&lt;ISimpleCapability&gt; simpleCapabilityLazyOptional = tileEntity.getCapability(ModCapability.SIMPLE_CAPABILITY);
+                simpleCapabilityLazyOptional.ifPresent((s) -&gt; {
+                    String context = s.getString(this.pos);
+                    logger.info(context);
+                });
+            }
+        }
+
+    }
+}
+</code></pre>
+<p>可以看见这里的内容并不艰深。我们先获取了下方方块的方块实体。</p>
+<pre><code class="language-java">LazyOptional&lt;ISimpleCapability&gt; simpleCapabilityLazyOptional = tileEntity.getCapability(ModCapability.SIMPLE_CAPABILITY);
+</code></pre>
+<p>然后就是调用这里的<code>getCapbility</code>并传入了我们自定义的<code>ModCapability.SIMPLE_CAPABILITY</code>这个能力，来询问我们下方的方块是否可以完成这件事。</p>
+<p>这里有个很奇怪的类型，叫做<code>LazyOptional&lt;ISimpleCapability&gt;</code>我们必须要稍微解释一下。简单来说你在读这个类的名字时可以忽视<code>Lazy</code>，它其实就是一个特殊的<code>Optional</code>类。那么什么是<code>Optioanl</code>类呢？<code>Optinal</code> 类其实是对<code>null</code>和<code>有值</code>这两个状态的封装。简单来说，当<code>LazyOptional.isPresent</code>为真时，代表这个变量里有值，如果为假，代表这个变量的值为<code>null</code>。</p>
+<pre><code class="language-java">simpleCapabilityLazyOptional.ifPresent((s) -&gt; {
+  String context = s.getString(this.pos);
+  logger.info(context);
+});
+</code></pre>
+<p>这里的<code>ifPresent</code>的意思就是当返回值不是<code>null</code>时需要做什么。这里的lambda表达式参数<code>s</code>就是之前<code>getCapbility</code>调用的返回值。而且它的类型就是我们写在<code>LazyOptional&lt;T&gt;</code>这个泛型中的类型，在我们的例子里就是<code>ISimpleCapability</code>这个接口的实例。</p>
+<p>然后我们就调用了<code>ISimpleCapability</code>规定的方法<code>getString</code>，并且把值输出了出来。</p>
+<p>读完这里希望读者能稍微停一下，然后思考这个过程和之前比喻之间的关系。</p>
+<p>接下来我们就要来看看我们的「方案提供商人 / CapabilityProvider 」了。</p>
+<p><code>ObsidianDownBlockTileEntity.java</code></p>
+<pre><code class="language-java">public class ObsidianDownBlockTileEntity extends TileEntity {
+    public ObsidianDownBlockTileEntity() {
+        super(TileEntityTypeRegistry.obsidianDownTileEntity.get());
+    }
+
+    @Nonnull
+    @Override
+    public &lt;T&gt; LazyOptional&lt;T&gt; getCapability(@Nonnull Capability&lt;T&gt; cap, @Nullable Direction side) {
+        if (cap == ModCapability.SIMPLE_CAPABILITY) {
+            return LazyOptional.of(() -&gt; {
+                return new SimpleCapability(&quot;Hello&quot;);
+            }).cast();
+        }
+        return LazyOptional.empty();
+    }
+}
+</code></pre>
+<p>可以看见我们这里就简单的复写了<code>getCapability</code>方法，你可能会好奇<code>getCapability</code>明明是<code>CapabilityProvider</code>规定的方法，我们却可以直接复写。</p>
+<p>如果你查看TileEntity类的定义，你应该可以看到如下内容:</p>
+<pre><code class="language-java">public abstract class TileEntity extends net.minecraftforge.common.capabilities.CapabilityProvider&lt;TileEntity&gt; implements net.minecraftforge.common.extensions.IForgeTileEntity
+</code></pre>
+<p>可以看见TileEntity类默认继承了CapabilityProvider（知道Capability对于方块实体多么重要了吧），这就是为什么我们可以直接复写<code>getCapability</code>的原因。</p>
+<p>这里的内容，非常简单，我们就是判断传入的能力是不是我们可以完成的，如果不可以完成就返回一个<code>LazyOptional.empty()</code>（你可以当成返回了一个<code>null</code>)，如果可以完成就返回了一个相对应的实例。</p>
+<pre><code class="language-java">return LazyOptional.of(() -&gt; {
+  return new SimpleCapability(&quot;Hello&quot;);
+}).cast();
+</code></pre>
+<p>这里的意思是将<code>SimpleCapability</code>的实例塞入<code>LazyOptinal</code>中。请注意，最后的这里的<code>cast</code>方法是必须要调用的，不然会出现类型错误。</p>
+<p>这里的<code>SimpleCapability</code>就是实现了我们之前提到的<code>ISimpleCapability</code>接口的类。所以这里返回的实例也是<code>ISimpleCapability</code>的实例。</p>
+<p>接下来我们来看<code>SimpleCapability.java</code>和<code>ISimpleCapability.java</code></p>
+<pre><code class="language-java">public class SimpleCapability implements ISimpleCapability {
+    private String context;
+
+    public SimpleCapability(String context) {
+        this.context = context;
+    }
+
+    @Override
+    public String getString(BlockPos pos) {
+        return pos.toString() + &quot;:::&quot; + this.context;
+    }
+}
+</code></pre>
+<pre><code class="language-java">public interface ISimpleCapability {
+    String getString(BlockPos pos);
+}
+</code></pre>
+<p>在你写自定义Capability（这里指的不是CapabilityProvider）时，你应该也要遵循这个形式，把规定的操作抽象成一个接口，这样你就可以你就可以在Mod的API中向别人提供这个接口，别人就可以在它们的Mod中使用你定义的Capability了。</p>
+<p>接下来是注册，首先我们得声明一个实例。</p>
+<p><code>ModCapability.java</code></p>
+<pre><code class="language-java">public class ModCapability {
+    @CapabilityInject(ISimpleCapability.class)
+    public static Capability&lt;ISimpleCapability&gt; SIMPLE_CAPABILITY;
+}
+</code></pre>
+<p>在这里我们使用了<code>@CapabilityInject</code>注解，来表示我们的定义的变量是Capability，并且会在正式注册完这个Capability后给下面的变量赋值。这里的参数和下方的泛型，都应该是你之前定义的Capability的接口。</p>
+<p>最后我们来正式注册它。</p>
+<pre><code class="language-java">@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+public class CommonSetupEventHandler {
+    @SubscribeEvent
+    public static void onSetupEvent(FMLCommonSetupEvent event) {
+        CapabilityManager.INSTANCE.register(
+                ISimpleCapability.class,
+                new Capability.IStorage&lt;ISimpleCapability&gt;() {
+                    @Nullable
+                    @Override
+                    public INBT writeNBT(Capability&lt;ISimpleCapability&gt; capability, ISimpleCapability instance, Direction side) {
+                        return null;
+                    }
+
+                    @Override
+                    public void readNBT(Capability&lt;ISimpleCapability&gt; capability, ISimpleCapability instance, Direction side, INBT nbt) {
+
+                    }
+                },
+                () -&gt; null
+        );
+    }
+}
+</code></pre>
+<p>你需要在<code>Mod</code>总线的<code>FMLCommonSetupEvent</code>（通用启动设置）这个生命周期事件发生时，调用<code> CapabilityManager.INSTANCE.register</code>注册你的Capability，这里第一个参数就是你写好的Capability，后面两个参数你是用来规定默认情况下的储存和创建方法的，我们不需要这些功能，所以留空。你可直接像上面的代码一样写最后两个参数。</p>
+<p>然后就是方块，方块实体等的注册，这里就不多加解释了。</p>
+<p>打开游戏。</p>
+<p><img src="capabilityfromscratch.assets/image-20200504112815135.png" alt="image-20200504112815135" /></p>
+<p>当像这样叠放时。</p>
+<p><img src="capabilityfromscratch.assets/image-20200504112836268.png" alt="image-20200504112836268" /></p>
+<p>控制台里输出了相对应的内容了。</p>
+<p>这部分的概念有些抽象，大家可以结合源代码自己思考整个调用过程。只要你理解了调用过程，Capability系统其实没有想象的那么难以理解。</p>
+<p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_cap">源代码</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../capability/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../capability/simpleusage.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../capability/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../capability/simpleusage.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-80068655-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

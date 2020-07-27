@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html lang="zh_cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>IBakedModel(烘培模型) - Minecraft Forge Mod Dev tutorial</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introducation/intro.html"><strong aria-hidden="true">1.</strong> 导论</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introducation/forge.html"><strong aria-hidden="true">1.1.</strong> Forge是什么</a></li><li class="chapter-item expanded "><a href="../introducation/vanilla.html"><strong aria-hidden="true">1.2.</strong> Minecraft如何运作的</a></li><li class="chapter-item expanded "><a href="../introducation/developmentmodel.html"><strong aria-hidden="true">1.3.</strong> 开发模型</a></li><li class="chapter-item expanded "><a href="../introducation/coreconception.html"><strong aria-hidden="true">1.4.</strong> 一些核心概念</a></li></ol></li><li class="chapter-item expanded "><a href="../devenvironment/intro.html"><strong aria-hidden="true">2.</strong> 环境配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../devenvironment/setup.html"><strong aria-hidden="true">2.1.</strong> Forge开发环境的配置</a></li><li class="chapter-item expanded "><a href="../devenvironment/folderintro.html"><strong aria-hidden="true">2.2.</strong> 开发环境的介绍</a></li><li class="chapter-item expanded "><a href="../devenvironment/modinfo.html"><strong aria-hidden="true">2.3.</strong> 自定义mod信息</a></li></ol></li><li class="chapter-item expanded "><a href="../item/intro.html"><strong aria-hidden="true">3.</strong> 物品</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../item/firstitem.html"><strong aria-hidden="true">3.1.</strong> 第一个物品</a></li><li class="chapter-item expanded "><a href="../item/modelandtextures.html"><strong aria-hidden="true">3.2.</strong> 物品材质与模型</a></li><li class="chapter-item expanded "><a href="../item/itemstack.html"><strong aria-hidden="true">3.3.</strong> Item和ItemStack</a></li><li class="chapter-item expanded "><a href="../item/food.html"><strong aria-hidden="true">3.4.</strong> 食物</a></li><li class="chapter-item expanded "><a href="../item/meleeweapons.html"><strong aria-hidden="true">3.5.</strong> 近战武器</a></li><li class="chapter-item expanded "><a href="../item/group.html"><strong aria-hidden="true">3.6.</strong> 自定义创造模式物品栏</a></li></ol></li><li class="chapter-item expanded "><a href="../i18n/i18n.html"><strong aria-hidden="true">4.</strong> 语言文件与本地化</a></li><li class="chapter-item expanded "><a href="../block/intro.html"><strong aria-hidden="true">5.</strong> 方块</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../block/firstblock.html"><strong aria-hidden="true">5.1.</strong> 第一个方块</a></li><li class="chapter-item expanded "><a href="../block/blockandblockstate.html"><strong aria-hidden="true">5.2.</strong> Block和BlockState</a></li><li class="chapter-item expanded "><a href="../block/modelandtextures.html"><strong aria-hidden="true">5.3.</strong> 方块模型和材质</a></li><li class="chapter-item expanded "><a href="../block/blocksstates.html"><strong aria-hidden="true">5.4.</strong> 方块状态</a></li><li class="chapter-item expanded "><a href="../block/nonesoildblock.html"><strong aria-hidden="true">5.5.</strong> 非实心方块与自定义模型</a></li><li class="chapter-item expanded "><a href="../block/rendertype.html"><strong aria-hidden="true">5.6.</strong> 方块的渲染类型</a></li></ol></li><li class="chapter-item expanded "><a href="../specialmodel/intro.html"><strong aria-hidden="true">6.</strong> 特殊模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../specialmodel/obj.html"><strong aria-hidden="true">6.1.</strong> OBJ 模型</a></li><li class="chapter-item expanded "><a href="../specialmodel/b3d.html"><strong aria-hidden="true">6.2.</strong> B3D 模型</a></li><li class="chapter-item expanded "><a href="../specialmodel/animation.html"><strong aria-hidden="true">6.3.</strong> 动画</a></li></ol></li><li class="chapter-item expanded "><a href="../tileentity/intro.html"><strong aria-hidden="true">7.</strong> 方块实体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tileentity/firsttileentity.html"><strong aria-hidden="true">7.1.</strong> 第一个方块实体和其数据保存</a></li><li class="chapter-item expanded "><a href="../tileentity/itickabletileentity.html"><strong aria-hidden="true">7.2.</strong> ITickableTileEntity</a></li><li class="chapter-item expanded "><a href="../tileentity/datasync.html"><strong aria-hidden="true">7.3.</strong> 方块实体内置的数据同步</a></li></ol></li><li class="chapter-item expanded "><a href="../specialrender/intro.html"><strong aria-hidden="true">8.</strong> 特殊渲染</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../specialrender/ibakedmodel.html" class="active"><strong aria-hidden="true">8.1.</strong> IBakedModel(烘培模型)</a></li><li class="chapter-item expanded "><a href="../specialrender/ter.html"><strong aria-hidden="true">8.2.</strong> TileEntityRenderer(方块实体渲染器)</a></li><li class="chapter-item expanded "><a href="../specialrender/ister.html"><strong aria-hidden="true">8.3.</strong> ItemStackTileEntityRenderer(物品特殊渲染)</a></li></ol></li><li class="chapter-item expanded "><a href="../event/intro.html"><strong aria-hidden="true">9.</strong> 事件系统</a></li><li class="chapter-item expanded "><a href="../networking/intro.html"><strong aria-hidden="true">10.</strong> 自定义网络包</a></li><li class="chapter-item expanded "><a href="../entity/intro.html"><strong aria-hidden="true">11.</strong> 实体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../entity/scratchentity.html"><strong aria-hidden="true">11.1.</strong> 从零构建一个实体和数据同步</a></li><li class="chapter-item expanded "><a href="../entity/passiveentityandai.html"><strong aria-hidden="true">11.2.</strong> 创建一个动物和AI</a></li></ol></li><li class="chapter-item expanded "><a href="../capability/intro.html"><strong aria-hidden="true">12.</strong> 能力系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../capability/capabilityfromscratch.html"><strong aria-hidden="true">12.1.</strong> 从零构建与使用能力</a></li><li class="chapter-item expanded "><a href="../capability/simpleusage.html"><strong aria-hidden="true">12.2.</strong> 开始使用预定义能力</a></li><li class="chapter-item expanded "><a href="../capability/attachcapabilityprovider.html"><strong aria-hidden="true">12.3.</strong> 附加能力提供器</a></li></ol></li><li class="chapter-item expanded "><a href="../worldsaveddata/example.html"><strong aria-hidden="true">13.</strong> WorldSavedData(世界数据保存)</a></li><li class="chapter-item expanded "><a href="../gui/intro.html"><strong aria-hidden="true">14.</strong> Gui</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../gui/firstgui.html"><strong aria-hidden="true">14.1.</strong> 第一个Gui</a></li><li class="chapter-item expanded "><a href="../gui/container.html"><strong aria-hidden="true">14.2.</strong> Container</a></li><li class="chapter-item expanded "><a href="../gui/hud.html"><strong aria-hidden="true">14.3.</strong> HUD</a></li></ol></li><li class="chapter-item expanded "><a href="../fluid/firstfluid.html"><strong aria-hidden="true">15.</strong> 流体</a></li><li class="chapter-item expanded "><a href="../worldgeneration/intro.html"><strong aria-hidden="true">16.</strong> 世界生成</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../worldgeneration/oregeneration.html"><strong aria-hidden="true">16.1.</strong> 矿物生成</a></li><li class="chapter-item expanded "><a href="../worldgeneration/structuregeneration.html"><strong aria-hidden="true">16.2.</strong> 结构生成</a></li><li class="chapter-item expanded "><a href="../worldgeneration/biomegenerationandworldtype.html"><strong aria-hidden="true">16.3.</strong> 自定义生物群系和世界类型</a></li><li class="chapter-item expanded "><a href="../worldgeneration/dimensionenerationandchunkgeneratorandbiomeprovider.html"><strong aria-hidden="true">16.4.</strong> 自定义维度与区块生成器以及生物群系提供器</a></li></ol></li><li class="chapter-item expanded "><a href="../datapack/intro.html"><strong aria-hidden="true">17.</strong> 数据包</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../datapack/recipes.html"><strong aria-hidden="true">17.1.</strong> 配方</a></li><li class="chapter-item expanded "><a href="../datapack/lootable.html"><strong aria-hidden="true">17.2.</strong> 掉落物配方</a></li></ol></li><li class="chapter-item expanded "><a href="../datagnerator/intro.html"><strong aria-hidden="true">18.</strong> Data Generator</a></li><li class="chapter-item expanded "><a href="../command/command.html"><strong aria-hidden="true">19.</strong> 命令</a></li><li class="chapter-item expanded "><a href="../advancements/intro.html"><strong aria-hidden="true">20.</strong> 进度</a></li><li class="chapter-item expanded "><a href="../configure/configure.html"><strong aria-hidden="true">21.</strong> 配置文件</a></li><li class="chapter-item expanded "><a href="../potion/intro.html"><strong aria-hidden="true">22.</strong> 药水</a></li><li class="chapter-item expanded "><a href="../paticles/intro.html"><strong aria-hidden="true">23.</strong> 粒子效果</a></li><li class="chapter-item expanded "><a href="../sounds/intro.html"><strong aria-hidden="true">24.</strong> 音效</a></li><li class="chapter-item expanded "><a href="../io/intro.html"><strong aria-hidden="true">25.</strong> 用户输入</a></li><li class="chapter-item expanded "><a href="../compatible/intro.html"><strong aria-hidden="true">26.</strong> 与其他mod的兼容</a></li><li class="chapter-item expanded "><a href="../at/intro.html"><strong aria-hidden="true">27.</strong> Access Transformer</a></li><li class="chapter-item expanded "><a href="../coremode/intro.html"><strong aria-hidden="true">28.</strong> CoreMod</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#ibakedmodel烘焙模型" id="ibakedmodel烘焙模型">IBakedModel(烘焙模型)</a></h1>
+<p>首先我们从IBakedModel开始讲起。在开始正式写代码之前，我们先要了解如何一个方块是如何渲染出来的</p>
+<p>Minecraft本身会读取<code>json</code>和材质文件将其转换成<code>IModel</code>接口的实例，然后<code>IModel</code>进行了「Bake（烘焙）」处理，变成了<code>IBakedModel</code>，这个<code>IBakedModel</code>会被放入<code>BlockRendererDispatcher</code>中，当游戏需要时会直接从<code>BlockRendererDispatcher</code>取出<code>IBakedModel</code>进行渲染。至于什么是「Bake」，Bake基本上是对模型的材质进行光照计算等操作，让它变成可以直接被GPU渲染的东西。</p>
+<p>在这节中我们将来研究如何为我们的方块自定义<code>IBakedModel</code>。这节我们将要制作一个「隐藏方块」，这个方块会自动的显示它下方方块的模型的材质（虽然有些Bug，但是为了演示这已经足够了）。</p>
+<p>首先是方块<code>ObsidianHiddenBlock</code>：</p>
+<pre><code class="language-java">public class ObsidianHiddenBlock extends Block {
+    public ObsidianHiddenBlock() {
+        super(Properties.create(Material.ROCK).hardnessAndResistance(5).notSolid());
+    }
+}
+</code></pre>
+<p>内容非常的简单，相信大家都看得懂。</p>
+<p>然后就是关键所在:<code>ObsidianHiddenBlockModel</code>:</p>
+<pre><code class="language-java">public class ObsidianHiddenBlockModel implements IBakedModel {
+    IBakedModel defaultModel;
+    public static ModelProperty&lt;BlockState&gt; COPIED_BLOCK = new ModelProperty&lt;&gt;();
+
+    public ObsidianHiddenBlockModel(IBakedModel existingModel) {
+        defaultModel = existingModel;
+    }
+
+    @Nonnull
+    @Override
+    public List&lt;BakedQuad&gt; getQuads(@Nullable BlockState state, @Nullable Direction side, @Nonnull Random rand, @Nonnull IModelData extraData) {
+        IBakedModel renderModel = defaultModel;
+        if (extraData.hasProperty(COPIED_BLOCK)) {
+            BlockState copiedBlock = extraData.getData(COPIED_BLOCK);
+            if (copiedBlock != null) {
+                Minecraft mc = Minecraft.getInstance();
+                BlockRendererDispatcher blockRendererDispatcher = mc.getBlockRendererDispatcher();
+                renderModel = blockRendererDispatcher.getModelForState(copiedBlock);
+            }
+        }
+        return renderModel.getQuads(state, side, rand, extraData);
+    }
+
+    @Nonnull
+    @Override
+    public IModelData getModelData(@Nonnull ILightReader world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData) {
+        BlockState downBlockState = world.getBlockState(pos.down());
+        ModelDataMap modelDataMap = new ModelDataMap.Builder().withInitial(COPIED_BLOCK, null).build();
+
+        if (downBlockState.getBlock() == Blocks.AIR || downBlockState.getBlock() == BlockRegistry.obsidianHidden.get()) {
+            return modelDataMap;
+        }
+        modelDataMap.setData(COPIED_BLOCK, downBlockState);
+        return modelDataMap;
+    }
+
+    @Override
+    public List&lt;BakedQuad&gt; getQuads(@Nullable BlockState state, @Nullable Direction side, Random rand) {
+        throw new AssertionError(&quot;IBakedModel::getQuads should never be called, only IForgeBakedModel::getQuads&quot;);
+    }
+
+    @Override
+    public boolean isAmbientOcclusion() {
+        return defaultModel.isAmbientOcclusion();
+    }
+
+    @Override
+    public boolean isGui3d() {
+        return defaultModel.isGui3d();
+    }
+
+    @Override
+    public boolean func_230044_c_() {
+        return defaultModel.func_230044_c_();
+    }
+
+    @Override
+    public boolean isBuiltInRenderer() {
+        return defaultModel.isBuiltInRenderer();
+    }
+
+    @Override
+    public TextureAtlasSprite getParticleTexture() {
+        return defaultModel.getParticleTexture();
+    }
+
+    @Override
+    public ItemOverrideList getOverrides() {
+        return defaultModel.getOverrides();
+    }
+}
+</code></pre>
+<p>首先是构造函数:</p>
+<pre><code class="language-java">public ObsidianHiddenBlockModel(IBakedModel existingModel) {
+  defaultModel = existingModel;
+}
+</code></pre>
+<p>可以看到，这部分的代码非常的长，但是其实没有你想象的那么复杂，我们一一来讲解。</p>
+<p>可以看到这个构造函数传入了一个<code>IBakedModel</code>，这个传入的<code>IBakedModel</code>就是我们方块默认的模型，因为我们希望我们的方法当放置在半空中时，可以显示默认的模型，所以我们需要保留一份默认的模型。</p>
+<p>然后就是最后面的六个方法，作用如下。</p>
+<table><thead><tr><th>函数名</th><th>作用</th></tr></thead><tbody>
+<tr><td><code>isAmbientOcclusion</code></td><td>控制是否开启环境光遮蔽</td></tr>
+<tr><td><code>isGui3d</code></td><td>控制掉落物是否是3D的</td></tr>
+<tr><td><code>func_230044_c_()</code></td><td>暂不明，应该和物品的渲染光有关</td></tr>
+<tr><td><code>isBuiltInRenderer</code></td><td>是否使用内置的渲染，返回<code>Ture</code>会使用ISTR渲染</td></tr>
+<tr><td><code>isBuiltInRenderer</code></td><td>粒子效果材质</td></tr>
+<tr><td><code>getOverrides</code></td><td>获取模型的复写列表</td></tr>
+</tbody></table>
+<p>在这里我们直接调用了默认模型的相关方法，就不需要自己设置了。</p>
+<p>接下了我们来讲解最为重要的两个方法<code>getQuads</code>和<code>getModelData</code>，请注意这里面有两个同名的<code>getQuads</code>方法，但是参数值不同，其中有3个参数的<code>getQuads</code>，是必须要实现的，但是我们不会调用它，因为它没法传入来提供渲染，所以我们直接写了一个异常，来告知我们这个方法被错误的调用。</p>
+<p>其中<code>getQuads</code>和<code>getModelData</code>的关系和作用是，<code>getQuads</code>是<code>IBakedModel</code>的核心方法，它将返回一堆<code>Quads</code>，正如<code>Quad</code>这个词就如同它的字面意义那样，一个由四条边组成的形状。如果你对建模有所了解，你应该知道，任何和3D图形其实都是可以用三角形拼成的，在Minecraft里，任何的模型都是用<code>Quad</code>拼成的。对于一个普通的方块来说，它需要6个<code>Quads</code>，对于一些有着特殊模型的方块，需要的<code>Quad</code>数会更多。</p>
+<p>当Minecraft开始渲染<code>IBakedModel</code>里，它就会调用这个方法获取<code>Quads</code>，然后渲染这些<code>Quads</code>。</p>
+<p>接下来是<code>getModelData</code>方法，它的作用是给<code>getQuads</code>方法传入额外的数据，<code>getQuads</code>方法有一个<code>IModelData extraData</code>参数，这里的<code>extraData</code>就是通过<code>getModelData</code>传入的。<code>IModelData</code>的数值也是以「键值对」对信息储存的。</p>
+<pre><code class="language-java">public static ModelProperty&lt;BlockState&gt; COPIED_BLOCK = new ModelProperty&lt;&gt;();
+</code></pre>
+<p><code>COPIED_BLOCK</code>就是我们声明的一个「键」，可以看到他的类型是<code>ModelProperty&lt;BlockState&gt;</code>，这意味着，相对应「键值对」里「值」对类型是<code>BlockState</code>。</p>
+<p>然后我们来看<code>getModelData</code>方法的具体内容:</p>
+<pre><code class="language-java">@Nonnull
+@Override
+public IModelData getModelData(@Nonnull ILightReader world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData) {
+  BlockState downBlockState = world.getBlockState(pos.down());
+  ModelDataMap modelDataMap = new ModelDataMap.Builder().withInitial(COPIED_BLOCK, null).build();
+  if (downBlockState.getBlock() == Blocks.AIR || downBlockState.getBlock() == BlockRegistry.obsidianHidden.get()) {
+    return modelDataMap;
+  }
+  modelDataMap.setData(COPIED_BLOCK, downBlockState);
+  return modelDataMap;
+}
+</code></pre>
+<pre><code class="language-java"> BlockState downBlockState = world.getBlockState(pos.down());
+</code></pre>
+<p>首先我们获取了「隐藏方块」下方方块的<code>BlockState</code>。</p>
+<pre><code class="language-java">ModelDataMap modelDataMap = new ModelDataMap.Builder().withInitial(COPIED_BLOCK, null).build()
+</code></pre>
+<p><code>ModelDataMap</code>是<code>IModelData</code>接口的唯二两个实现类中的一个，我们这里创建了一个键值对，并且通过<code>withInitial</code>设置了初始值：「键：<code>COPIED_BLOCK</code>，值：<code>null</code>」。</p>
+<pre><code class="language-java">if (downBlockState.getBlock() == Blocks.AIR || downBlockState.getBlock() == BlockRegistry.obsidianHidden.get()) {
+    return modelDataMap;
+}
+</code></pre>
+<p>然后我们判断这个<code>BlockState</code>是不是空气，以及是不是又是一个相同的「隐藏方块」，如是就直接返回<code>ModelDataMap</code>。</p>
+<p>如果不是</p>
+<pre><code class="language-java">modelDataMap.setData(COPIED_BLOCK, downBlockState);
+</code></pre>
+<p>通过调用<code>setData</code>方法设置了具体的「值」，然后返回。</p>
+<p>怎么样这个逻辑不是很难理解吧。</p>
+<p>接下去就是核心方法<code>getQuads</code>:</p>
+<pre><code class="language-java">@Nonnull
+@Override
+public List&lt;BakedQuad&gt; getQuads(@Nullable BlockState state, @Nullable Direction side, @Nonnull Random rand, @Nonnull IModelData extraData) {
+  IBakedModel renderModel = defaultModel;
+  if (extraData.hasProperty(COPIED_BLOCK)) {
+    BlockState copiedBlock = extraData.getData(COPIED_BLOCK);
+    if (copiedBlock != null) {
+      Minecraft mc = Minecraft.getInstance();
+      BlockRendererDispatcher blockRendererDispatcher = mc.getBlockRendererDispatcher();
+      renderModel = blockRendererDispatcher.getModelForState(copiedBlock);
+    }
+  }
+  return renderModel.getQuads(state, side, rand, extraData);
+}
+</code></pre>
+<p>这里的逻辑其实也非常简单。</p>
+<pre><code class="language-java"> IBakedModel renderModel = defaultModel;
+</code></pre>
+<p>首先设置了默认的渲染模型。</p>
+<pre><code class="language-java">if (extraData.hasProperty(COPIED_BLOCK))
+</code></pre>
+<p>然后判断传入的数据有没有<code>COPIED_BLOCK</code>这个键。</p>
+<pre><code class="language-java">BlockState copiedBlock = extraData.getData(COPIED_BLOCK);
+</code></pre>
+<p>获取<code>COPIED_BLOCK</code>这个键，相对应的值。</p>
+<pre><code class="language-java">if (copiedBlock != null)
+</code></pre>
+<p>如果值不为<code>null</code>。</p>
+<pre><code class="language-java">Minecraft mc = Minecraft.getInstance();
+BlockRendererDispatcher blockRendererDispatcher = mc.getBlockRendererDispatcher();
+renderModel = blockRendererDispatcher.getModelForState(copiedBlock);
+</code></pre>
+<p>就从Minecraft的<code>getBlockRendererDispatcher</code>，取出对应<code>BlockState</code>的模型，放入<code>renderModel</code>中。</p>
+<pre><code class="language-java">return renderModel.getQuads(state, side, rand, extraData);
+</code></pre>
+<p>最后向下调用<code>renderModel</code>进行渲染，因为调用的<code>IBakedModel</code>是Minecraft实现的，所以我们不必去思考到底是怎么渲染的，有兴趣的同学可以自行研究。</p>
+<p>以上如此，我们自定义的<code>IBakedMode</code>已经创建完毕。</p>
+<p>Minecraft 在默认情况下会给方块自动创建一个<code>IBakeModel</code>，我们需要替换自动创建的<code>IBakeModel</code>，幸运的是Forge提供给我们了一个事件来实现这个功能。</p>
+<p><code>ModBusEventHandler.java</code>:</p>
+<pre><code class="language-java">@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD,value = Dist.CLIENT)
+public class ModBusEventHandler {
+    @SubscribeEvent
+    public static void onModelBaked(ModelBakeEvent event) {
+        for (BlockState blockstate : BlockRegistry.obsidianHidden.get().getStateContainer().getValidStates()) {
+            ModelResourceLocation modelResourceLocation = BlockModelShapes.getModelLocation(blockstate);
+            IBakedModel existingModel = event.getModelRegistry().get(modelResourceLocation);
+            if (existingModel == null) {
+                throw new RuntimeException(&quot;Did not find Obsidian Hidden in registry&quot;);
+            } else if (existingModel instanceof ObsidianHiddenBlockModel) {
+                throw new RuntimeException(&quot;Tried to replaceObsidian Hidden twice&quot;);
+            } else {
+                ObsidianHiddenBlockModel obsidianHiddenBlockModel = new ObsidianHiddenBlockModel(existingModel);
+                event.getModelRegistry().put(modelResourceLocation, obsidianHiddenBlockModel);
+            }
+        }
+    }
+}
+</code></pre>
+<p>请注意替换<code>IBakedModel</code>是在游戏启动过程替换的，所以我们这里使用的是<code>Mod.EventBusSubscriber.Bus.MOD</code>，还有请注意，我们同样不希望它在物理服务器上加载，所以加上了<code>value = Dist.CLIENT</code>来确保他只在物理客户端上加载。</p>
+<pre><code class="language-java">@SubscribeEvent
+public static void onModelBaked(ModelBakeEvent event)
+</code></pre>
+<p>我们监听了<code>ModelBakeEvent</code>事件。</p>
+<p>接下去的逻辑基本上就是获取我们方块对应的所有<code>State</code>，因为每一个不同的方块状态都可能对应着一个不同的模型（虽然我们的方块没有方块状态，但是这个还是要做的）。然后通过<code>event.getModelRegistry().get</code>方法从方块状态中获取默认的<code>IBakedModel</code>，创建了一个我们自己的<code>ObsidianHiddenBlockModel</code>，然后用<code>event.getModelRegistry().put</code>替换了进去。</p>
+<p>接下了就是常规的注册方块和物品了。</p>
+<p>另外我们的方块的状态文件如下:</p>
+<pre><code class="language-json">{
+  &quot;variants&quot;: {
+    &quot;&quot;: { &quot;model&quot;: &quot;neutrino:block/obsidian_hidden&quot; }
+  }
+}
+</code></pre>
+<p>可以看到并没有额外的方块状态，所以上面的循环只会运行一次。</p>
+<p>打开游戏，你就可以看到我们创建的「隐藏方块」了。</p>
+<p><img src="ibakedmodel.assets/image-20200430173122813.png" alt="image-20200430173122813" /></p>
+<p>在这张图片里上面的方块都是同一种方块。</p>
+<h2><a class="header" href="#编程小课堂" id="编程小课堂">编程小课堂</a></h2>
+<p>在Forge里，所以的事件都是<code>Event</code>类的子类，所以你可通过查看<code>Event</code>类继承树的方式查看到Forge提供的所有事件。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../specialrender/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../specialrender/ter.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../specialrender/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../specialrender/ter.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-80068655-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

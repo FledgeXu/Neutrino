@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="zh_cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一个物品 - Minecraft Forge Mod Dev tutorial</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introducation/intro.html"><strong aria-hidden="true">1.</strong> 导论</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introducation/forge.html"><strong aria-hidden="true">1.1.</strong> Forge是什么</a></li><li class="chapter-item expanded "><a href="../introducation/vanilla.html"><strong aria-hidden="true">1.2.</strong> Minecraft如何运作的</a></li><li class="chapter-item expanded "><a href="../introducation/developmentmodel.html"><strong aria-hidden="true">1.3.</strong> 开发模型</a></li><li class="chapter-item expanded "><a href="../introducation/coreconception.html"><strong aria-hidden="true">1.4.</strong> 一些核心概念</a></li></ol></li><li class="chapter-item expanded "><a href="../devenvironment/intro.html"><strong aria-hidden="true">2.</strong> 环境配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../devenvironment/setup.html"><strong aria-hidden="true">2.1.</strong> Forge开发环境的配置</a></li><li class="chapter-item expanded "><a href="../devenvironment/folderintro.html"><strong aria-hidden="true">2.2.</strong> 开发环境的介绍</a></li><li class="chapter-item expanded "><a href="../devenvironment/modinfo.html"><strong aria-hidden="true">2.3.</strong> 自定义mod信息</a></li></ol></li><li class="chapter-item expanded "><a href="../item/intro.html"><strong aria-hidden="true">3.</strong> 物品</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../item/firstitem.html" class="active"><strong aria-hidden="true">3.1.</strong> 第一个物品</a></li><li class="chapter-item expanded "><a href="../item/modelandtextures.html"><strong aria-hidden="true">3.2.</strong> 物品材质与模型</a></li><li class="chapter-item expanded "><a href="../item/itemstack.html"><strong aria-hidden="true">3.3.</strong> Item和ItemStack</a></li><li class="chapter-item expanded "><a href="../item/food.html"><strong aria-hidden="true">3.4.</strong> 食物</a></li><li class="chapter-item expanded "><a href="../item/meleeweapons.html"><strong aria-hidden="true">3.5.</strong> 近战武器</a></li><li class="chapter-item expanded "><a href="../item/group.html"><strong aria-hidden="true">3.6.</strong> 自定义创造模式物品栏</a></li></ol></li><li class="chapter-item expanded "><a href="../i18n/i18n.html"><strong aria-hidden="true">4.</strong> 语言文件与本地化</a></li><li class="chapter-item expanded "><a href="../block/intro.html"><strong aria-hidden="true">5.</strong> 方块</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../block/firstblock.html"><strong aria-hidden="true">5.1.</strong> 第一个方块</a></li><li class="chapter-item expanded "><a href="../block/blockandblockstate.html"><strong aria-hidden="true">5.2.</strong> Block和BlockState</a></li><li class="chapter-item expanded "><a href="../block/modelandtextures.html"><strong aria-hidden="true">5.3.</strong> 方块模型和材质</a></li><li class="chapter-item expanded "><a href="../block/blocksstates.html"><strong aria-hidden="true">5.4.</strong> 方块状态</a></li><li class="chapter-item expanded "><a href="../block/nonesoildblock.html"><strong aria-hidden="true">5.5.</strong> 非实心方块与自定义模型</a></li><li class="chapter-item expanded "><a href="../block/rendertype.html"><strong aria-hidden="true">5.6.</strong> 方块的渲染类型</a></li></ol></li><li class="chapter-item expanded "><a href="../specialmodel/intro.html"><strong aria-hidden="true">6.</strong> 特殊模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../specialmodel/obj.html"><strong aria-hidden="true">6.1.</strong> OBJ 模型</a></li><li class="chapter-item expanded "><a href="../specialmodel/b3d.html"><strong aria-hidden="true">6.2.</strong> B3D 模型</a></li><li class="chapter-item expanded "><a href="../specialmodel/animation.html"><strong aria-hidden="true">6.3.</strong> 动画</a></li></ol></li><li class="chapter-item expanded "><a href="../tileentity/intro.html"><strong aria-hidden="true">7.</strong> 方块实体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tileentity/firsttileentity.html"><strong aria-hidden="true">7.1.</strong> 第一个方块实体和其数据保存</a></li><li class="chapter-item expanded "><a href="../tileentity/itickabletileentity.html"><strong aria-hidden="true">7.2.</strong> ITickableTileEntity</a></li><li class="chapter-item expanded "><a href="../tileentity/datasync.html"><strong aria-hidden="true">7.3.</strong> 方块实体内置的数据同步</a></li></ol></li><li class="chapter-item expanded "><a href="../specialrender/intro.html"><strong aria-hidden="true">8.</strong> 特殊渲染</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../specialrender/ibakedmodel.html"><strong aria-hidden="true">8.1.</strong> IBakedModel(烘培模型)</a></li><li class="chapter-item expanded "><a href="../specialrender/ter.html"><strong aria-hidden="true">8.2.</strong> TileEntityRenderer(方块实体渲染器)</a></li><li class="chapter-item expanded "><a href="../specialrender/ister.html"><strong aria-hidden="true">8.3.</strong> ItemStackTileEntityRenderer(物品特殊渲染)</a></li></ol></li><li class="chapter-item expanded "><a href="../event/intro.html"><strong aria-hidden="true">9.</strong> 事件系统</a></li><li class="chapter-item expanded "><a href="../networking/intro.html"><strong aria-hidden="true">10.</strong> 自定义网络包</a></li><li class="chapter-item expanded "><a href="../entity/intro.html"><strong aria-hidden="true">11.</strong> 实体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../entity/scratchentity.html"><strong aria-hidden="true">11.1.</strong> 从零构建一个实体和数据同步</a></li><li class="chapter-item expanded "><a href="../entity/passiveentityandai.html"><strong aria-hidden="true">11.2.</strong> 创建一个动物和AI</a></li></ol></li><li class="chapter-item expanded "><a href="../capability/intro.html"><strong aria-hidden="true">12.</strong> 能力系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../capability/capabilityfromscratch.html"><strong aria-hidden="true">12.1.</strong> 从零构建与使用能力</a></li><li class="chapter-item expanded "><a href="../capability/simpleusage.html"><strong aria-hidden="true">12.2.</strong> 开始使用预定义能力</a></li><li class="chapter-item expanded "><a href="../capability/attachcapabilityprovider.html"><strong aria-hidden="true">12.3.</strong> 附加能力提供器</a></li></ol></li><li class="chapter-item expanded "><a href="../worldsaveddata/example.html"><strong aria-hidden="true">13.</strong> WorldSavedData(世界数据保存)</a></li><li class="chapter-item expanded "><a href="../gui/intro.html"><strong aria-hidden="true">14.</strong> Gui</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../gui/firstgui.html"><strong aria-hidden="true">14.1.</strong> 第一个Gui</a></li><li class="chapter-item expanded "><a href="../gui/container.html"><strong aria-hidden="true">14.2.</strong> Container</a></li><li class="chapter-item expanded "><a href="../gui/hud.html"><strong aria-hidden="true">14.3.</strong> HUD</a></li></ol></li><li class="chapter-item expanded "><a href="../fluid/firstfluid.html"><strong aria-hidden="true">15.</strong> 流体</a></li><li class="chapter-item expanded "><a href="../worldgeneration/intro.html"><strong aria-hidden="true">16.</strong> 世界生成</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../worldgeneration/oregeneration.html"><strong aria-hidden="true">16.1.</strong> 矿物生成</a></li><li class="chapter-item expanded "><a href="../worldgeneration/structuregeneration.html"><strong aria-hidden="true">16.2.</strong> 结构生成</a></li><li class="chapter-item expanded "><a href="../worldgeneration/biomegenerationandworldtype.html"><strong aria-hidden="true">16.3.</strong> 自定义生物群系和世界类型</a></li><li class="chapter-item expanded "><a href="../worldgeneration/dimensionenerationandchunkgeneratorandbiomeprovider.html"><strong aria-hidden="true">16.4.</strong> 自定义维度与区块生成器以及生物群系提供器</a></li></ol></li><li class="chapter-item expanded "><a href="../datapack/intro.html"><strong aria-hidden="true">17.</strong> 数据包</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../datapack/recipes.html"><strong aria-hidden="true">17.1.</strong> 配方</a></li><li class="chapter-item expanded "><a href="../datapack/lootable.html"><strong aria-hidden="true">17.2.</strong> 掉落物配方</a></li></ol></li><li class="chapter-item expanded "><a href="../datagnerator/intro.html"><strong aria-hidden="true">18.</strong> Data Generator</a></li><li class="chapter-item expanded "><a href="../command/command.html"><strong aria-hidden="true">19.</strong> 命令</a></li><li class="chapter-item expanded "><a href="../advancements/intro.html"><strong aria-hidden="true">20.</strong> 进度</a></li><li class="chapter-item expanded "><a href="../configure/configure.html"><strong aria-hidden="true">21.</strong> 配置文件</a></li><li class="chapter-item expanded "><a href="../potion/intro.html"><strong aria-hidden="true">22.</strong> 药水</a></li><li class="chapter-item expanded "><a href="../paticles/intro.html"><strong aria-hidden="true">23.</strong> 粒子效果</a></li><li class="chapter-item expanded "><a href="../sounds/intro.html"><strong aria-hidden="true">24.</strong> 音效</a></li><li class="chapter-item expanded "><a href="../io/intro.html"><strong aria-hidden="true">25.</strong> 用户输入</a></li><li class="chapter-item expanded "><a href="../compatible/intro.html"><strong aria-hidden="true">26.</strong> 与其他mod的兼容</a></li><li class="chapter-item expanded "><a href="../at/intro.html"><strong aria-hidden="true">27.</strong> Access Transformer</a></li><li class="chapter-item expanded "><a href="../coremode/intro.html"><strong aria-hidden="true">28.</strong> CoreMod</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#第一个物品" id="第一个物品">第一个物品</a></h1>
+<p>从现在开始我们就要正式开始写代码了。首先有几件事要说明，本项目的代码都会开源，每节的代码链接我都会放在文章的后面，而为了之后修正和查看方便，<strong>我的代码中可能会有大量重复的类，项目的组织也和正常项目大相径庭，大家请不要照抄，请大家务必手打代码，你复制粘贴代码是学不会的。</strong></p>
+<p>首先我们得明确，创建一个物品需要哪几个步骤。答案是三步：创建自己的物品并继承原版的物品的类，实例化这个物品，最后把这个物品注册进游戏。</p>
+<p>注意上面这些步骤是通用的，很多自定义内容的添加都是遵循着上面的步骤。</p>
+<p>知道了上述步骤之后，我们就开始添加我们的第一个物品吧，在这里我们将添加一个黑曜石碇。</p>
+<p>首先我们需要创建一个物品的类，并且让这个类继承原版的<code>Item</code>类（介于目标读者的水平，Item就是物品的英文）。</p>
+<pre><code class="language-java">public class ObsidianIngot extends Item {
+    public ObsidianIngot() {
+        super(new Properties().group(ItemGroup.MATERIALS));
+    }
+}
+</code></pre>
+<p>这个类的代码非常简单，只有一个构造函数。</p>
+<p>这里唯一值得一说的就是<code>new Properties().group(ItemGroup.MATERIALS)</code>，这个<code>Properties</code>规定了物品的一些属性，比如：是不是食物，或者这个物品在创造模式的哪一个物品栏。</p>
+<p>在这里我们创建了一个<code>Properties</code>并且调用了<code>group</code>方法然后传入了<code>ItemGroup.MATERIALS</code>，这样做是将物品添加进，原版「杂项」创造模式物品栏里。当然你也可以不调用 <code>group</code>方法，如果这样就只能通过<code>/give</code>命令才能获取到物品了。</p>
+<p>接下去我们需要实例化和注册这个物品，在以前这个是分开的两步，但是Forge加入了一个叫做<code>DeferredRegister</code>的机制，使得注册一个物品变得非常的简单。</p>
+<pre><code class="language-java">public class ItemRegistry {
+  public static final DeferredRegister&lt;Item&gt; ITEMS = new DeferredRegister&lt;&gt;(ForgeRegistries.ITEMS, &quot;neutrino&quot;);
+  public static RegistryObject&lt;Item&gt; obsidianIngot = ITEMS.register(&quot;obsidian_ingot&quot;, () -&gt; {
+    return new ObsidianIngot();
+  });
+}
+</code></pre>
+<p>这就是注册的全部内容，首先我们创建了一个类型为<code>DeferredRegister&lt;Item&gt;</code>名字叫做<code>ITEMS</code>的变量，这个泛型表明我们需要注册的东西是物品，然后通过<code>new DeferredRegister&lt;&gt;(ForgeRegistries.ITEMS, &quot;neutrino”);</code>实例化了这个类，这个类里有两个参数<code>ForgeRegistries.ITEMS</code>代表了我们要注册的是物品，第二个参数填入的应该是你的<code>modId</code>。这样我们就创建好了注册器，接下去就是注册我们的物品。</p>
+<p>还记得我之前说过的吗？注册需要两个东西，一个是「注册名」，还有一个就是你要注册对象的实例，<code>ITEMS.register</code>里的两个参数就是分别对应了这两个东西。</p>
+<pre><code class="language-java">public static RegistryObject&lt;Item&gt; obsidianIngot = ITEMS.register(&quot;obsidian_ingot&quot;, () -&gt; {
+  return new ObsidianIngot();
+});
+</code></pre>
+<p>第一个参数很好理解，<code>”obsidian_ingot”</code>就对应着注册名，请注意这里的注册名也不要用大写字母，第二个参数看上去非常复杂，但是实际上也挺简单的。</p>
+<p>首先我们先来看一下<code>ITEMS</code>的<code>register</code>的函数签名。</p>
+<pre><code class="language-java">public &lt;I extends T&gt; RegistryObject&lt;I&gt; register(final String name, final Supplier&lt;? extends I&gt; sup)
+</code></pre>
+<p>从这个函数签名里可以看见，第二个参数的类型是<code>Supplier&lt;? extends I&gt;</code>，这意味着你要传入的是一个没有参数的「匿名函数」，而且这个「匿名函数」是得有返回值的。</p>
+<p>那么什么是「匿名函数」呢？</p>
+<pre><code class="language-java">() -&gt; {
+  return new ObsidianIngot();
+}
+</code></pre>
+<p>这个就是一个匿名函数，当然这是一个没有传入参数而且有返回值的匿名函数，匿名函数也可以有参数，也可不需要返回值。</p>
+<pre><code class="language-java">(T) -&gt;{
+  System.out.println(T);
+}
+//这只是演示代码
+</code></pre>
+<p>上面这个「匿名函数」就是传入一个参数，没有返回值的「匿名函数」。</p>
+<p>回到我们的mod开发。</p>
+<pre><code class="language-java">() -&gt; {
+  return new ObsidianIngot();
+}
+</code></pre>
+<p>这个匿名函数的意思就是返回一个我们之前创建的黑曜石类的实例。</p>
+<p>你看，虽然我们没有显式声明变量，但是我们还是在注册时实例化了我们物品的类。</p>
+<p>还差最后一步，我们就可以成功添加物品了。</p>
+<pre><code class="language-java">@Mod(&quot;neutrino&quot;)
+public class Neutrino {
+    public Neutrino() {
+        ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    }
+}
+</code></pre>
+<p>我们在<code>Mod</code>主类的构建方法里添加了一行代码，<code>FMLJavaModLoadingContext.get().getModEventBus()</code>这句话的意思是获取<code>Mod</code>总线，如果你不知什么是<code>Mod</code>总线请向前翻阅。而<code>ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());</code>的意思就是将<code>ITEMS</code>注册进<code>Mod</code>总线里。为什么要注册进<code>Mod</code>总线里呢？原因是，<code>DeferredRegister</code>是基于事件系统实现的。</p>
+<p>到这里，我们要添加的物品所需的代码已经写完了，打开游戏看看吧。</p>
+<p><img src="firstitem.assets/image-20200427101846434.png" alt="image-20200427101846434" /></p>
+<p><img src="firstitem.assets/image-20200427101903271.png" alt="image-20200427101903271" /></p>
+<p><img src="firstitem.assets/image-20200427102030250.png" alt="image-20200427102030250" /></p>
+<p>虽然这个物品还是很丑，但这就是我们第一个物品了。</p>
+<p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_item">源码链接</a></p>
+<h2><a class="header" href="#开发小课堂" id="开发小课堂">开发小课堂</a></h2>
+<p>在开发大型项目的过程中，通过看函数名猜函数功能，这是一个非常重要的能力。当你不清楚一个函数的功能是什么，就翻译翻译它的名字，猜猜看它的功能吧。</p>
+<p>另外一个就是要学会看函数签名，理解一个函数最重要一点就是要理解它的输入是什么（参数），它的输出是什么（返回值）。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../item/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../item/modelandtextures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../item/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../item/modelandtextures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-80068655-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
