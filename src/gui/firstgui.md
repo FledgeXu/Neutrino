@@ -187,17 +187,31 @@ public class ObsidianFirstGuiItem extends Item {
         super(new Properties().group(ModGroup.itemGroup));
     }
 
+
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        if(worldIn.isRemote){
-            Minecraft.getInstance().displayGuiScreen(new ObsidianFirstGui(new StringTextComponent("test")));
+        if (worldIn.isRemote) {
+            DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+                OpenGuI.openGUI();
+            });
         }
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }
 }
+
 ```
 
-你只需要先建成是不是在客户端，然后调用`Minecraft.getInstance().displayGuiScreen`方法显示你的GUI就行，第二个参数是你GUI的标题，我们这里没有渲染标题，但是还是需要填入一个。
+你只需要先判断是不是在客户端，然后调用一个额外的类来打开GUI，`DistExecutor.runWhenOn`这个函数的第一个参数是用来判断物理端的，因为物理服务器上是没有`Screen`的，所以我们不能在这个类里触发类加载（因为Item类在物理客户端上有），我们得到另一个类里触发类加载，第一参数`Dist.CLIENT`就是用来指定物理端的，第二类参数是一个两层的lambda表达式，在这里面我们调用了`OpenGuI.openGUI()`类来打开gui，`DistExecutor`下有很多用来判断物理端而进行不同操作的函数，大家可以按需选用。
+
+```java
+public class OpenGuI {
+    public static void openGUI() {
+        Minecraft.getInstance().displayGuiScreen(new ObsidianFirstGui(new StringTextComponent("test")));
+    }
+}
+```
+
+因为在之前已经通过`DistExecutor.runWhenOn`来判断过物理端了，所以在`OpenGuI`类中，我们不用担心`Screen`缺失的问题，我们在这里调用`Minecraft.getInstance().displayGuiScreen`方法显示GUI，第二个参数是你GUI的标题，我们这里没有渲染标题，但是还是需要填入一个。
 
 打开游戏你就可以看见我们的GUI被渲染出来了。
 

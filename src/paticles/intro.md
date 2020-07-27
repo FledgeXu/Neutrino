@@ -209,10 +209,10 @@ particle.selectSpriteRandomly(sprites);
 
 这句话的意思是随机加载我们例子效果`json`文件里的一个材质。
 
-同样的，这个也需要注册。
+同样的，这个也需要注册，别忘了`value = Dist.CLIENT`。
 
 ```java
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ParticleFactoryRegistry {
 
     @SubscribeEvent

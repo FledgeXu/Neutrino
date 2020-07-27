@@ -44,10 +44,10 @@ public class FluidRegistry {
 
 当然流体还有很多的属性，具体的属性也请看`FluidAttributes`类中的注释。
 
-在大部分时候流体都应该是半透明的，所以我们需要手动的设置流体的RenderType。
+在大部分时候流体都应该是半透明的，所以我们需要手动的设置流体的RenderType，这里别忘了`value = Dist.CLIENT`。
 
 ```java
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD,value = Dist.CLIENT)
 public class RenderTypeRegistry {
     @SubscribeEvent
     public static void onRenderTypeSetup(FMLClientSetupEvent event) {

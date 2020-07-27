@@ -132,3 +132,4 @@ public class ObsidianAnimalRender extends MobRenderer<ObsidianAnimal, ObsidianAn
 可以看到，当你靠近实体时，你就获得了一个饥饿效果，试试用剑杀死它吧。
 
 [源代码](https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/obsidian_animal)
+

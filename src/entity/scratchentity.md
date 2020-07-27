@@ -310,7 +310,7 @@ public class EntityTypeRegistry {
 然后是注册我们实体的渲染。
 
 ```java
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientEventHandler {
     @SubscribeEvent
     public static void onClientSetUpEvent(FMLClientSetupEvent event) {
@@ -321,7 +321,7 @@ public class ClientEventHandler {
 }
 ```
 
-这里应该也挺好理解的。也就不多说什么了。
+这里应该也挺好理解的。也就不多说什么了，同样的别忘了`value = Dist.CLIENT`。
 
 打开游戏使用:
 

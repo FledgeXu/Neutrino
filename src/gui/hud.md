@@ -7,9 +7,9 @@
 Forge给我提供了一个事件让我们可以渲染HUD，这个事件是`RenderGameOverlayEvent` 。
 
  ```java
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(value = Dist.CLIENT)
 public class HudClientEvent {
-  
+
     @SubscribeEvent
     public static void onOverlayRender(RenderGameOverlayEvent event) {
         if (event.getType() != RenderGameOverlayEvent.ElementType.ALL) {
@@ -24,7 +24,7 @@ public class HudClientEvent {
 }
  ```
 
-可以看到，我们订阅了这个事件做了一些判断，最后调用`obsidianGUI.render();`进行了渲染。`RenderGameOverlayEvent`事件有`Pre`和`Post`两个子事件，大家可以按需选用。另外`RenderGameOverlayEvent`这个事件包含有不同的`ElementType`，在渲染你的内容前（特别是要渲染图片时），务必判断一次`ElementType`，以防导致原版内容的错误渲染。
+可以看到，我们订阅了这个事件做了一些判断，最后调用`obsidianGUI.render();`进行了渲染。`RenderGameOverlayEvent`事件有`Pre`和`Post`两个子事件，大家可以按需选用。另外`RenderGameOverlayEvent`这个事件包含有不同的`ElementType`，在渲染你的内容前（特别是要渲染图片时），务必判断一次`ElementType`，以防导致原版内容的错误渲染，同样的这里别忘了`value = Dist.CLIENT`。
 
 ```java
 if (Minecraft.getInstance().player == null || Minecraft.getInstance().player.getHeldItem(Hand.MAIN_HAND).getItem() != ItemRegistry.obsidianHud.get()) {

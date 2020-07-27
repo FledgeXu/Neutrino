@@ -23,7 +23,7 @@ public class ObsidianWrench extends Item {
 接下来我们来看替换物品`IBakedModel`的代码
 
 ```java
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModBusEventHandler {
     @SubscribeEvent
     public static void onModelBaked(ModelBakeEvent event) {
@@ -42,7 +42,7 @@ public class ModBusEventHandler {
 }
 ```
 
-可以看到，我们同样监听了`ModelBakeEvent`，然后通过`modelRegistry.get`获取了默认的`IBakedModel`并将它传入我们新的`IBakedModel`中，然后调用`event.getModelRegistry().put`替换了原版的`IBakedModel`。
+可以看到，我们同样监听了`ModelBakeEvent`，然后通过`modelRegistry.get`获取了默认的`IBakedModel`并将它传入我们新的`IBakedModel`中，然后调用`event.getModelRegistry().put`替换了原版的`IBakedModel`，这里也别忘了`value = Dist.CLIENT`。
 
 接下来看我们的`IBakedModel`：
 

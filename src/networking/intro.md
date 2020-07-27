@@ -137,7 +137,7 @@ public class SendPack {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public SendPack(PacketBuffer buffer) {
-        message = buffer.readString();
+        message = buffer.readString(Short.MAX_VALUE);
     }
 
     public SendPack(String message) {
@@ -155,10 +155,9 @@ public class SendPack {
         ctx.get().setPacketHandled(true);
     }
 }
-
 ```
 
-首先`toBytes`方法和`SendPack(PacketBuffer buffer)`构造方法刚好是一对相反的方法，它们的作用我们之前已经提及，这里就不加赘述了。值得一说的是`PacketBuffer`下面提供了很多非常方便的方法来序列化基本类型，以及在有多个变量序列化时，你得保证这两个方法中调用这些变量的顺序是相同的。
+首先`toBytes`方法和`SendPack(PacketBuffer buffer)`构造方法刚好是一对相反的方法，它们的作用我们之前已经提及，这里就不加赘述了。值得一说的是`PacketBuffer`下面提供了很多非常方便的方法来序列化基本类型，以及在有多个变量序列化时，你得保证这两个方法中调用这些变量的顺序是相同的。请注意查看一下你调用的方法是不是物理客户端独有的（也就是有没有加`@OnlyIn(Dist.CLIENT)`注释)。
 
 然后就是`handler`方法，这个方法的作用就是在接收端接收到数据以后，如何使用这些数据。请注意，你必须把这里的执行操作放在`ctx.get().enqueueWork`这个方法内，以闭包的形式呈现。并且在执行完成后需要加上`ctx.get().setPacketHandled(true);`表示执行成功。之所以这么做，是因为接受网络数据处在一个独立的线程中，所以网络包的执行需要等待时机，在线程安全的情况下执行。在这里我们只是简单的创建了一个Logger然后调用这个Logger输出了内容。
 

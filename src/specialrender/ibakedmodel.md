@@ -245,7 +245,7 @@ Minecraft 在默认情况下会给方块自动创建一个`IBakeModel`，我们�
 `ModBusEventHandler.java`:
 
 ```java
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD,value = Dist.CLIENT)
 public class ModBusEventHandler {
     @SubscribeEvent
     public static void onModelBaked(ModelBakeEvent event) {
@@ -265,7 +265,7 @@ public class ModBusEventHandler {
 }
 ```
 
- 请注意替换`IBakedModel`是在游戏启动过程替换的，所以我们这里使用的是`Mod.EventBusSubscriber.Bus.MOD`。
+ 请注意替换`IBakedModel`是在游戏启动过程替换的，所以我们这里使用的是`Mod.EventBusSubscriber.Bus.MOD`，还有请注意，我们同样不希望它在物理服务器上加载，所以加上了`value = Dist.CLIENT`来确保他只在物理客户端上加载。
 
 ```java
 @SubscribeEvent

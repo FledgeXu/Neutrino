@@ -42,7 +42,7 @@ public class BlockRegistry {
 接下来就是设置我们方块的RenderType的地方，`RenderTypeRegistry`：
 
 ```java
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD,value = Dist.CLIENT)
 public class RenderTypeRegistry {
     @SubscribeEvent
     public static void onRenderTypeSetup(FMLClientSetupEvent event) {
@@ -51,7 +51,17 @@ public class RenderTypeRegistry {
 }
 ```
 
-因为渲染相关的内容都是在客户端发生，所以我们在`FMLClientSetupEvent`事件下注册我们的RenderType。这里我们调用了`RenderTypeLookup.setRenderLayer`来设置我们方块的RenderType，`RenderType.getTranslucent()`指定了我们的RenderType是`translucent`，在`RenderType`类下有着原版所有的RenderType，你也可以自定义RenderType从而使用自定义shader等高级功能。
+因为渲染相关的内容都是在客户端发生，所以我们在`FMLClientSetupEvent`事件下注册我们的RenderType。
+
+物理服务器是没发设置`RenderType`的，为了物理服务器的兼容性，在这里我们添加了`value = Dist.CLIENT`使它只会在物理客户端上监听事件。Forge提供了很多和物理端打交道的东西，除了我们看到的`value = Dist.CLIENT`，还有`@OnlyIn`注释，这个加了这个注释之后你就可以指定一个类只存在于物理客户端，或者物理服务端。当然还有`DistExecutor`，这里类下面有很多方法用来在在不同的物理端来执行不同的代码。
+
+一个非常常见的问题就是，在物理服务端调用了只有在物理客户端存在的类，比如加了`@OnlyIn(Dist.CLIENT)`的类或者方法，当你在物理服务端调用它时，它相当于是不存在的，这时就是出现错误。
+
+你在注意你调用的代码究竟是处于哪一个「逻辑端」的同时，你也得注意你的代码就行执行在哪一个「物理端」。
+
+这一切的努力都是为了在服务器上和在本地游戏中能共用一个jar文件。
+
+这里我们调用了`RenderTypeLookup.setRenderLayer`来设置我们方块的RenderType，`RenderType.getTranslucent()`指定了我们的RenderType是`translucent`，在`RenderType`类下有着原版所有的RenderType，你也可以自定义RenderType从而使用自定义shader等高级功能。
 
 具体的模型和材质请看Github。
 
