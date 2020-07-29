@@ -108,7 +108,7 @@ TileEntityType.Builder.create(() -> {
 public static RegistryObject<TileEntityType<ObsidianCounterTileEntity>> obsidianCounterTileEntity = TILE_ENTITY_TYPE_DEFERRED_REGISTER.register("obsidian_counter_tileentity", () -> TileEntityType.Builder.create(() -> new ObsidianCounterTileEntity(), BlockRegistry.obsidianCounterBlock.get()).build(null));
 ```
 
-这样内容一下子就少了很多，但是为了读者的理解方便，我还是使用了上面的写法。
+这样内容一下子就少了很多，但是为了读者的理解方便，我还是使用了上面的写法，当然别忘了在你的Mod主类中，把`TILE_ENTITY_TYPE_DEFERRED_REGISTER`注册到Mod总线中。
 
 然后我们就可以来看看我们的逻辑了
 
