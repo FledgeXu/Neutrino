@@ -1243,7 +1243,7 @@ public class RenderTypeRegistry {
 <p>当然之前的写法看上去非常复杂，我们可以写得简略一些，如下所示:</p>
 <pre><code class="language-java">public static RegistryObject&lt;TileEntityType&lt;ObsidianCounterTileEntity&gt;&gt; obsidianCounterTileEntity = TILE_ENTITY_TYPE_DEFERRED_REGISTER.register(&quot;obsidian_counter_tileentity&quot;, () -&gt; TileEntityType.Builder.create(() -&gt; new ObsidianCounterTileEntity(), BlockRegistry.obsidianCounterBlock.get()).build(null));
 </code></pre>
-<p>这样内容一下子就少了很多，但是为了读者的理解方便，我还是使用了上面的写法。</p>
+<p>这样内容一下子就少了很多，但是为了读者的理解方便，我还是使用了上面的写法，当然别忘了在你的Mod主类中，把<code>TILE_ENTITY_TYPE_DEFERRED_REGISTER</code>注册到Mod总线中。</p>
 <p>然后我们就可以来看看我们的逻辑了</p>
 <pre><code class="language-java">@Override
 public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
@@ -3664,7 +3664,7 @@ public void render(int mouseX, int mouseY, float partialTicks) {
 <pre><code class="language-java">@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBusEventHandler {
     @SubscribeEvent
-    public static void onClineSetupEvent(FMLClientSetupEvent event) {
+    public static void onClientSetupEvent(FMLClientSetupEvent event) {
         ScreenManager.registerFactory(ContainerTypeRegistry.obsidianFirstContainer.get(), (ObsidianFirstContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) -&gt; {
             return new ObsidianFirstContainerScreen(screenContainer, inv, titleIn);
         });

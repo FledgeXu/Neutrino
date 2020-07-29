@@ -474,7 +474,7 @@ public void render(int mouseX, int mouseY, float partialTicks) {
 <pre><code class="language-java">@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBusEventHandler {
     @SubscribeEvent
-    public static void onClineSetupEvent(FMLClientSetupEvent event) {
+    public static void onClientSetupEvent(FMLClientSetupEvent event) {
         ScreenManager.registerFactory(ContainerTypeRegistry.obsidianFirstContainer.get(), (ObsidianFirstContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) -&gt; {
             return new ObsidianFirstContainerScreen(screenContainer, inv, titleIn);
         });
