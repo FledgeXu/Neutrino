@@ -236,7 +236,7 @@ public void tick() {
   super.tick();
 }
 </code></pre>
-<p>同样的，在实体的<code>tick</code>方法中我们在服务端更新了值，然后同时在客户端和服务端打赢。注意实体是肯定实现了<code>tick</code>方法的。<code>tick</code>是实体最为重要的方法，没有之一。</p>
+<p>同样的，在实体的<code>tick</code>方法中我们在服务端更新了值，然后同时在客户端和服务端打印。注意实体是肯定实现了<code>tick</code>方法的。<code>tick</code>是实体最为重要的方法，没有之一。</p>
 <p>接下来就是保持和恢复数据。</p>
 <pre><code class="language-java">@Override
 protected void readAdditional(CompoundNBT compound) {
