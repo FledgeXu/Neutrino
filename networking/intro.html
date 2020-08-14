@@ -17,8 +17,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
         <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
@@ -166,8 +170,15 @@
 <p>接下来数据流已经传输到了接受包的一端，你在接受时，接收的同样也是字节流，你需要从字节流中获取数据并恢复数据，重建你的数据包。让你的数据包恢复成功，接下来你就可以利用这些数据来执行操作了。</p>
 <p>在Mod开发里，所有的数据包都是通过<code>SimpleChannel</code>管理的，正如这个名字暗示的那样，我们构建的数据包将通过一个个自定义的「Channle（频道）」传输。</p>
 <p>接下来我们来创建数据包<code>Networking</code>:</p>
-<pre><code class="language-java">public class Networking {
+<pre><code class="language-java">package com.tutorial.neutrino.network;
+
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.network.NetworkRegistry;
+import net.minecraftforge.fml.network.simple.SimpleChannel;
+
+public class Networking {
     public static SimpleChannel INSTANCE;
+    public static final String VERSION = &quot;1.0&quot;;
     private static int ID = 0;
 
     public static int nextID() {
@@ -176,15 +187,15 @@
 
     public static void registerMessage() {
         INSTANCE = NetworkRegistry.newSimpleChannel(
-                new ResourceLocation(&quot;neutrino&quot; + &quot;:first_networking&quot;),
+                new ResourceLocation(&quot;neutrino&quot;, &quot;first_networking&quot;),
                 () -&gt; {
-                    return &quot;1.0&quot;;
+                    return VERSION;
                 },
-                (s) -&gt; {
-                    return true;
+                (version) -&gt; {
+                    return version.equals(VERSION);
                 },
-                (s) -&gt; {
-                    return true;
+                (version) -&gt; {
+                    return version.equals(VERSION);
                 });
         INSTANCE.registerMessage(
                 nextID(),
@@ -195,27 +206,28 @@
                 (buffer) -&gt; {
                     return new SendPack(buffer);
                 },
-                (pack,ctx) -&gt;{
+                (pack, ctx) -&gt; {
                     pack.handler(ctx);
                 }
         );
     }
 }
+
 </code></pre>
 <pre><code class="language-java">INSTANCE = NetworkRegistry.newSimpleChannel(
-  new ResourceLocation(&quot;neutrino&quot; + &quot;:first_networking&quot;),
-  () -&gt; {
-    return &quot;1.0&quot;;
-  },
-  (s) -&gt; {
-    return true;
-  },
-  (s) -&gt; {
-    return true;
-  });
+                new ResourceLocation(&quot;neutrino&quot;, &quot;first_networking&quot;),
+                () -&gt; {
+                    return VERSION;
+                },
+                (version) -&gt; {
+                    return version.equals(VERSION);
+                },
+                (version) -&gt; {
+                    return version.equals(VERSION);
+                });
 </code></pre>
 <p>首先我们创建了一个SimpleChannel的实例，这个实例就是我们之后发包时需要操作的对象。</p>
-<p>他有如下几个参数，第一个参数<code>ResourceLocation</code>是这个<code>SimpleChannle</code>的唯一标识符，因为一个mod里可以有许多个传送数据用的<code>SimplieChannle</code>，所以需要这个标识符。第二个参数是个匿名函数，返回值是数据包的版本，第三、四个参数是用来控制能否向服务或者向客户传输数据的，这里我们需要向两端传输数据，所以返回值都是<code>true</code>。如上我们的频道就已经构建完成了。</p>
+<p>他有如下几个参数，第一个参数<code>ResourceLocation</code>是这个<code>SimpleChannle</code>的唯一标识符，因为一个mod里可以有许多个传送数据用的<code>SimplieChannle</code>，所以需要这个标识符。第二个参数是个匿名函数，返回值是数据包的版本，第三、四个参数是用来控制客户端和服务端可以接收的版本号的，这里的version就是具体的版本号，我们在这里判断是否和当前的版本号相同。如上我们的频道就已经构建完成了。</p>
 <p>接下来我们来注册数据包。</p>
 <pre><code class="language-java">INSTANCE.registerMessage(
   nextID(),
@@ -260,27 +272,28 @@
 </code></pre>
 <p>但是为了读者的理解方便，我还是保留上面的形式。</p>
 <p>接下来就是我们自定义的数据包了<code>SendPack.java</code>:</p>
-<pre><code class="language-java">public class SendPack {
-    private String message;
-    private static final Logger LOGGER = LogManager.getLogger();
+<pre><code class="language-java">public class Networking {
+    public static SimpleChannel INSTANCE;
+    public static final String VERSION = &quot;1.0&quot;;
+    private static int ID = 0;
 
-    public SendPack(PacketBuffer buffer) {
-        message = buffer.readString(Short.MAX_VALUE);
+    public static int nextID() {
+        return ID++;
     }
 
-    public SendPack(String message) {
-        this.message = message;
-    }
-
-    public void toBytes(PacketBuffer buf) {
-        buf.writeString(this.message);
-    }
-
-    public void handler(Supplier&lt;NetworkEvent.Context&gt; ctx) {
-        ctx.get().enqueueWork(() -&gt; {
-            LOGGER.info(this.message);
-        });
-        ctx.get().setPacketHandled(true);
+    public static void registerMessage() {
+        INSTANCE = NetworkRegistry.newSimpleChannel(
+                new ResourceLocation(&quot;neutrino&quot;, &quot;first_networking&quot;),
+                () -&gt; VERSION,
+                (version) -&gt; version.equals(VERSION),
+                (version) -&gt; version.equals(VERSION));
+        INSTANCE.registerMessage(
+                nextID(),
+                SendPack.class,
+                SendPack::toBytes,
+                SendPack::new,
+                SendPack::handler
+        );
     }
 }
 </code></pre>
