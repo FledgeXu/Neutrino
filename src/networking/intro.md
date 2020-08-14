@@ -21,8 +21,15 @@
 接下来我们来创建数据包`Networking`:
 
 ```java
+package com.tutorial.neutrino.network;
+
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.network.NetworkRegistry;
+import net.minecraftforge.fml.network.simple.SimpleChannel;
+
 public class Networking {
     public static SimpleChannel INSTANCE;
+    public static final String VERSION = "1.0";
     private static int ID = 0;
 
     public static int nextID() {
@@ -31,15 +38,15 @@ public class Networking {
 
     public static void registerMessage() {
         INSTANCE = NetworkRegistry.newSimpleChannel(
-                new ResourceLocation("neutrino" + ":first_networking"),
+                new ResourceLocation("neutrino", "first_networking"),
                 () -> {
-                    return "1.0";
+                    return VERSION;
                 },
-                (s) -> {
-                    return true;
+                (version) -> {
+                    return version.equals(VERSION);
                 },
-                (s) -> {
-                    return true;
+                (version) -> {
+                    return version.equals(VERSION);
                 });
         INSTANCE.registerMessage(
                 nextID(),
@@ -50,33 +57,34 @@ public class Networking {
                 (buffer) -> {
                     return new SendPack(buffer);
                 },
-                (pack,ctx) ->{
+                (pack, ctx) -> {
                     pack.handler(ctx);
                 }
         );
     }
 }
+
 ```
 
 
 
 ```java
 INSTANCE = NetworkRegistry.newSimpleChannel(
-  new ResourceLocation("neutrino" + ":first_networking"),
-  () -> {
-    return "1.0";
-  },
-  (s) -> {
-    return true;
-  },
-  (s) -> {
-    return true;
-  });
+                new ResourceLocation("neutrino", "first_networking"),
+                () -> {
+                    return VERSION;
+                },
+                (version) -> {
+                    return version.equals(VERSION);
+                },
+                (version) -> {
+                    return version.equals(VERSION);
+                });
 ```
 
 首先我们创建了一个SimpleChannel的实例，这个实例就是我们之后发包时需要操作的对象。
 
-他有如下几个参数，第一个参数`ResourceLocation`是这个`SimpleChannle`的唯一标识符，因为一个mod里可以有许多个传送数据用的`SimplieChannle`，所以需要这个标识符。第二个参数是个匿名函数，返回值是数据包的版本，第三、四个参数是用来控制能否向服务或者向客户传输数据的，这里我们需要向两端传输数据，所以返回值都是`true`。如上我们的频道就已经构建完成了。
+他有如下几个参数，第一个参数`ResourceLocation`是这个`SimpleChannle`的唯一标识符，因为一个mod里可以有许多个传送数据用的`SimplieChannle`，所以需要这个标识符。第二个参数是个匿名函数，返回值是数据包的版本，第三、四个参数是用来控制客户端和服务端可以接收的版本号的，这里的version就是具体的版本号，我们在这里判断是否和当前的版本号相同。如上我们的频道就已经构建完成了。
 
 接下来我们来注册数据包。
 
@@ -132,27 +140,28 @@ public class Networking {
 接下来就是我们自定义的数据包了`SendPack.java`:
 
 ```java
-public class SendPack {
-    private String message;
-    private static final Logger LOGGER = LogManager.getLogger();
+public class Networking {
+    public static SimpleChannel INSTANCE;
+    public static final String VERSION = "1.0";
+    private static int ID = 0;
 
-    public SendPack(PacketBuffer buffer) {
-        message = buffer.readString(Short.MAX_VALUE);
+    public static int nextID() {
+        return ID++;
     }
 
-    public SendPack(String message) {
-        this.message = message;
-    }
-
-    public void toBytes(PacketBuffer buf) {
-        buf.writeString(this.message);
-    }
-
-    public void handler(Supplier<NetworkEvent.Context> ctx) {
-        ctx.get().enqueueWork(() -> {
-            LOGGER.info(this.message);
-        });
-        ctx.get().setPacketHandled(true);
+    public static void registerMessage() {
+        INSTANCE = NetworkRegistry.newSimpleChannel(
+                new ResourceLocation("neutrino", "first_networking"),
+                () -> VERSION,
+                (version) -> version.equals(VERSION),
+                (version) -> version.equals(VERSION));
+        INSTANCE.registerMessage(
+                nextID(),
+                SendPack.class,
+                SendPack::toBytes,
+                SendPack::new,
+                SendPack::handler
+        );
     }
 }
 ```
