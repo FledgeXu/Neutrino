@@ -18,7 +18,7 @@
 
 在Mod开发里，所有的数据包都是通过`SimpleChannel`管理的，正如这个名字暗示的那样，我们构建的数据包将通过一个个自定义的「Channle（频道）」传输。
 
-接下来我们来创建数据包`Networking`:
+接下来我们来注册数据包`Networking`:
 
 ```java
 package com.tutorial.neutrino.network;
