@@ -2179,28 +2179,27 @@ public class Networking {
 </code></pre>
 <p>但是为了读者的理解方便，我还是保留上面的形式。</p>
 <p>接下来就是我们自定义的数据包了<code>SendPack.java</code>:</p>
-<pre><code class="language-java">public class Networking {
-    public static SimpleChannel INSTANCE;
-    public static final String VERSION = &quot;1.0&quot;;
-    private static int ID = 0;
+<pre><code class="language-java">public class SendPack {
+    private String message;
+    private static final Logger LOGGER = LogManager.getLogger();
 
-    public static int nextID() {
-        return ID++;
+    public SendPack(PacketBuffer buffer) {
+        message = buffer.readString(Short.MAX_VALUE);
     }
 
-    public static void registerMessage() {
-        INSTANCE = NetworkRegistry.newSimpleChannel(
-                new ResourceLocation(&quot;neutrino&quot;, &quot;first_networking&quot;),
-                () -&gt; VERSION,
-                (version) -&gt; version.equals(VERSION),
-                (version) -&gt; version.equals(VERSION));
-        INSTANCE.registerMessage(
-                nextID(),
-                SendPack.class,
-                SendPack::toBytes,
-                SendPack::new,
-                SendPack::handler
-        );
+    public SendPack(String message) {
+        this.message = message;
+    }
+
+    public void toBytes(PacketBuffer buf) {
+        buf.writeString(this.message);
+    }
+
+    public void handler(Supplier&lt;NetworkEvent.Context&gt; ctx) {
+        ctx.get().enqueueWork(() -&gt; {
+            LOGGER.info(this.message);
+        });
+        ctx.get().setPacketHandled(true);
     }
 }
 </code></pre>
