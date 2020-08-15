@@ -140,28 +140,27 @@ public class Networking {
 接下来就是我们自定义的数据包了`SendPack.java`:
 
 ```java
-public class Networking {
-    public static SimpleChannel INSTANCE;
-    public static final String VERSION = "1.0";
-    private static int ID = 0;
+public class SendPack {
+    private String message;
+    private static final Logger LOGGER = LogManager.getLogger();
 
-    public static int nextID() {
-        return ID++;
+    public SendPack(PacketBuffer buffer) {
+        message = buffer.readString(Short.MAX_VALUE);
     }
 
-    public static void registerMessage() {
-        INSTANCE = NetworkRegistry.newSimpleChannel(
-                new ResourceLocation("neutrino", "first_networking"),
-                () -> VERSION,
-                (version) -> version.equals(VERSION),
-                (version) -> version.equals(VERSION));
-        INSTANCE.registerMessage(
-                nextID(),
-                SendPack.class,
-                SendPack::toBytes,
-                SendPack::new,
-                SendPack::handler
-        );
+    public SendPack(String message) {
+        this.message = message;
+    }
+
+    public void toBytes(PacketBuffer buf) {
+        buf.writeString(this.message);
+    }
+
+    public void handler(Supplier<NetworkEvent.Context> ctx) {
+        ctx.get().enqueueWork(() -> {
+            LOGGER.info(this.message);
+        });
+        ctx.get().setPacketHandled(true);
     }
 }
 ```
