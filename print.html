@@ -2076,7 +2076,7 @@ public class MyStaticClientOnlyEventHandler {
 <p>无论你是想从客户端往服务端发包，还是从服务端往客户端发包，你要做的第一件事就是——构建数据包，这个数据包就是你要发送的具体消息。接下来是序列化成字节流，因为在网络中所有的数据都是以字节流的形式传输的，你的数据包也不例外，而又因为数据包的内容是你自己定义的，你得自己实现序列化操作。</p>
 <p>接下来数据流已经传输到了接受包的一端，你在接受时，接收的同样也是字节流，你需要从字节流中获取数据并恢复数据，重建你的数据包。让你的数据包恢复成功，接下来你就可以利用这些数据来执行操作了。</p>
 <p>在Mod开发里，所有的数据包都是通过<code>SimpleChannel</code>管理的，正如这个名字暗示的那样，我们构建的数据包将通过一个个自定义的「Channle（频道）」传输。</p>
-<p>接下来我们来创建数据包<code>Networking</code>:</p>
+<p>接下来我们来注册数据包<code>Networking</code>:</p>
 <pre><code class="language-java">package com.tutorial.neutrino.network;
 
 import net.minecraft.util.ResourceLocation;
