@@ -6,7 +6,7 @@
 
 其中的`minecraft `闭包下的内容就是关于Forge Gradle的配置。
 
-其中`mappings channel: 'snapshot', version: '20190719-1.14.3’`配置项规定了本项目使用的mapping文件版本，这里我强烈建议你经常更新mapping文件，你可以在[这里](http://export.mcpbot.bspk.rs/)找到所有的mapping文件。那么什么是mapping文件呢？还记得我们之间提及的`srg名`和`mcp名`吗？mapping文件的作用就是提供`srg名`和`mcp名`之间的翻译。
+其中`mappings channel: 'snapshot', version: '20190719-1.14.3'`配置项规定了本项目使用的mapping文件版本，这里我强烈建议你经常更新mapping文件，你可以在[这里](http://export.mcpbot.bspk.rs/)找到所有的mapping文件。那么什么是mapping文件呢？还记得我们之间提及的`srg名`和`mcp名`吗？mapping文件的作用就是提供`srg名`和`mcp名`之间的翻译。
 
 `channel`的意思是mapping文件的分类，在大部分情况下，你都应该使用`snapshot`（快照版本）来确保你的mcp名字是最新的。而之后的`version`就是具体的版本了，大部分情况下是高版本游戏兼容低版本mapping的，当然游戏版本号不能相差太远。其中还有两个被注释起来的参数，这里我们暂且不提。
 
