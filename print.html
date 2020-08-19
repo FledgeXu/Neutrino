@@ -307,7 +307,7 @@
 <p>在这一节中，我会介绍一下Mod开发产生的一系列文件和文件夹，以及它们的作用。</p>
 <p>首先最为重要的一个文件便是：<code>build.gradle</code>，这个文件是Gradle的配置文件，它规定了Mod的项目是如何构建，有哪些依赖，如何配置等。</p>
 <p>其中的<code>minecraft </code>闭包下的内容就是关于Forge Gradle的配置。</p>
-<p>其中<code>mappings channel: 'snapshot', version: '20190719-1.14.3’</code>配置项规定了本项目使用的mapping文件版本，这里我强烈建议你经常更新mapping文件，你可以在<a href="http://export.mcpbot.bspk.rs/">这里</a>找到所有的mapping文件。那么什么是mapping文件呢？还记得我们之间提及的<code>srg名</code>和<code>mcp名</code>吗？mapping文件的作用就是提供<code>srg名</code>和<code>mcp名</code>之间的翻译。</p>
+<p>其中<code>mappings channel: 'snapshot', version: '20190719-1.14.3'</code>配置项规定了本项目使用的mapping文件版本，这里我强烈建议你经常更新mapping文件，你可以在<a href="http://export.mcpbot.bspk.rs/">这里</a>找到所有的mapping文件。那么什么是mapping文件呢？还记得我们之间提及的<code>srg名</code>和<code>mcp名</code>吗？mapping文件的作用就是提供<code>srg名</code>和<code>mcp名</code>之间的翻译。</p>
 <p><code>channel</code>的意思是mapping文件的分类，在大部分情况下，你都应该使用<code>snapshot</code>（快照版本）来确保你的mcp名字是最新的。而之后的<code>version</code>就是具体的版本了，大部分情况下是高版本游戏兼容低版本mapping的，当然游戏版本号不能相差太远。其中还有两个被注释起来的参数，这里我们暂且不提。</p>
 <p>另外一个你可能会用的就是<code>dependencies</code>配置，如果你的mod需要依赖别的java库或者别的mod，你需要在这里添加内容，具体添加的方式，注释已经给出了详细的例子，这里就不多说了。其中<code>minecraft 'net.minecraftforge:forge:1.15.2-31.1.0'</code>规定了你需要用到的Forge版本，如果你想升级Forge版本可以修改这一行的内容，版本的格式是<code>net.minecraftforge:forge:游戏版本号-Forge版本号</code>。</p>
 <p>这个文件剩余的部分就和一个普通的<code>build.gradle</code>没什么差别了，如果想知道更详细的知识建议去学习Gradle。</p>
