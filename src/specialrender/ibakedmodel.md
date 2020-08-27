@@ -114,7 +114,7 @@ public ObsidianHiddenBlockModel(IBakedModel existingModel) {
 | `isGui3d`            | 控制掉落物是否是3D的                         |
 | `func_230044_c_()`   | 暂不明，应该和物品的渲染光有关               |
 | `isBuiltInRenderer`  | 是否使用内置的渲染，返回`Ture`会使用ISTR渲染 |
-| `isBuiltInRenderer`  | 粒子效果材质                                 |
+| `getParticleTexture` | 粒子效果材质                                 |
 | `getOverrides`       | 获取模型的复写列表                           |
 
 在这里我们直接调用了默认模型的相关方法，就不需要自己设置了。
