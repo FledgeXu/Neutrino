@@ -62,7 +62,7 @@ public class ObsidianCounterTileEntity extends TileEntity {
 super(TileEntityTypeRegistry.obsidianCounterTileEntity.get());
 ```
 
-这里的构造方法，我们向我们的父类传入了一个`TilEnttityType`，那么这个`TilEntityType`又是什么东西呢？这个`TileEntityType`故名思义是方块实体的「类型」，这个「类型」规定了我们的方块实体要怎么创建出来，以及它和哪些方块绑定，接下来我们就来看看我们的`TilEntityType`是怎么被创建出来和被注册的吧。
+这里的构造方法，我们向我们的父类传入了一个`TilEnttityType`，那么这个`TileEntityType`又是什么东西呢？这个`TileEntityType`故名思义是方块实体的「类型」，这个「类型」规定了我们的方块实体要怎么创建出来，以及它和哪些方块绑定，接下来我们就来看看我们的`TilEntityType`是怎么被创建出来和被注册的吧。
 
 接着我们创建了一个新的类叫做`TileEntityTypeRegistry`:
 
