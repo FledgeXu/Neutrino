@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,8 +163,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#forge开发环境的配置" id="forge开发环境的配置">Forge开发环境的配置</a></h1>
-<h2><a class="header" href="#需要的工具" id="需要的工具">需要的工具</a></h2>
+                        <h1 id="forge开发环境的配置"><a class="header" href="#forge开发环境的配置">Forge开发环境的配置</a></h1>
+<h2 id="需要的工具"><a class="header" href="#需要的工具">需要的工具</a></h2>
 <ul>
 <li>
 <p><a href="https://adoptopenjdk.net/?variant=openjdk8&amp;jvmVariant=hotspot">AdoptOpenJDK8-HotSpot</a>，出于兼容性的考虑，<strong>请确保你安装的是JDK8</strong>。</p>
@@ -173,10 +177,10 @@
 </li>
 </ul>
 <p><strong>注意，介于预想读者的水平，配置过程十有八九是会失败的，建议直接使用<a href="https://v2mcdev.com/t/topic/589">ForgeGradleCN(推荐)</a>或者<a href="https://v2mcdev.com/t/topic/249/2">离线包</a>，配置完ForgeGradleCN后继续进行之后的步骤</strong></p>
-<h2><a class="header" href="#总体的介绍" id="总体的介绍">总体的介绍</a></h2>
+<h2 id="总体的介绍"><a class="header" href="#总体的介绍">总体的介绍</a></h2>
 <p>Minecraft Forge是一个Gradle项目，Gradle是一个项目构建工具，其主要作用是负责项目的依赖管理、构建等功能。依赖管理指的是帮你自动地下载和配置你开发中使用的库，也就是别人写好的方便你自己开发的代码。构建指的是将你写的mod打包成别人可以安装的jar文件。</p>
 <p>Forge官方写了一个叫做ForgeGradle（以后简称FG）的插件来负责整个mod开发环境的配置（<del>为什么要说这个呢，让你知道当环境配置失败时该骂谁</del>)。</p>
-<h2><a class="header" href="#开始配置" id="开始配置">开始配置</a></h2>
+<h2 id="开始配置"><a class="header" href="#开始配置">开始配置</a></h2>
 <p>首先选择启动页面的<code>打开或导入</code>。</p>
 <p><img src="setup.assets/image-20200426182350327.png" alt="image-20200426182350327" /></p>
 <p>选择你MDK解压目录下的<code>build.gradle</code>打开。</p>
@@ -205,12 +209,12 @@
 <p><img src="setup.assets/image-20200426201131698.png" alt="image-20200426201131698" /></p>
 <p>为了之后创建目录和子包的方便，按照下图将「拼合包」和「压缩空的中间包」取消选择。</p>
 <p><img src="setup.assets/image-20200510143006591.png" alt="image-20200510143006591" /></p>
-<h2><a class="header" href="#idea的编码配置windows用户专用" id="idea的编码配置windows用户专用">IDEA的编码配置（Windows用户专用）</a></h2>
+<h2 id="idea的编码配置windows用户专用"><a class="header" href="#idea的编码配置windows用户专用">IDEA的编码配置（Windows用户专用）</a></h2>
 <p>选择Configure下的<code>设置/首选项</code>。</p>
 <p><img src="setup.assets/image-20200426192159954.png" alt="image-20200426192159954" /></p>
 <p>选择<code>编辑器=&gt;文件编码</code>，将右侧所有涉及到编码全部改成<code>UTF-8</code>，并把<code>创建UTF-8文件</code>改成<code>With NO BOM</code>。</p>
 <p><img src="setup.assets/image-20200426192350734.png" alt="image-20200426192350734" /></p>
-<h2><a class="header" href="#jdk常见错误" id="jdk常见错误">JDK常见错误</a></h2>
+<h2 id="jdk常见错误"><a class="header" href="#jdk常见错误">JDK常见错误</a></h2>
 <p>如果你的电脑里有多个JDK，有可能IntelliJ自动选择的JDK是错误的，导致无法导入，你需要手动修改项目的JDK和Gradle运行所需要的JDK。</p>
 <p>选择<code>文件</code>下的<code>项目结构</code>。</p>
 <p><img src="setup.assets/image-20200426193744538.png" alt="image-20200426193744538" /></p>

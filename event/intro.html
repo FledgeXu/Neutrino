@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#事件系统" id="事件系统">事件系统</a></h1>
+                        <h1 id="事件系统"><a class="header" href="#事件系统">事件系统</a></h1>
 <p>在开始我们接下来的教程之前，我们得先讲讲事件系统。在之前的章节中，我一直用<code>DeferredRegister</code>系统掩盖了直接的事件系统，可惜的是这已经无法再隐藏下去了，在这一节中，我们将学习事件系统，为了读者方便理解，如果你已经忘了总线，事件和事件处理器是什么的话，请先翻阅之前的内容。</p>
 <p>首先要说明的是这个事件系统并不是Minecraft自带的，这个事件系统是Forge实现的。</p>
 <p>你可以用两种方式来使用事件系统，一种是实例方式，一种是静态的方式。</p>

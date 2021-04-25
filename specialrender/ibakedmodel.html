@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#ibakedmodel烘焙模型" id="ibakedmodel烘焙模型">IBakedModel(烘焙模型)</a></h1>
+                        <h1 id="ibakedmodel烘焙模型"><a class="header" href="#ibakedmodel烘焙模型">IBakedModel(烘焙模型)</a></h1>
 <p>首先我们从IBakedModel开始讲起。在开始正式写代码之前，我们先要了解如何一个方块是如何渲染出来的</p>
 <p>Minecraft本身会读取<code>json</code>和材质文件将其转换成<code>IModel</code>接口的实例，然后<code>IModel</code>进行了「Bake（烘焙）」处理，变成了<code>IBakedModel</code>，这个<code>IBakedModel</code>会被放入<code>BlockRendererDispatcher</code>中，当游戏需要时会直接从<code>BlockRendererDispatcher</code>取出<code>IBakedModel</code>进行渲染。至于什么是「Bake」，Bake基本上是对模型的材质进行光照计算等操作，让它变成可以直接被GPU渲染的东西。</p>
 <p>在这节中我们将来研究如何为我们的方块自定义<code>IBakedModel</code>。这节我们将要制作一个「隐藏方块」，这个方块会自动的显示它下方方块的模型的材质（虽然有些Bug，但是为了演示这已经足够了）。</p>
@@ -374,7 +378,7 @@ public static void onModelBaked(ModelBakeEvent event)
 <p>打开游戏，你就可以看到我们创建的「隐藏方块」了。</p>
 <p><img src="ibakedmodel.assets/image-20200430173122813.png" alt="image-20200430173122813" /></p>
 <p>在这张图片里上面的方块都是同一种方块。</p>
-<h2><a class="header" href="#编程小课堂" id="编程小课堂">编程小课堂</a></h2>
+<h2 id="编程小课堂"><a class="header" href="#编程小课堂">编程小课堂</a></h2>
 <p>在Forge里，所以的事件都是<code>Event</code>类的子类，所以你可通过查看<code>Event</code>类继承树的方式查看到Forge提供的所有事件。</p>
 
                     </main>

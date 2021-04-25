@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#自定义维度与区块生成器以及生物群系提供器" id="自定义维度与区块生成器以及生物群系提供器">自定义维度与区块生成器以及生物群系提供器</a></h1>
+                        <h1 id="自定义维度与区块生成器以及生物群系提供器"><a class="header" href="#自定义维度与区块生成器以及生物群系提供器">自定义维度与区块生成器以及生物群系提供器</a></h1>
 <p>首先先原谅我起了这么长的一个标题。在这节中，我们将要来学习如何生成一个维度，在这个过程中我们还会学习到如何写区块生成器以及生物群系提供器。</p>
 <p>在开始我们的代码之前，我们得先来理一下维度生成的过程是什么样子的。</p>
 <p>首先我们有一个<code>Dimension</code>，他规定了维度的高度、天空的颜色等。在<code>Dimension</code>中有一个<code>ChunkGenerator</code>，它负责根据特定的算法决定了维度的地形。在<code>ChunkGenerator</code>里有个<code>BiomeProvider</code>，它决定了特定地方是什么生物群系。然后Minecraft会根据生物群系添加类似于生物，结构等东西。</p>

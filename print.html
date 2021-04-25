@@ -28,7 +28,9 @@
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
+        
         <link rel="stylesheet" href="css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
@@ -130,9 +132,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -161,7 +165,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#导论" id="导论">导论</a></h1>
+                        <h1 id="导论"><a class="header" href="#导论">导论</a></h1>
 <p>首先欢迎你来到这个教程，既然你会打开这个教程，想必你心中有了开发一个属于自己的mod的念头吧。</p>
 <p>正好，这个教程也是为这个目的服务的。但是开发一个属于自己的mod并不是一件容易的事情，你需要学习非常多的知识才能达成这个目标，阅读和跟随这个教程只是非常浅显的部分。</p>
 <p>首先我想让你思考一个问题：<strong>你真的需要自己从头开发一个mod吗？</strong></p>
@@ -173,7 +177,7 @@
 <p>如果你有任何的问题，请去<a href="https://v2mcdev.com/">论坛</a>上<strong>按照模版</strong>发帖提问。</p>
 <p><strong>许可证</strong></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
-<h1><a class="header" href="#forge是什么" id="forge是什么">Forge是什么</a></h1>
+<h1 id="forge是什么"><a class="header" href="#forge是什么">Forge是什么</a></h1>
 <p>本教程是一个基于Forge的Mod开发教程，那么自然而然的要回答一个问题：「Forge是什么？」</p>
 <p>乍一看，这个好像根本就不是一个问题，「Forge？Forge不就是Forge吗？」看到这个问题的你内心中的第一个浮现出的想法估计就是这个。</p>
 <p>但是回答这个问题还是非常有必要的，接下去我会稍微讲一讲Forge是什么，以及Forge的历史。这些看上去和我们教程无关的内容，其实是Mod开发领域的「乡谣（Lore）」，学会这些可以更好的让你和其他人交流。</p>
@@ -192,7 +196,7 @@
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>API 即 「Application programming interface（应用程序接口）」，是程序的提供的一种机制允许第三方修改或者添加功能。</p>
 </div>
-<h1><a class="header" href="#minecraft如何运作的" id="minecraft如何运作的">Minecraft如何运作的</a></h1>
+<h1 id="minecraft如何运作的"><a class="header" href="#minecraft如何运作的">Minecraft如何运作的</a></h1>
 <p>这节的内容非常重要，你必须在自己的大脑中构建起Minecraft运行的模型图像，这将会帮助你理解后面涉及到的概念。</p>
 <p>在这一节中，我将介绍一下Minecraft大体上是怎么运作的，以及一个非常重要的概念：「端」。</p>
 <p>Minecraft大体上属于「C/S架构（客户端/服务端架构）」。那么什么是「服务端」，什么又是「客户端」呢？</p>
@@ -219,7 +223,7 @@
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>线程是程序调度的单位之一，处于不同的线程意味着这两个的逻辑和数据是互相独立的，只能通过特定的方法同步数据。具体来说，服务端处于「Server thread」，客户端处于「Render thread」，如果你有观察过Minecraft启动时的输出日志，应该会看到这两个词。</p>
 </div>
-<h1><a class="header" href="#开发模型" id="开发模型">开发模型</a></h1>
+<h1 id="开发模型"><a class="header" href="#开发模型">开发模型</a></h1>
 <p>在这节中，我们将会粗略的讲一讲Minecraft mod的开发模型是什么样子的，理解这个模型将有助于你理解mod开发中的很多操作是为了什么。</p>
 <p>在我看来，Minecraft mod 开发基本上遵循了「事件驱动模式」，这里我们不会详细的讨论纠结什么是「事件驱动模式」，你只需要有一个感性的了解即可。</p>
 <p>那么Minecraft「事件驱动模式」是怎么样子的呢？要回答这个问题，我们得先理清三个概念：「事件」「总线」和「事件处理器」。</p>
@@ -230,18 +234,18 @@
 <p>注意这张图里的事件和事件处理器是没有先后顺序的。</p>
 <p>在Minecraft中，所写的逻辑基本上都是事件处理。</p>
 <p>在Forge开发里有两条总线，<code>Mod总线</code>和<code>Forge总线</code>，所有和初始化相关的事件都是在<code>Mod总线</code>内，其他所有事件都在<code>Forge总线</code>内。</p>
-<h1><a class="header" href="#一些核心概念" id="一些核心概念">一些核心概念</a></h1>
+<h1 id="一些核心概念"><a class="header" href="#一些核心概念">一些核心概念</a></h1>
 <p>在这一小节中，我会讲几个不难理解但是非常重要的概念。</p>
-<h2><a class="header" href="#注册" id="注册">注册</a></h2>
+<h2 id="注册"><a class="header" href="#注册">注册</a></h2>
 <p>如果你想往Minecraft里添加一些内容，那么你必须做的一件事就是注册。注册是一种机制，告诉游戏本身，有哪东西可以使用。你注册时需要的东西基本上可以分成两个部分：一个注册名和一个实例。</p>
-<h2><a class="header" href="#resourcelocation" id="resourcelocation">ResourceLocation</a></h2>
-<p>你可以把ResourceLocation想成一种特殊格式的字符串，它大概长成这样:<code>minecraft:textures/block/stone.png</code>，一个ResouceLocation指定了资源包下的一个特定的文件。举例来说，前面这个这个ResourceLocation代表了原版资源包下的石头的材质图片。ResouceLocation分成两部分，冒号前面的叫做「域（domain）」，在原版中只有一个域，即<code>minecraft</code>域，但是如果你开始开发mod，那么每个mod都会有一个或者多个域。冒号的后半部分是和<code>assets</code>文件夹内的目录结构一一对应的。从某种程度上来说，ResourceLocation就是一个特殊的URL。</p>
-<h2><a class="header" href="#模型和材质" id="模型和材质">模型和材质</a></h2>
+<h2 id="resourcelocation"><a class="header" href="#resourcelocation">ResourceLocation</a></h2>
+<p>你可以把ResourceLocation想成一种特殊格式的字符串，它大概长成这样:<code>minecraft:textures/block/stone.png</code>，一个ResourceLocation指定了资源包下的一个特定的文件。举例来说，前面这个这个ResourceLocation代表了原版资源包下的石头的材质图片。ResouceLocation分成两部分，冒号前面的叫做「域（domain）」，在原版中只有一个域，即<code>minecraft</code>域，但是如果你开始开发mod，那么每个mod都会有一个或者多个域。冒号的后半部分是和<code>assets</code>文件夹内的目录结构一一对应的。从某种程度上来说，ResourceLocation就是一个特殊的URL。</p>
+<h2 id="模型和材质"><a class="header" href="#模型和材质">模型和材质</a></h2>
 <p>在游戏中3d的对象基本上都有它的模型，模型和材质组合在一起规定了一个对象具体的样子。模型相当于是骨头，材质相当于是皮肤。在大部分时候，你的材质都是png图片，请注意保证你的材质背景是不透明的，其次不要在材质中使用半透明像素，会有不可预知的问题。</p>
-<h1><a class="header" href="#环境配置" id="环境配置">环境配置</a></h1>
+<h1 id="环境配置"><a class="header" href="#环境配置">环境配置</a></h1>
 <p>在这一节中，我们会讲解如何配置Forge的开发环境。（<del>在这一节会劝退大部分人</del>）</p>
-<h1><a class="header" href="#forge开发环境的配置" id="forge开发环境的配置">Forge开发环境的配置</a></h1>
-<h2><a class="header" href="#需要的工具" id="需要的工具">需要的工具</a></h2>
+<h1 id="forge开发环境的配置"><a class="header" href="#forge开发环境的配置">Forge开发环境的配置</a></h1>
+<h2 id="需要的工具"><a class="header" href="#需要的工具">需要的工具</a></h2>
 <ul>
 <li>
 <p><a href="https://adoptopenjdk.net/?variant=openjdk8&amp;jvmVariant=hotspot">AdoptOpenJDK8-HotSpot</a>，出于兼容性的考虑，<strong>请确保你安装的是JDK8</strong>。</p>
@@ -254,10 +258,10 @@
 </li>
 </ul>
 <p><strong>注意，介于预想读者的水平，配置过程十有八九是会失败的，建议直接使用<a href="https://v2mcdev.com/t/topic/589">ForgeGradleCN(推荐)</a>或者<a href="https://v2mcdev.com/t/topic/249/2">离线包</a>，配置完ForgeGradleCN后继续进行之后的步骤</strong></p>
-<h2><a class="header" href="#总体的介绍" id="总体的介绍">总体的介绍</a></h2>
+<h2 id="总体的介绍"><a class="header" href="#总体的介绍">总体的介绍</a></h2>
 <p>Minecraft Forge是一个Gradle项目，Gradle是一个项目构建工具，其主要作用是负责项目的依赖管理、构建等功能。依赖管理指的是帮你自动地下载和配置你开发中使用的库，也就是别人写好的方便你自己开发的代码。构建指的是将你写的mod打包成别人可以安装的jar文件。</p>
 <p>Forge官方写了一个叫做ForgeGradle（以后简称FG）的插件来负责整个mod开发环境的配置（<del>为什么要说这个呢，让你知道当环境配置失败时该骂谁</del>)。</p>
-<h2><a class="header" href="#开始配置" id="开始配置">开始配置</a></h2>
+<h2 id="开始配置"><a class="header" href="#开始配置">开始配置</a></h2>
 <p>首先选择启动页面的<code>打开或导入</code>。</p>
 <p><img src="devenvironment/setup.assets/image-20200426182350327.png" alt="image-20200426182350327" /></p>
 <p>选择你MDK解压目录下的<code>build.gradle</code>打开。</p>
@@ -286,12 +290,12 @@
 <p><img src="devenvironment/setup.assets/image-20200426201131698.png" alt="image-20200426201131698" /></p>
 <p>为了之后创建目录和子包的方便，按照下图将「拼合包」和「压缩空的中间包」取消选择。</p>
 <p><img src="devenvironment/setup.assets/image-20200510143006591.png" alt="image-20200510143006591" /></p>
-<h2><a class="header" href="#idea的编码配置windows用户专用" id="idea的编码配置windows用户专用">IDEA的编码配置（Windows用户专用）</a></h2>
+<h2 id="idea的编码配置windows用户专用"><a class="header" href="#idea的编码配置windows用户专用">IDEA的编码配置（Windows用户专用）</a></h2>
 <p>选择Configure下的<code>设置/首选项</code>。</p>
 <p><img src="devenvironment/setup.assets/image-20200426192159954.png" alt="image-20200426192159954" /></p>
 <p>选择<code>编辑器=&gt;文件编码</code>，将右侧所有涉及到编码全部改成<code>UTF-8</code>，并把<code>创建UTF-8文件</code>改成<code>With NO BOM</code>。</p>
 <p><img src="devenvironment/setup.assets/image-20200426192350734.png" alt="image-20200426192350734" /></p>
-<h2><a class="header" href="#jdk常见错误" id="jdk常见错误">JDK常见错误</a></h2>
+<h2 id="jdk常见错误"><a class="header" href="#jdk常见错误">JDK常见错误</a></h2>
 <p>如果你的电脑里有多个JDK，有可能IntelliJ自动选择的JDK是错误的，导致无法导入，你需要手动修改项目的JDK和Gradle运行所需要的JDK。</p>
 <p>选择<code>文件</code>下的<code>项目结构</code>。</p>
 <p><img src="devenvironment/setup.assets/image-20200426193744538.png" alt="image-20200426193744538" /></p>
@@ -303,7 +307,7 @@
 <p><img src="devenvironment/setup.assets/image-20200426195216989.png" alt="image-20200426195216989" /></p>
 <p>之后再到<code>Plugin</code>下的<code>Installed</code>重新启动中文插件即可。</p>
 <p><img src="devenvironment/setup.assets/image-20200426195313225.png" alt="image-20200426195313225" /></p>
-<h1><a class="header" href="#开发环境的介绍" id="开发环境的介绍">开发环境的介绍</a></h1>
+<h1 id="开发环境的介绍"><a class="header" href="#开发环境的介绍">开发环境的介绍</a></h1>
 <p>在这一节中，我会介绍一下Mod开发产生的一系列文件和文件夹，以及它们的作用。</p>
 <p>首先最为重要的一个文件便是：<code>build.gradle</code>，这个文件是Gradle的配置文件，它规定了Mod的项目是如何构建，有哪些依赖，如何配置等。</p>
 <p>其中的<code>minecraft </code>闭包下的内容就是关于Forge Gradle的配置。</p>
@@ -315,9 +319,9 @@
 <p>接下去是<code>run</code>文件夹，这个基本上就是一个标准的<code>.minecraft</code>文件夹，值得注意的是，因为开发环境是同时有Minecraft客户端和服务器代码的，它们两个是共用<code>run</code>目录的。</p>
 <p>剩下值得一提的就是<code>build</code>目录，当你在Gradle面板里运行<code>build</code>任务，你的mod就会被打包好放在<code>build=&gt;libs</code>下。</p>
 <p>剩下所有带<code>gradle</code>相关的文件夹和文件都是Gradle所需要的运行和配置文件，请不要随便删除。</p>
-<h1><a class="header" href="#自定义mod信息" id="自定义mod信息">自定义mod信息</a></h1>
+<h1 id="自定义mod信息"><a class="header" href="#自定义mod信息">自定义mod信息</a></h1>
 <p>从这节起我们就会开始正式的写我们mod了！</p>
-<h2><a class="header" href="#更新mappings" id="更新mappings">更新Mappings</a></h2>
+<h2 id="更新mappings"><a class="header" href="#更新mappings">更新Mappings</a></h2>
 <p>在开始之前我们需要更新一下Mapping文件，如果不知道Mapping文件的作用，请向前翻阅。再提醒一次，你可以在<a href="http://export.mcpbot.bspk.rs/">这里</a>找到最新的mapping文件。</p>
 <p><strong>请确保你的mappings文件版本新于<code>20200512-1.15.1</code></strong>。</p>
 <p><img src="devenvironment/modinfo.assets/image-20200427082638163.png" alt="image-20200427082638163" /></p>
@@ -326,7 +330,7 @@
 <p>然后点击右侧Gradle面板的重新导入按钮，重新导入项目，因为<code>build.gradle</code>文件非常的重要，请注意不要改错。</p>
 <p><img src="devenvironment/modinfo.assets/image-20200427082837751.png" alt="image-20200427082837751" /></p>
 <p>这个过程可能会涉及下载文件（但不会很多），有出现错误的可能性，出错了请检查你的<code>build.gradle</code>内容有没有填错，然后多试几次。</p>
-<h2><a class="header" href="#配置" id="配置">配置</a></h2>
+<h2 id="配置"><a class="header" href="#配置">配置</a></h2>
 <p>首先我们选中<code>java</code>文件夹下所有的目录和文件，然后右键删除Java包下的默认类。</p>
 <p><img src="devenvironment/modinfo.assets/image-20200427074821172.png" alt="image-20200427074821172" /></p>
 <p>然后再右键新建立一个包</p>
@@ -379,7 +383,7 @@ description='''
 <p>现在我们已经修改完我们的mod信息了，现在让我打开游戏。</p>
 <p><img src="devenvironment/modinfo.assets/image-20200427084446741.png" alt="image-20200427084446741" /></p>
 <p>可以看见我们的Mod已经出现了！</p>
-<h2><a class="header" href="#开发小课堂" id="开发小课堂">开发小课堂</a></h2>
+<h2 id="开发小课堂"><a class="header" href="#开发小课堂">开发小课堂</a></h2>
 <p>介于目标读者的水平，在这里特增「开发小课堂」环节。</p>
 <p>在这次开发小课堂中，我们来讲一讲「日志」，日志你在开发过程中最重要的Debug工具之一，在向别人提问时，你需要提供的三样东西中的其中一项，另外两项是完整的代码和问题清晰到位的问题描述。</p>
 <p>如果代码出了问题，你首先需要做的事就是阅读日志，什么你说全英文的看不懂怎么办？现在这么多翻译网站随便找一个把日志粘贴上去翻译啊。</p>
@@ -388,9 +392,9 @@ description='''
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>「帕斯卡命名法」的意思是：名字中所有的单词首字母都是大写，比如「HelloWorld」</p>
 </div>
-<h1><a class="header" href="#物品" id="物品">物品</a></h1>
+<h1 id="物品"><a class="header" href="#物品">物品</a></h1>
 <p>物品是Minecraft中的基本元素之一，在这一节中，我将介绍如何创建物品。</p>
-<h1><a class="header" href="#第一个物品" id="第一个物品">第一个物品</a></h1>
+<h1 id="第一个物品"><a class="header" href="#第一个物品">第一个物品</a></h1>
 <p>从现在开始我们就要正式开始写代码了。首先有几件事要说明，本项目的代码都会开源，每节的代码链接我都会放在文章的后面，而为了之后修正和查看方便，<strong>我的代码中可能会有大量重复的类，项目的组织也和正常项目大相径庭，大家请不要照抄，请大家务必手打代码，你复制粘贴代码是学不会的。</strong></p>
 <p>首先我们得明确，创建一个物品需要哪几个步骤。答案是三步：创建自己的物品并继承原版的物品的类，实例化这个物品，最后把这个物品注册进游戏。</p>
 <p>注意上面这些步骤是通用的，很多自定义内容的添加都是遵循着上面的步骤。</p>
@@ -458,10 +462,10 @@ public class Neutrino {
 <p><img src="item/firstitem.assets/image-20200427102030250.png" alt="image-20200427102030250" /></p>
 <p>虽然这个物品还是很丑，但这就是我们第一个物品了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_item">源码链接</a></p>
-<h2><a class="header" href="#开发小课堂-1" id="开发小课堂-1">开发小课堂</a></h2>
+<h2 id="开发小课堂-1"><a class="header" href="#开发小课堂-1">开发小课堂</a></h2>
 <p>在开发大型项目的过程中，通过看函数名猜函数功能，这是一个非常重要的能力。当你不清楚一个函数的功能是什么，就翻译翻译它的名字，猜猜看它的功能吧。</p>
 <p>另外一个就是要学会看函数签名，理解一个函数最重要一点就是要理解它的输入是什么（参数），它的输出是什么（返回值）。</p>
-<h1><a class="header" href="#物品材质与模型" id="物品材质与模型">物品材质与模型</a></h1>
+<h1 id="物品材质与模型"><a class="header" href="#物品材质与模型">物品材质与模型</a></h1>
 <p>在上一节中我们已经成功添加了第一个物品，当然那个物品还很丑，在这一节中我们将会为它添加模型和材质。</p>
 <p>首先按照如下目录在<code>resources</code>下创建文件夹。</p>
 <pre><code>resources
@@ -507,9 +511,9 @@ public class Neutrino {
 </code></pre>
 <p>启动游戏之后你就可以看见我们有了模型和材质的物品了。</p>
 <p><img src="item/modelandtextures.assets/image-20200427113433338.png" alt="image-20200427113433338" /></p>
-<h2><a class="header" href="#开发小课堂-2" id="开发小课堂-2">开发小课堂</a></h2>
+<h2 id="开发小课堂-2"><a class="header" href="#开发小课堂-2">开发小课堂</a></h2>
 <p>一个方便的工具用来制作方块和物品等模型：<a href="https://blockbench.net/">BlockBench</a>。</p>
-<h1><a class="header" href="#item和itemstack" id="item和itemstack">Item和ItemStack</a></h1>
+<h1 id="item和itemstack"><a class="header" href="#item和itemstack">Item和ItemStack</a></h1>
 <p>在这里，我想讲一下<code>Item</code>和<code>ItemStack</code>的区分。我们先从<code>ItemStack</code>开始一步一步思考为什么它们需要区分开。</p>
 <p><code>ItemStack</code>顾名思义就是「物品堆」。实际上在游戏中，所有物品槽里放着的物品都是单独的<code>ItemStack</code>。</p>
 <p><img src="item/itemstack.assets/image-20200428080226198.png" alt="image-20200428080226198" /></p>
@@ -521,7 +525,7 @@ public class Neutrino {
 <p>这里值得注意的是，<code>ItemStack</code>的数量为0，虽然代表是空了，这不代表它就变成<code>null</code>了，所以在你必须得用<code>ItemStack</code>下的<code>isEmpty()</code>方法来判断是否为空。</p>
 <p><code>ItemStack</code>中所包含的<code>Item</code>其实是同一个实例，原因非常简单，如果不是同一个实例，会无意义地产生非常多相同的实例，出于优化的考虑，当然是共用一个实例合适，这同时意味着你可通过<code>result.getItem() == Items.AIR</code>来判断<code>ItemStack</code>存放了哪一个<code>Item</code>。</p>
 <p>至于更加详细的解释，<a href="https://harbinger.covertdragon.team/chapter-04/item-stack.html">harbinger</a>已经写的很清楚了。</p>
-<h1><a class="header" href="#食物" id="食物">食物</a></h1>
+<h1 id="食物"><a class="header" href="#食物">食物</a></h1>
 <p>在这一节中我们将会在Minecraft世界中添加一个新的食物：黑曜石苹果，吃了这个苹果以后你可以回复饥饿，但是会中毒。和很多人想象的不一样，食物并不是单独的一个东西，对于Minecraft来说，食物只是一种特殊的物品而已。</p>
 <p>同样的我们先来创建一个类，让这个类继承<code>Item</code></p>
 <pre><code class="language-java">public class ObsidianApple extends Item {
@@ -560,7 +564,7 @@ public class Neutrino {
 <p>拿出你的苹果试着吃吃看吧。</p>
 <p><img src="item/food.assets/image-20200427165949417.png" alt="image-20200427165949417" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/food">源代码</a></p>
-<h1><a class="header" href="#近战武器" id="近战武器">近战武器</a></h1>
+<h1 id="近战武器"><a class="header" href="#近战武器">近战武器</a></h1>
 <p>在这一节中，我们将讲解如何创建一个新的剑，这里我们以黑曜石剑举例。</p>
 <p>同样的，我们先创建一个<code>ObsidianSword</code>，但是这次的继承的类有些不一样，这次我们直接继承原版的<code>SwordItem</code>类，如果你查看继承关系图，你就可以发现，<code>SwordItem</code>是<code>Item</code>的子类。</p>
 <p><img src="item/meleeweapons.assets/image-20200427182723660.png" alt="image-20200427182723660" /></p>
@@ -624,11 +628,11 @@ public class Neutrino {
 <p>创建完成之后打开游戏看看吧。</p>
 <p><img src="item/meleeweapons.assets/image-20200427184918516.png" alt="image-20200427184918516" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/melee_weapons">源代码地址</a></p>
-<h2><a class="header" href="#开发小课堂-3" id="开发小课堂-3">开发小课堂</a></h2>
+<h2 id="开发小课堂-3"><a class="header" href="#开发小课堂-3">开发小课堂</a></h2>
 <p>在开发的过程中你得熟练使用开发工具，在这里我们的工具是IntelliJ IDEA。有两个快捷键对于理解代码有非常大的帮助。第一个快捷键是<code>Ctrl+N(Windows)</code>，这个快捷键可以让你搜索指定的类，这样你就可寻找原版类里在哪里，有什么内容了。另一个快捷键就是<code>Ctrl+H</code>当你把鼠标指针放在一个类上时，按下这个快捷键，会在右侧显示这个类的继承关系，也可查看某个接口的具体实现，大家可以自己上网搜索IDEA常用快捷键学习使用。</p>
 <p>另外一个技巧是，当你看到某个方法，想要知道这个方法在哪里调用时，可以右键然后点击<code>Find Usages（查找使用）</code>，你就可以看见所有调用这个方法的代码了。</p>
 <p>还有如果你想查看某个类的源代码，只需要按住<code>Ctrl</code>键，点击那个类就可以进入到那个类内部查看它的源代码。</p>
-<h1><a class="header" href="#自定义创造模式物品栏" id="自定义创造模式物品栏">自定义创造模式物品栏</a></h1>
+<h1 id="自定义创造模式物品栏"><a class="header" href="#自定义创造模式物品栏">自定义创造模式物品栏</a></h1>
 <p>在这一节中，我们将研究如何创建一个属于自己的创造模式物品栏，非常简单。</p>
 <p>首先创建一个类，让它继承<code>ItemGroup</code>，<code>ItemGroup</code>代表的就是创造模式物品栏，因为我们需要创建一个属于自己的创造模式物品栏，自然需要继承它。</p>
 <p>内容如下:</p>
@@ -660,9 +664,9 @@ public class Neutrino {
 <p>此时打开游戏我们的黑曜石碇应该就在指定的物品栏里了。</p>
 <p><img src="item/group.assets/image-20200427211358242.png" alt="image-20200427211358242" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/group">源代码</a></p>
-<h2><a class="header" href="#编程小课堂" id="编程小课堂">编程小课堂</a></h2>
+<h2 id="编程小课堂"><a class="header" href="#编程小课堂">编程小课堂</a></h2>
 <p>如果在编程中遇见了自己不会的事情，第一件事不应该是想着问别人，而是上网搜索，你遇见的绝大部问题别人都已经遇见过了，如果你没有搜索就问别人，是在同时浪费你自己和别人的时间。</p>
-<h1><a class="header" href="#语言文件与本地化" id="语言文件与本地化">语言文件与本地化</a></h1>
+<h1 id="语言文件与本地化"><a class="header" href="#语言文件与本地化">语言文件与本地化</a></h1>
 <p>在这一节中，我们将学习如何给我的物品添加名称。</p>
 <p>在前面的章节，我们创建的物品的名字看上去是一串没有意义的字符，在这一节中我们将给他们加上一个有意义的名字。</p>
 <p>在Minecraft中，文件的名字是以语言文件的形式提供的，在1.15的版本，语言文件是个json文件，它大概内容如下:</p>
@@ -710,9 +714,9 @@ public class Neutrino {
 </code></pre>
 <p>然后启动游戏，调成简体中文，你应该就可以看见我们的物品有了翻译。<img src="i18n/i18n.assets/image-20200427220407913.png" alt="image-20200427220407913" /></p>
 <p>作为一个简体中文的使用者，你的mod里至少应该有<code>zh_cn.json</code>，<code>en_us.json</code>和<code>zh_tw.json</code>这三个语言文件，所有可用的语言文件列表请在Wiki的<a href="https://minecraft-zh.gamepedia.com/index.php?title=%E8%AF%AD%E8%A8%80&amp;variant=zh#%E5%8F%AF%E7%94%A8%E8%AF%AD%E8%A8%80">语言#可用语言</a>内查看。</p>
-<h1><a class="header" href="#方块" id="方块">方块</a></h1>
+<h1 id="方块"><a class="header" href="#方块">方块</a></h1>
 <p>我们在这节中终于要进入Minecraft中最为迷人的其中一部分：方块。当然我们会从最为简单的方块开始学起。</p>
-<h1><a class="header" href="#第一个方块" id="第一个方块">第一个方块</a></h1>
+<h1 id="第一个方块"><a class="header" href="#第一个方块">第一个方块</a></h1>
 <p>在这一节中，我们将会创建一个最简单的方块，一个什么功能也没有的方块，甚至连模型和材质也没有。在开始之前我必须做一个概念上的区分，关于物品和方块概念上的区分。任何你可在拿在手中的东西都是「物品」，只有放置在世界中才成为了「方块」。</p>
 <p><img src="block/firstblock.assets/image-20200428155404000.png" alt="image-20200428155404000" /></p>
 <p>这个是一个物品</p>
@@ -764,7 +768,7 @@ public class Neutrino {
 <p><img src="block/firstblock.assets/image-20200428164024589.png" alt="image-20200428164024589" /></p>
 <p><img src="block/firstblock.assets/image-20200428164037088.png" alt="image-20200428164037088" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_block">源代码</a></p>
-<h1><a class="header" href="#block和blockstate" id="block和blockstate">Block和BlockState</a></h1>
+<h1 id="block和blockstate"><a class="header" href="#block和blockstate">Block和BlockState</a></h1>
 <p>在开始我们接下来的讲解之前，我想先来讲一下<code>BlockState</code>这个概念，相信已经对<code>ItemStack</code>有所了解到你，应该也能很快理解这个概念。</p>
 <p>就和在游戏中的所有物品其实是<code>Itemstack</code>一样，在游戏中的所有方块其实是<code>BlockState</code>，而<code>BlockState</code>相比起<code>Block</code>除了多出的XYZ位置信息之外，最为重要的就是<code>state</code>信息，也就是状态信息。状态信息乍一看很难以理解，但是其实非常好懂。我们以原版的栅栏举例，当你把原版的栅栏放在地上，栅栏会根据周围方块的不同自动地改变形状，这其实是栅栏自动地改变了状态，我们可以在F3调试模式下查看方块的状态。</p>
 <p><img src="block/blockandblockstate.assets/A31FDCB0-F8AC-43BC-BD70-801476111C97.jpeg" alt="A31FDCB0-F8AC-43BC-BD70-801476111C97" /></p>
@@ -772,7 +776,7 @@ public class Neutrino {
 <p><img src="block/blockandblockstate.assets/EDC215E2-DF26-4764-AE2D-2640C7184482.jpeg" alt="EDC215E2-DF26-4764-AE2D-2640C7184482" /></p>
 <p>可以看到我们使用Debug Stick修改了栅栏的方块状态之后，方块的模型也相应地发生了改变。</p>
 <p>当然，不是所有的方块都有状态属性的，比如石头就没有，但是位置属性是每个方块都有的。</p>
-<h1><a class="header" href="#方块模型和材质" id="方块模型和材质">方块模型和材质</a></h1>
+<h1 id="方块模型和材质"><a class="header" href="#方块模型和材质">方块模型和材质</a></h1>
 <p>我们已经成功地创建了一个方块，但是这个方块还很丑，就是一个紫黑块而已。在这一节中，我们就要来为这个方块添加模型和材质。</p>
 <p>首先我们创建一些文件夹，创建成功后的目录如下显示:</p>
 <pre><code>resources
@@ -822,9 +826,9 @@ public class Neutrino {
 </code></pre>
 <p>对，你没看错，就一句话，我们直接继承相对应的方块模型就行了。</p>
 <p><img src="block/modelandtextures.assets/image-20200428182406212.png" alt="image-20200428182406212" /></p>
-<h2><a class="header" href="#开发小课堂-4" id="开发小课堂-4">开发小课堂</a></h2>
+<h2 id="开发小课堂-4"><a class="header" href="#开发小课堂-4">开发小课堂</a></h2>
 <p>在调试模型材质或者是某个函数的过程中，你可能需要多次重启，其实是有办法规避这个问题的。首先你需要在「Debug（调试模式」下启动游戏，然后选择上方的「build-&gt;Build(构建项目=&gt;构建项目)」，只要是函数内部的修改，都可以热更新。对于模型和材质还得多一个步骤，在构建项目结束后按F3+T重新载入材质包。当然这个方法也不是万能的，当你发现没法热更新或者热更新不起效时，你还是得重启游戏。</p>
-<h1><a class="header" href="#方块状态" id="方块状态">方块状态</a></h1>
+<h1 id="方块状态"><a class="header" href="#方块状态">方块状态</a></h1>
 <p>在之前我们已经稍微地提及了BlockState，但是我们的第一个方块显然是没有状态的，这一节我们将以黑曜石魔方举例来创建一个带有状态的方块。</p>
 <p>首先创建一个叫做<code>ObsidianRubikCube</code>的类，内容如下:</p>
 <pre><code class="language-java">public class ObsidianRubikCube extends Block {
@@ -910,7 +914,7 @@ protected void fillStateContainer(StateContainer.Builder&lt;Block, BlockState&gt
 <p><img src="block/blocksstates.assets/7B934D2C-8596-49FA-A5FE-05709ABFFBF2.jpeg" alt="7B934D2C-8596-49FA-A5FE-05709ABFFBF2" /></p>
 <p>可以看到，随着我们用debug stick改变了方块的状态，方块的模型和材质也发生了改变。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/blockstate">源代码</a></p>
-<h1><a class="header" href="#非实心方块与自定义模型" id="非实心方块与自定义模型">非实心方块与自定义模型</a></h1>
+<h1 id="非实心方块与自定义模型"><a class="header" href="#非实心方块与自定义模型">非实心方块与自定义模型</a></h1>
 <p>在这一节中，我们将创建一个有着特殊外形且是透明的方块，这里我们以黑曜石框架举例。</p>
 <p>首先我们创建一个叫做<code>ObsidianFrame</code>的类，内容如下：</p>
 <pre><code class="language-java">public class ObsidianFrame extends Block {
@@ -1053,7 +1057,7 @@ protected void fillStateContainer(StateContainer.Builder&lt;Block, BlockState&gt
 <p>打开游戏，你应该就能看见我们的黑曜石框架了。</p>
 <p><img src="block/nonesoildblock.assets/image-20200428214022814.png" alt="image-20200428214022814" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/nonesoildblock">源代码</a></p>
-<h1><a class="header" href="#方块的渲染类型" id="方块的渲染类型">方块的渲染类型</a></h1>
+<h1 id="方块的渲染类型"><a class="header" href="#方块的渲染类型">方块的渲染类型</a></h1>
 <p>在这一节中，我们将会聊一下渲染类型（RenderType)。</p>
 <p><img src="block/./rendertype.assets/blockrenderlayers.png" alt="img" /></p>
 <blockquote>
@@ -1101,9 +1105,9 @@ public class RenderTypeRegistry {
 <p>打开游戏你就能看见我们的玻璃罐了。</p>
 <p><img src="block/rendertype.assets/image-20200625163139129.png" alt="image-20200625163139129" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/special_render_type">源代码</a></p>
-<h1><a class="header" href="#特殊模型" id="特殊模型">特殊模型</a></h1>
+<h1 id="特殊模型"><a class="header" href="#特殊模型">特殊模型</a></h1>
 <p>在这一节中，我们将学习如何在Minecraft中使用特殊的物品模型，Forge为Minecraft添加了额外两种物品模型的支持：OBJ和B3D。</p>
-<h1><a class="header" href="#obj-模型" id="obj-模型">OBJ 模型</a></h1>
+<h1 id="obj-模型"><a class="header" href="#obj-模型">OBJ 模型</a></h1>
 <p>在这一节我我们将学习如何给方块添加OBJ物品模型，在开始添加OBJ模型之前强烈建议读者先阅读关于OBJ和MTL文件格式的定义以及相关名词的意义，这里有个简短的<a href="https://segmentfault.com/a/1190000021126476">说明</a></p>
 <p>首先创建我们的方块<code>ObsidianOBJ.java</code>：</p>
 <pre><code class="language-java">public class ObsidianOBJ extends Block {
@@ -1155,21 +1159,21 @@ public class RenderTypeRegistry {
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/obj">源代码</a></p>
 <hr />
 <p><strong>常见坑的处理方法</strong></p>
-<h2><a class="header" href="#环境光遮蔽" id="环境光遮蔽">环境光遮蔽</a></h2>
+<h2 id="环境光遮蔽"><a class="header" href="#环境光遮蔽">环境光遮蔽</a></h2>
 <p>在默认情况下，你可能会发现你的模型有着像下图一样不自然的黑色阴影，这是因为环境光遮蔽导致的，你可以通过复写<code>Block</code>类下的<code>getAmbientOcclusionLightValue</code>方法来修改方块的环境光遮蔽，其中默认是<code>0.2</code>，最大值为<code>1</code>，数值越大环境光遮蔽越小。</p>
 <p><img src="specialmodel/obj.assets/image-20200724230101066.png" alt="image-20200724230101066" /></p>
-<h2><a class="header" href="#夜晚不自然的高光" id="夜晚不自然的高光">夜晚不自然的高光</a></h2>
+<h2 id="夜晚不自然的高光"><a class="header" href="#夜晚不自然的高光">夜晚不自然的高光</a></h2>
 <p>有时候你会发现你的模型在夜晚也会发出类似这样不自然的高光，这是由于<code>mtl</code>文件中多余的属性导致的，对于Mod开发建议只保留<code>map_Kd</code>属性，具体可以看IE的<a href="https://github.com/BluSunrize/ImmersiveEngineering/blob/1.14/src/main/resources/assets/immersiveengineering/models/block/balloon.mtl">mtl文件</a>。</p>
 <p><img src="specialmodel/obj.assets/image-20200724230406389.png" alt="image-20200724230406389" /></p>
 <hr />
-<h2><a class="header" href="#开发小课堂-5" id="开发小课堂-5">开发小课堂</a></h2>
+<h2 id="开发小课堂-5"><a class="header" href="#开发小课堂-5">开发小课堂</a></h2>
 <p>如果你在使用Blender制作OBJ模型，请将你的模型中心点设置为<code>X:0.5m,Y-0.5m,Z:0.5</code>，这样你就不需要在json文件中进行额外的偏移计算了。Minecraft一个满方块在Blender里刚好是<code>1m*1m*1m</code>。</p>
-<h1><a class="header" href="#b3d-模型" id="b3d-模型">B3D 模型</a></h1>
+<h1 id="b3d-模型"><a class="header" href="#b3d-模型">B3D 模型</a></h1>
 <p>在1.15中，关于B3D的支持似乎暂时被注释掉了。</p>
-<h1><a class="header" href="#动画" id="动画">动画</a></h1>
-<h1><a class="header" href="#方块实体" id="方块实体">方块实体</a></h1>
-<p>欢迎来到方块实体这一章，方块实体（BlockEntity或者TilEntity）是Minecraft中最为迷人的主题之一，原版的熔炉，工业模组里的机器，这些都是通过方块实体实现的，在这节中，我们将要学习如何创建我们自己的方块实体。</p>
-<h1><a class="header" href="#第一个方块实体和其数据保存" id="第一个方块实体和其数据保存">第一个方块实体和其数据保存</a></h1>
+<h1 id="动画"><a class="header" href="#动画">动画</a></h1>
+<h1 id="方块实体"><a class="header" href="#方块实体">方块实体</a></h1>
+<p>欢迎来到方块实体这一章，方块实体（BlockEntity或者TileEntity）是Minecraft中最为迷人的主题之一，原版的熔炉，工业模组里的机器，这些都是通过方块实体实现的，在这节中，我们将要学习如何创建我们自己的方块实体。</p>
+<h1 id="第一个方块实体和其数据保存"><a class="header" href="#第一个方块实体和其数据保存">第一个方块实体和其数据保存</a></h1>
 <p>在这节中，我们将学习如何创建一个属于自己的方块实体，我们以计数器为例，它唯一的作用就是当你右击方块时它会加一，然后向你的聊天框里发送相对应的值。</p>
 <p>首先我们来创建我们的方块，<code>ObsidianCounter.java</code>：</p>
 <pre><code class="language-java">public class ObsidianCounter extends Block {
@@ -1220,7 +1224,7 @@ public class RenderTypeRegistry {
 <p>可以看到，这个方块实体里的内容非常的简单，只有一个构造方法和一个<code>increase</code>方法。<code>increase</code>方法和我们要实现的具体内容有关，这里先按下不表，我们先来看构造方法。</p>
 <pre><code class="language-java">super(TileEntityTypeRegistry.obsidianCounterTileEntity.get());
 </code></pre>
-<p>这里的构造方法，我们向我们的父类传入了一个<code>TilEnttityType</code>，那么这个<code>TilEntityType</code>又是什么东西呢？这个<code>TileEntityType</code>故名思义是方块实体的「类型」，这个「类型」规定了我们的方块实体要怎么创建出来，以及它和哪些方块绑定，接下来我们就来看看我们的<code>TilEntityType</code>是怎么被创建出来和被注册的吧。</p>
+<p>这里的构造方法，我们向我们的父类传入了一个<code>TilEnttityType</code>，那么这个<code>TileEntityType</code>又是什么东西呢？这个<code>TileEntityType</code>故名思义是方块实体的「类型」，这个「类型」规定了我们的方块实体要怎么创建出来，以及它和哪些方块绑定，接下来我们就来看看我们的<code>TilEntityType</code>是怎么被创建出来和被注册的吧。</p>
 <p>接着我们创建了一个新的类叫做<code>TileEntityTypeRegistry</code>:</p>
 <pre><code class="language-java">public class TileEntityTypeRegistry {
     public static final DeferredRegister&lt;TileEntityType&lt;?&gt;&gt; TILE_ENTITY_TYPE_DEFERRED_REGISTER = new DeferredRegister&lt;&gt;(ForgeRegistries.TILE_ENTITIES, &quot;neutrino&quot;);
@@ -1331,9 +1335,9 @@ public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockP
 </code></pre>
 <p>我们在这里加入了<code>markDirty()</code>方法，这个方法的意思是标记了我们数据被修改，让游戏知道在关闭的时候要保存调用保存方法。这样做是因为相对于CPU的执行速度，硬盘的保存和读写速度是非常慢的，所以如果频繁的进行保存和读写操作会严重拖慢游戏的速度，一个合理的方法就是标记我们需要保存的数据，然后在一个统一的时间点一起保存，<code>markDirty()</code>的作用正是如此。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_tileentity">源代码</a></p>
-<h2><a class="header" href="#编程小课堂-1" id="编程小课堂-1">编程小课堂</a></h2>
+<h2 id="编程小课堂-1"><a class="header" href="#编程小课堂-1">编程小课堂</a></h2>
 <p>对于CPU来说每个指令大概需要 0.38ns，以此作为基本单位 1s的话，从从磁盘读取 1MB 的连续数据需要 20ms，对比 CPU 的时间是 20 个月，所以磁盘读写速度是非常慢的。</p>
-<h1><a class="header" href="#itickabletileentity" id="itickabletileentity">ITickableTileEntity</a></h1>
+<h1 id="itickabletileentity"><a class="header" href="#itickabletileentity">ITickableTileEntity</a></h1>
 <p>在这一节中，我们来学习TileEntity中最为重要的一个接口：<code>ITickableTileEntity</code>。</p>
 <p>这一节我们将以制作一个会自动打招呼的方块为例，来体现这个接口的功能。</p>
 <p><code>ObsidianHelloBlock</code>:</p>
@@ -1392,9 +1396,9 @@ public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockP
 <p><img src="tileentity/itickabletileentity.assets/image-20200429190609373.png" alt="image-20200429190609373" /></p>
 <p>可以看见我们的方块在和我们打招呼呢。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/tickabletileentity">源代码</a></p>
-<h2><a class="header" href="#开发小课堂-6" id="开发小课堂-6">开发小课堂</a></h2>
+<h2 id="开发小课堂-6"><a class="header" href="#开发小课堂-6">开发小课堂</a></h2>
 <p>在很多时候，当函数要求传入的变量的类型是接口时，基本都已经有实现好的类可以使用，大家可以尝试查看这个接口的继承树来寻找可以使用的类。</p>
-<h1><a class="header" href="#方块实体内置的数据同步" id="方块实体内置的数据同步">方块实体内置的数据同步</a></h1>
+<h1 id="方块实体内置的数据同步"><a class="header" href="#方块实体内置的数据同步">方块实体内置的数据同步</a></h1>
 <p>在这节中，我们将学习方块实体中内置的数据同步功能。</p>
 <p>还记得我们之前讲过的服务端和客户端自己的数据同步吗？幸运的是，TileEntity给我们内置了两组数据同步的方法，不幸的是这个两组方法只能实现从服务端到客户端的数据同步，而且只能同步少量的数据。</p>
 <p>在这节中，我们讲学习制作一个每隔几秒中就会播放僵尸吼叫声的方块，我们先从方块开始;</p>
@@ -1553,9 +1557,9 @@ public void tick() {
 <p>打开游戏放置完方块，等待一会你应该就能听见僵尸的吼叫声了。</p>
 <p><img src="tileentity/datasync.assets/image-20200429215140877.png" alt="image-20200429215140877" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/tileentitydatasync">源代码</a></p>
-<h1><a class="header" href="#特殊渲染" id="特殊渲染">特殊渲染</a></h1>
+<h1 id="特殊渲染"><a class="header" href="#特殊渲染">特殊渲染</a></h1>
 <p>在这一节中，我们将来学习一些常见的特殊渲染。</p>
-<h1><a class="header" href="#ibakedmodel烘焙模型" id="ibakedmodel烘焙模型">IBakedModel(烘焙模型)</a></h1>
+<h1 id="ibakedmodel烘焙模型"><a class="header" href="#ibakedmodel烘焙模型">IBakedModel(烘焙模型)</a></h1>
 <p>首先我们从IBakedModel开始讲起。在开始正式写代码之前，我们先要了解如何一个方块是如何渲染出来的</p>
 <p>Minecraft本身会读取<code>json</code>和材质文件将其转换成<code>IModel</code>接口的实例，然后<code>IModel</code>进行了「Bake（烘焙）」处理，变成了<code>IBakedModel</code>，这个<code>IBakedModel</code>会被放入<code>BlockRendererDispatcher</code>中，当游戏需要时会直接从<code>BlockRendererDispatcher</code>取出<code>IBakedModel</code>进行渲染。至于什么是「Bake」，Bake基本上是对模型的材质进行光照计算等操作，让它变成可以直接被GPU渲染的东西。</p>
 <p>在这节中我们将来研究如何为我们的方块自定义<code>IBakedModel</code>。这节我们将要制作一个「隐藏方块」，这个方块会自动的显示它下方方块的模型的材质（虽然有些Bug，但是为了演示这已经足够了）。</p>
@@ -1770,9 +1774,9 @@ public static void onModelBaked(ModelBakeEvent event)
 <p>打开游戏，你就可以看到我们创建的「隐藏方块」了。</p>
 <p><img src="specialrender/ibakedmodel.assets/image-20200430173122813.png" alt="image-20200430173122813" /></p>
 <p>在这张图片里上面的方块都是同一种方块。</p>
-<h2><a class="header" href="#编程小课堂-2" id="编程小课堂-2">编程小课堂</a></h2>
+<h2 id="编程小课堂-2"><a class="header" href="#编程小课堂-2">编程小课堂</a></h2>
 <p>在Forge里，所以的事件都是<code>Event</code>类的子类，所以你可通过查看<code>Event</code>类继承树的方式查看到Forge提供的所有事件。</p>
-<h1><a class="header" href="#tileentityrenderer方块实体渲染器" id="tileentityrenderer方块实体渲染器">TileEntityRenderer(方块实体渲染器)</a></h1>
+<h1 id="tileentityrenderer方块实体渲染器"><a class="header" href="#tileentityrenderer方块实体渲染器">TileEntityRenderer(方块实体渲染器)</a></h1>
 <p>在这节中，我们将来学习一个非常重要的渲染方式<code>TileEntityRenderer</code>简称<code>TER</code>。在开始之前我们首先需要知道<code>TER</code>的作用是什么。让我回想一下原版中的箱子、附魔台。它们都有特殊的动画，而<code>TER</code>的作用就是让你也可以实现这些动画。</p>
 <p>首先我们从方块开始</p>
 <pre><code class="language-java">public class ObsidianTERBlock extends Block {
@@ -1896,7 +1900,7 @@ public class ClientEventHandler {
 <p>打开游戏放下方块，你应该就能看见一个特殊的方块了。</p>
 <p><img src="specialrender/ter.assets/image-20200509093429490.png" alt="image-20200509093429490" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/ter">源代码</a></p>
-<h1><a class="header" href="#itemstacktileentityrenderer物品特殊渲染" id="itemstacktileentityrenderer物品特殊渲染">ItemStackTileEntityRenderer(物品特殊渲染)</a></h1>
+<h1 id="itemstacktileentityrenderer物品特殊渲染"><a class="header" href="#itemstacktileentityrenderer物品特殊渲染">ItemStackTileEntityRenderer(物品特殊渲染)</a></h1>
 <p>这一节中，我们将要来学习Item的特殊渲染：<code>ItemStackTileEntityRenderer</code>简称<code>ISTER</code>，它的作用和<code>TileEntityRenderer</code>非常类似，在以前<code>ItemStackTileEntityRenderer</code>甚至就是靠<code>TileEntityRenderer</code>实现的。</p>
 <p>利用<code>ISTER</code>你可以实现一些非常酷的渲染效果，举例来说Create（机械动力）中的扳手，它会自动旋转的齿轮就是利用<code>ISTER</code>实现的。</p>
 <p>首先我们先来看物品的代码</p>
@@ -2038,7 +2042,7 @@ degree++;
 <p>到此，我们的物品特殊渲染就完成了。</p>
 <p>打开游戏看看，你应该就能看到一个会自动旋转的物品了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/ister">源代码</a></p>
-<h1><a class="header" href="#事件系统" id="事件系统">事件系统</a></h1>
+<h1 id="事件系统"><a class="header" href="#事件系统">事件系统</a></h1>
 <p>在开始我们接下来的教程之前，我们得先讲讲事件系统。在之前的章节中，我一直用<code>DeferredRegister</code>系统掩盖了直接的事件系统，可惜的是这已经无法再隐藏下去了，在这一节中，我们将学习事件系统，为了读者方便理解，如果你已经忘了总线，事件和事件处理器是什么的话，请先翻阅之前的内容。</p>
 <p>首先要说明的是这个事件系统并不是Minecraft自带的，这个事件系统是Forge实现的。</p>
 <p>你可以用两种方式来使用事件系统，一种是实例方式，一种是静态的方式。</p>
@@ -2067,8 +2071,8 @@ public class MyStaticClientOnlyEventHandler {
 <p>这里第二点不同就是我们的事件处理函数也变成了静态的，这是在你还不熟悉事件系统使用时非常容易出错的地方，请务必注意。</p>
 <p>作为我个人的偏好，我更喜欢后一种静态的事件处理方式，之后的教程也会使用这个方式。</p>
 <p>当然事件系统还有很多功能，比如取消，设置结果以及设置优先级，限于篇幅大家可以自行阅读Forge的<a href="https://mcforge.readthedocs.io/en/latest/events/intro/">文档</a></p>
-<h1><a class="header" href="#网络包" id="网络包">网络包</a></h1>
-<h1><a class="header" href="#自定义网络包" id="自定义网络包">自定义网络包</a></h1>
+<h1 id="网络包"><a class="header" href="#网络包">网络包</a></h1>
+<h1 id="自定义网络包"><a class="header" href="#自定义网络包">自定义网络包</a></h1>
 <p>在这节中我们将要来学习如何自定义数据包。在之前的内容中我们已经讲过了如何利用Minecraft原版内置的功能来实现数据的同步，但是这些功能或多或少都有限制。在某些时候我们不得不自己来解决数据同步的问题，在这时我们就得使用自定义数据包了。幸运的是Forge已经提供了一个类，让我们能够简单而且方便地自定义数据包，这个类就是<code>SimpleChannel</code>，我们将学习如何使用它。</p>
 <p>这一节的内容可能有些无聊，因为我们做出的物品并不能在游戏中产生实际的效果，但是这不代表的这节的内容不重要，让我们开始吧。</p>
 <p>首先我们讲一下发包的过程，具体过程如下:</p>
@@ -2077,7 +2081,7 @@ public class MyStaticClientOnlyEventHandler {
 <p>在这个过程中，前两项是在你要发送包的端执行的，后两项是在你要接受包的端执行的。</p>
 <p>无论你是想从客户端往服务端发包，还是从服务端往客户端发包，你要做的第一件事就是——构建数据包，这个数据包就是你要发送的具体消息。接下来是序列化成字节流，因为在网络中所有的数据都是以字节流的形式传输的，你的数据包也不例外，而又因为数据包的内容是你自己定义的，你得自己实现序列化操作。</p>
 <p>接下来数据流已经传输到了接受包的一端，你在接受时，接收的同样也是字节流，你需要从字节流中获取数据并恢复数据，重建你的数据包。让你的数据包恢复成功，接下来你就可以利用这些数据来执行操作了。</p>
-<p>在Mod开发里，所有的数据包都是通过<code>SimpleChannel</code>管理的，正如这个名字暗示的那样，我们构建的数据包将通过一个个自定义的「Channle（频道）」传输。</p>
+<p>在Mod开发里，所有的数据包都是通过<code>SimpleChannel</code>管理的，正如这个名字暗示的那样，我们构建的数据包将通过一个个自定义的「Channel（频道）」传输。</p>
 <p>接下来我们来注册数据包<code>Networking</code>:</p>
 <pre><code class="language-java">package com.tutorial.neutrino.network;
 
@@ -2259,11 +2263,11 @@ public class CommonEventHandler {
 <p><img src="networking/custompack.assets/image-20200501102439453.png" alt="image-20200501102439453" /></p>
 <p>注：「Server Thread」是服务端，「Render Thread」是客户端。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/network">源代码</a></p>
-<h2><a class="header" href="#编程小课堂-3" id="编程小课堂-3">编程小课堂</a></h2>
+<h2 id="编程小课堂-3"><a class="header" href="#编程小课堂-3">编程小课堂</a></h2>
 <p>在任何开始接触一个你不熟悉的编程项目，你要做的第一件事永远是通读这个项目的文档（如果有的话），对于我们来说就是<a href="http://mcforge.readthedocs.io/en/latest/">Forge的文档</a>，介于读者可能看不懂英文文档，Forge文档也有中文翻译的，请自行搜索。</p>
-<h1><a class="header" href="#关于mod安全" id="关于mod安全">关于Mod安全</a></h1>
-<h1><a class="header" href="#实体" id="实体">实体</a></h1>
-<h1><a class="header" href="#从零构建一个实体和数据同步" id="从零构建一个实体和数据同步">从零构建一个实体和数据同步</a></h1>
+<h1 id="关于mod安全"><a class="header" href="#关于mod安全">关于Mod安全</a></h1>
+<h1 id="实体"><a class="header" href="#实体">实体</a></h1>
+<h1 id="从零构建一个实体和数据同步"><a class="header" href="#从零构建一个实体和数据同步">从零构建一个实体和数据同步</a></h1>
 <p>在这节中，我们将从零构建出一个实体，并将学习实体是如何进行数据同步的。我们将以「飞剑」作为例子。首先我们得要知道构建出一个实体需要那些东西。</p>
 <p>构建一个实体我们需要以下这些东西:</p>
 <ul>
@@ -2523,10 +2527,10 @@ public class ClientEventHandler {
 <p><img src="entity/scratchentity.assets/image-20200503201357602.png" alt="image-20200503201357602" /></p>
 <p>并且数据也已经同步了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_entity">源代码</a></p>
-<h2><a class="header" href="#编程小课堂-4" id="编程小课堂-4">编程小课堂</a></h2>
+<h2 id="编程小课堂-4"><a class="header" href="#编程小课堂-4">编程小课堂</a></h2>
 <p><a href="https://github.com/TheGreyGhost/MinecraftByExample">MinecraftByExample</a>项目的作者<a href="https://github.com/TheGreyGhost/MinecraftByExample/commits?author=TheGreyGhost">TheGreyGhost</a>的<a href="http://greyminecraftcoder.blogspot.com/p/list-of-topics-1144.html">博客</a>里有非常多关于Minecraft渲染相关的内容，大家可以自行阅读。</p>
 <p>如果你打不开这个博客，可能是由于你的国家封锁了这个网站，请自行寻找方法解决。</p>
-<h1><a class="header" href="#创建一个动物和ai" id="创建一个动物和ai">创建一个动物和AI</a></h1>
+<h1 id="创建一个动物和ai"><a class="header" href="#创建一个动物和ai">创建一个动物和AI</a></h1>
 <p>虽然上节中，我们从零创建了一个最简单的实体，但是其实你在写mod的大部分时候都不需要直继承<code>Entity</code>类，原版已经写好了非常多的类供你使用。在这节中我们将创建一个黑曜石动物，并且为这个动物添加一个AI。</p>
 <p>这里就引出的第一个问题，什么是AI？AI代表着生物的特殊的行为，比如牛会被玩家用小麦吸引，怪物会攻击玩家，会在村庄里走来走去。这些都是通过AI实现的，请注意不是所有的实体都可以有AI，AI是<code>MobEntity</code> 的子类特有的行为。</p>
 <p>首先我们来创建我们的实体类，<code>ObsidianAnimal</code>：</p>
@@ -2629,9 +2633,9 @@ public AgeableEntity createChild(AgeableEntity ageable) {
 <p><img src="entity/passiveentityandai.assets/image-20200503220203980.png" alt="image-20200503220203980" /></p>
 <p>可以看到，当你靠近实体时，你就获得了一个饥饿效果，试试用剑杀死它吧。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/obsidian_animal">源代码</a></p>
-<h1><a class="header" href="#能力系统" id="能力系统">能力系统</a></h1>
+<h1 id="能力系统"><a class="header" href="#能力系统">能力系统</a></h1>
 <p>在这节中，我们将会介绍Forge Mod开发过程中可能最为抽象的一部分内容：Capability系统。</p>
-<h1><a class="header" href="#从零构建与使用能力" id="从零构建与使用能力">从零构建与使用能力</a></h1>
+<h1 id="从零构建与使用能力"><a class="header" href="#从零构建与使用能力">从零构建与使用能力</a></h1>
 <p>在这一节中，我们将会从0开始构建与使用Capability。在开始之前我们必须要解释一下，什么是Capability。</p>
 <p>Capability 的诞生起源于在写程序时出现的一个问题。考虑如下一种情况，你正在写一个能量转换器，你的能量转换器需要可以转换不同mod中的不同能量：EU、RF，Forge Energy等等。每一个能量都提供了一个接口用来实现输入输出的方法，那么你很快就会发现你的类定义会变成下面这个样子:</p>
 <pre><code class="language-java">class MyTileEntity extends TileEntity implements EnergyInterface1,  EnergyInterface2, EnergyInterface3, FluidsInterface1, FluidsInterface2, FluidsInterface3, ItemsApi1, ItemsApi2, ItemsApi3, ComputerApi1, ComputerApi2, ...
@@ -2647,7 +2651,7 @@ public AgeableEntity createChild(AgeableEntity ageable) {
 <p>在Capability系统中，调用CapabilityProvider的方相当于「投资商」，CapabilityProvider相当于是「建筑方案提供商」，而Capability本身就是「建筑方案」。</p>
 <p>而在代码层面，首先调用方会调用CapabilityProvider的<code>getCapability</code>方法并传入一个具体的Capability。然后在实现了<code>CapbilityProvider</code>接口的类中，判断传入的能力是不是自己可以完成的，如果不能换成就会返回一个空值，如果可以完成就会返回传入的Capability所指定类或接口的一个实例。</p>
 <p>接下来我们会创建两个特殊的方块，分为「上方块」和「下方块」。当你把「上方块」放在「下方块」的上方时，「上方块会输出下方块传来的信息」。</p>
-<p>介于篇幅的原因，这里就直接从TilEntity开始了，相关的方块也没什么内容，就只是关联的方块实体而已。</p>
+<p>介于篇幅的原因，这里就直接从TileEntity开始了，相关的方块也没什么内容，就只是关联的方块实体而已。</p>
 <p><code>ObsidianUpBlockTileEntity</code></p>
 <pre><code class="language-java">public class ObsidianUpBlockTileEntity extends TileEntity implements ITickableTileEntity {
     public ObsidianUpBlockTileEntity() {
@@ -2777,7 +2781,7 @@ public class CommonSetupEventHandler {
 <p>控制台里输出了相对应的内容了。</p>
 <p>这部分的概念有些抽象，大家可以结合源代码自己思考整个调用过程。只要你理解了调用过程，Capability系统其实没有想象的那么难以理解。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_cap">源代码</a></p>
-<h1><a class="header" href="#开始使用预定义能力" id="开始使用预定义能力">开始使用预定义能力</a></h1>
+<h1 id="开始使用预定义能力"><a class="header" href="#开始使用预定义能力">开始使用预定义能力</a></h1>
 <p>在这一节中我们来学习如何使用Forge已经提供好的Capability。</p>
 <p>Forge为我们已经预定义好了一下几种Capability，你可通过查看<code>@CapabilityInject</code>注释在原版内容中的使用来找到预定于好的Capability。</p>
 <ul>
@@ -2829,7 +2833,7 @@ public class CommonSetupEventHandler {
 <p>至于方块，物品等注册，请读者自行完成。</p>
 <p>打开游戏试试吧。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/use_cap">源代码</a></p>
-<h1><a class="header" href="#附加能力提供器" id="附加能力提供器">附加能力提供器</a></h1>
+<h1 id="附加能力提供器"><a class="header" href="#附加能力提供器">附加能力提供器</a></h1>
 <p>在之前的章节中，我们已经学习了如何使用能力系统，已经知道了如何从零创建一个能力。在这节中，我们将要来学习，如何为现有的实体、物品等附加能力提供器。</p>
 <p>在这节中，我们会给玩家添加一个新的CapabilityProvider，让玩家可以拥有一套新的等级系统。</p>
 <p>首先我们来创建一个能力，这个能力非常简单。</p>
@@ -2956,7 +2960,7 @@ public static void onAttachCapabilityEvent(AttachCapabilitiesEvent&lt;Entity&gt;
   }
 }
 </code></pre>
-<p>这里我们监听了<code>AttachCapabilitiesEvent&lt;Entity&gt;</code>事件，我们可以通过这个事件来为特定的对象附加自定义的CapabilityProvider。这里我们就简单了判断了实体是不是玩家，如果是玩家，就附加能力。<strong>请注意：</strong><code>event.addCapability</code>方法，看上去附加的好像不是CapabilityProvider而是Capability，但如果你观察过它的函数签名，你会发现第二个参数需要的类型是<code>ICapabilityProvider</code>，所以在一开始你可以把这个函数理解成成<code>event.addCapabilityProvider</code>。这里的第一个参数是一个标记符，每一个附加的CapabilityProvder都必须是唯一的，<code>ResourceLocation</code>第一个参数一般情况填入你的<code>modId</code>，后一个参数随你喜好填。</p>
+<p>这里我们监听了<code>AttachCapabilitiesEvent&lt;Entity&gt;</code>事件，我们可以通过这个事件来为特定的对象附加自定义的CapabilityProvider。这里我们就简单了判断了实体是不是玩家，如果是玩家，就附加能力。<strong>请注意：</strong><code>event.addCapability</code>方法，看上去附加的好像不是CapabilityProvider而是Capability，但如果你观察过它的函数签名，你会发现第二个参数需要的类型是<code>ICapabilityProvider</code>，所以在一开始你可以把这个函数理解成成<code>event.addCapabilityProvider</code>。这里的第一个参数是一个标记符，每一个附加的CapabilityProvider都必须是唯一的，<code>ResourceLocation</code>第一个参数一般情况填入你的<code>modId</code>，后一个参数随你喜好填。</p>
 <ul>
 <li>Entity</li>
 <li>TileEntity</li>
@@ -3006,9 +3010,9 @@ public static void onPlayerCloned(PlayerEvent.Clone event) {
 <p><img src="capability/attachcapabilityprovider.assets/image-20200505102131455.png" alt="image-20200505102131455" /></p>
 <p>打开游戏，右键相对应的物品，你就能看到等级被显示了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/entity_capabilityprovider">源代码</a></p>
-<h2><a class="header" href="#编程小课堂-5" id="编程小课堂-5">编程小课堂</a></h2>
+<h2 id="编程小课堂-5"><a class="header" href="#编程小课堂-5">编程小课堂</a></h2>
 <p>在写Mod的时候，你必须学会看源代码和Debug（比如下断点）等。这些是基本技能。</p>
-<h1><a class="header" href="#worldsaveddata世界数据保存" id="worldsaveddata世界数据保存">WorldSavedData(世界数据保存)</a></h1>
+<h1 id="worldsaveddata世界数据保存"><a class="header" href="#worldsaveddata世界数据保存">WorldSavedData(世界数据保存)</a></h1>
 <p>在这节中，我们将来学习另外一种可以保存数据的方法，这就是World Saved Data。World Saved Data 是Minecraft 提供的一种可以让你保存和共享数据的类。World Saved Data 是在维度级别的，你只能指定某个维度拥有一个WorldSavedData，里面保存的数据是所有玩家通用的，并且用World Saved Data保存的数据与存档数据是分开存放的。</p>
 <p>在这节中，我们创建一个可以远程传输和储存物品的机器。</p>
 <p>首先我们来看<code>ObsidianWorldSavedData</code>:</p>
@@ -3191,9 +3195,9 @@ player.setItemStackToSlot(EquipmentSlotType.MAINHAND, stack);
 <p>这句话也很简单，就是取出物品然后还给玩家而已。</p>
 <p>打开游戏右键你的方块试试吧，现在应该可以不限距离，不限维度传输物品了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/wordsaveddata">源代码</a></p>
-<h1><a class="header" href="#gui" id="gui">Gui</a></h1>
+<h1 id="gui"><a class="header" href="#gui">Gui</a></h1>
 <p>在这节我们将进入很多人期待已久的章节，GUI（图形界面）。</p>
-<h1><a class="header" href="#第一个gui" id="第一个gui">第一个Gui</a></h1>
+<h1 id="第一个gui"><a class="header" href="#第一个gui">第一个Gui</a></h1>
 <p>在这一节中，我们将创建一个自定义的Gui，在开始教程之前，我必须要强调一点，打开Gui等操作只能在客户端执行，不能在服务端执行。</p>
 <p>与GUI相关的最直接的一个类就是<code>Screen</code>类，自然我们要创建一个类并继承<code>Screen</code>。</p>
 <p><code>ObsidianFirstGui.java</code>:</p>
@@ -3267,7 +3271,7 @@ protected void init() {
   super.init();
 }
 </code></pre>
-<p>在这里我们创建了三个「Widget（组件）」——Button（按钮）、TextFieldWidget（文本框）以及Slider（滑条）。Widget 是Minecraft GUI中最小可交互的对象。在GUI中添加Wdget大体上可以分成两步骤：</p>
+<p>在这里我们创建了三个「Widget（组件）」——Button（按钮）、TextFieldWidget（文本框）以及Slider（滑条）。Widget 是Minecraft GUI中最小可交互的对象。在GUI中添加Widget大体上可以分成两步骤：</p>
 <ol>
 <li>创建：你需要先创建一个组件，在创建组件时你需要指定它的宽和高、X坐标和Y坐标，对于一个特殊的组件，你还得指定它的回调函数，也就是当你操作组件后它需要执行的内容。比如说，当你按下按钮，你需要执行的内容就是一个回调函数。</li>
 <li>添加，为了你的GUI可以使用组件，你需要在创建完组件之后将组件添加到GUI上，对于绝大部分的组件你只需要调用<code>this.children.add(组件实例)</code>即可，按钮比较特殊，你需要调用<code>this.addButton(按钮实例)</code>。</li>
@@ -3358,9 +3362,9 @@ this.sliderBar.render(mouseX, mouseY, particleTick);
 <p>打开游戏你就可以看见我们的GUI被渲染出来了。</p>
 <p><img src="gui/firstgui.assets/image-20200502103302036.png" alt="image-20200502103302036" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_gui">源代码</a></p>
-<h2><a class="header" href="#编程小课堂-6" id="编程小课堂-6">编程小课堂</a></h2>
+<h2 id="编程小课堂-6"><a class="header" href="#编程小课堂-6">编程小课堂</a></h2>
 <p>在Mod开发中请不要使用<code>Time.sleep</code>来计时，这种行为非常非常的愚蠢，如果你需要计时，请使用游戏内置的Tick。</p>
-<h1><a class="header" href="#container" id="container">Container</a></h1>
+<h1 id="container"><a class="header" href="#container">Container</a></h1>
 <p>在上一节中，我们已经学习了如何创建一个非常简单的GUI，但是那个GUI显然有些功能是实现不了的。在这节中，我们将要来学习GUI中一个非常重要的类，Container。</p>
 <p>在开始之前我们先要回答Container是什么，已经它的存在是为了什么。Container和Screen的关系有点像是，Block和TileEntity的关系，Container本身不会被渲染，它存在的意义就是用来临时的储存数据（Container没法把数据保存到硬盘上）以及数据同步。但是很可惜的是Container所能同步的数据非常有限，不过就是Inventory和IntArray而已，如果你需要更加复杂的数据同步，那只能自己手动发包了。</p>
 <p><img src="gui/container.assets/guistructure.svg" alt="guistructure" /></p>
@@ -3690,7 +3694,7 @@ public class ModBusEventHandler {
 <p><img src="gui/container.assets/image-20200508193516742.png" alt="image-20200508193516742" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/container">源代码</a></p>
 <p><a href="https://greyminecraftcoder.blogspot.com/2020/04/containers-1144.html">相关的资料</a></p>
-<h1><a class="header" href="#hud" id="hud">HUD</a></h1>
+<h1 id="hud"><a class="header" href="#hud">HUD</a></h1>
 <p>在这节中我们将来学习如何绘制HUD。首先以免读者不清楚，HUD或者又称为inGameGui，指的是你在游戏中看到的类似于经验条、准星之类的东西。</p>
 <p>那我们开始吧。</p>
 <p>Forge给我提供了一个事件让我们可以渲染HUD，这个事件是<code>RenderGameOverlayEvent</code> 。</p>
@@ -3743,7 +3747,7 @@ public class HudClientEvent {
 <p><img src="gui/hud.assets/image-20200509082639854.png" alt="image-20200509082639854" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/hud">源代码</a></p>
 <p>另外原版的HUD渲染内容都在<code>IngameGui</code>这个类中。</p>
-<h1><a class="header" href="#流体" id="流体">流体</a></h1>
+<h1 id="流体"><a class="header" href="#流体">流体</a></h1>
 <p>在这节我们将来学习如何创建一个简单的流体。</p>
 <p>首先我们要明确流体究竟是什么。你在游戏中接触的流体不外乎于两种形式，一种是装在「桶」里，另一个是在世界里不断流动。</p>
 <p>当流体装在桶中，它属于一个叫做<code>BucketItem。</code>它流体在世界中不断流动，它属于的一种特殊的方块，这个方块和流体关联。（就像是方块和TileEntity关联）。</p>
@@ -3848,7 +3852,7 @@ public class DispenserRegister {
 </code></pre>
 <p>这里的值就是你的流体的两个注册名。</p>
 <p>然后重新启动游戏，你的流体应该就能推动实体了。</p>
-<h1><a class="header" href="#世界生成" id="世界生成">世界生成</a></h1>
+<h1 id="世界生成"><a class="header" href="#世界生成">世界生成</a></h1>
 <p>在这节中，我们将要来学习Minecraft中非常迷人的一部分：「世界生成」。Minecraft的世界生成可以说是Minecraft 能如此的受欢迎的一个基础所在。而我们接下来就要学习如何一步一步的自定义我们的世界生成。</p>
 <p>在1.13之后Minecraft重写了世界生成相关的代码，世界生成和修改变得容易的很多，在开始之前我们得要明确一些类和它相对应的作用。</p>
 <p>首先一个类是<code>World</code>，其实和世界生成直接相关的是它的子类<code>ServerWorld</code>（因为世界生成的计算都是服务端进行的）。这个是代表的你的存档游戏运行环境，在<code>World</code>类下面有个<code>WorldInfo worldInfo</code>的变量，里面存放了类似于当前的存档<code>WorldType</code>（超平坦、巨大化、普通）等信息。</p>
@@ -3872,7 +3876,7 @@ public class DispenserRegister {
 </tbody></table>
 <hr />
 <p>在你阅读世界生成相关的代码时可能会看见类似于<code>NetherGenSettings</code>名字末尾带个<code>Settings</code>的类，不用太害怕这种类，他们的作用只是为了配置一些属性。一个种是类似于<code>OverworldBiomeProvider</code>这样名字后面带一个<code>Provider</code>的类，这其实是一种叫做<code>Provider model(提供者模型)</code>的设计模式，当你看到这种类，只需要知道这些类最后会产生出他们去掉名字中<code>Provider</code>部分的类。</p>
-<h1><a class="header" href="#矿物生成" id="矿物生成">矿物生成</a></h1>
+<h1 id="矿物生成"><a class="header" href="#矿物生成">矿物生成</a></h1>
 <p>在这节中我们将来学习如何进行矿物生成。在学习这件之前请阅读本章的介绍，对世界生成有个大概的印象。</p>
 <p>正如我们之前所说的，矿物生成属于<code>Biome</code> 的个<code>Feature</code>，而如果你想要添加矿物生成，其实也就是向生物群系中添加一个新的<code>Feature</code>。接下来看代码</p>
 <pre><code class="language-java">@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -3908,7 +3912,7 @@ public class OreGen {
 <p>可以看见我们的矿物正常的生成了。</p>
 <p>如果你想要更加复杂的自定义矿物生成，可以重写<code>Feature&lt;OreFeatureConfig&gt;</code>。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/oregen">源代码</a></p>
-<h1><a class="header" href="#结构生成" id="结构生成">结构生成</a></h1>
+<h1 id="结构生成"><a class="header" href="#结构生成">结构生成</a></h1>
 <p>在这节中我们将来学习如何创建一个自定义的结构，并且在世界中自动生成它。我们将以钻石小屋作为例子。</p>
 <p>首先既然我们的要自定义的是一个结构，那么也就需要创建一个结构，内容如下:</p>
 <pre><code class="language-java">public class DiamondHouseStructure extends Structure&lt;NoFeatureConfig&gt; {
@@ -4051,9 +4055,9 @@ public class CommonEventHandler {
 <p>到此，结构已经注册和添加完毕，打开游戏，新建一个存档看看，你应该就能发现世界中自然生成的钻石小屋了。</p>
 <p><img src="worldgeneration/structuregeneration.assets/image-20200512174944649.png" alt="image-20200512174944649" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/strcutre">源代码</a></p>
-<h2><a class="header" href="#编程小课堂-7" id="编程小课堂-7">编程小课堂</a></h2>
+<h2 id="编程小课堂-7"><a class="header" href="#编程小课堂-7">编程小课堂</a></h2>
 <p>当你不知道应该如何使用一个类时，可以去Github上搜索看看如何使用，一般情况下都能找到别人使用的例子。</p>
-<h1><a class="header" href="#自定义生物群系和世界类型" id="自定义生物群系和世界类型">自定义生物群系和世界类型</a></h1>
+<h1 id="自定义生物群系和世界类型"><a class="header" href="#自定义生物群系和世界类型">自定义生物群系和世界类型</a></h1>
 <p>在这节中，我们将来学习如何添加一个自定义的生物群系，</p>
 <p>和结构类似，首先我们的新建一个类，继承原版的生物群系。</p>
 <pre><code class="language-java">public class ObsidianBiome extends Biome {
@@ -4128,7 +4132,7 @@ public class Neutrino {
 <p><img src="worldgeneration/biomegenerationandworldtype.assets/image-20200512185020541.png" alt="image-20200512185020541" /></p>
 <p>创建一个存档试试吧。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/biome">源代码</a></p>
-<h1><a class="header" href="#自定义维度与区块生成器以及生物群系提供器" id="自定义维度与区块生成器以及生物群系提供器">自定义维度与区块生成器以及生物群系提供器</a></h1>
+<h1 id="自定义维度与区块生成器以及生物群系提供器"><a class="header" href="#自定义维度与区块生成器以及生物群系提供器">自定义维度与区块生成器以及生物群系提供器</a></h1>
 <p>首先先原谅我起了这么长的一个标题。在这节中，我们将要来学习如何生成一个维度，在这个过程中我们还会学习到如何写区块生成器以及生物群系提供器。</p>
 <p>在开始我们的代码之前，我们得先来理一下维度生成的过程是什么样子的。</p>
 <p>首先我们有一个<code>Dimension</code>，他规定了维度的高度、天空的颜色等。在<code>Dimension</code>中有一个<code>ChunkGenerator</code>，它负责根据特定的算法决定了维度的地形。在<code>ChunkGenerator</code>里有个<code>BiomeProvider</code>，它决定了特定地方是什么生物群系。然后Minecraft会根据生物群系添加类似于生物，结构等东西。</p>
@@ -4359,9 +4363,9 @@ public class DimensionsEventHandler {
 <p><img src="worldgeneration/dimensionenerationandchunkgeneratorandbiomeprovider.assets/image-20200512214423977.png" alt="image-20200512214423977" /></p>
 <p>因为我们没有设置天空颜色之类的，所以看上很奇怪，但是这就是我们的维度了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/dimensions">源代码</a></p>
-<h1><a class="header" href="#数据包" id="数据包">数据包</a></h1>
+<h1 id="数据包"><a class="header" href="#数据包">数据包</a></h1>
 <p>在1.13之后，Mojang推出了Data Pack，将合成表凋落物等都改成了用json文件描述，作为Mod开发者的我们自然也可以利用这点，来编写我们自己的Data Pack。读者在阅读这章之前，请确保自己对Data Pack的制作有所了解，我在这里不会一一涉及每个配方，只会略微的提及要注意的点。</p>
-<h1><a class="header" href="#配方" id="配方">配方</a></h1>
+<h1 id="配方"><a class="header" href="#配方">配方</a></h1>
 <p><strong>请注意，在阅读本章节之前，请先学习数据包的制作与使用，不懂的话请阅读WIKI中相关的内容</strong></p>
 <p>在这节中，我们将要来学习如何添加配方，这里我们将以合成配方，和熔炼配方举例。</p>
 <p>正如原版的配方是放在数据包内，我们Mod的配方也应该放在我们的自己的数据包内，首先第一步就是创建我们Mod的数据包。请按照下面的结构性在你的<code>resources</code>文件夹下创建目录。</p>
@@ -4422,7 +4426,7 @@ public class DimensionsEventHandler {
 │           └── obsidian_ingot.json
 └── pack.mcmeta
 </code></pre>
-<h1><a class="header" href="#掉落物配方" id="掉落物配方">掉落物配方</a></h1>
+<h1 id="掉落物配方"><a class="header" href="#掉落物配方">掉落物配方</a></h1>
 <p><strong>请注意，在阅读本章节之前，请先学习数据包的制作与使用，不懂的话请阅读WIKI中相关的内容</strong></p>
 <p>同样的，我们先创建目录，这里我们以方块的掉落举例。</p>
 <pre><code>resources
@@ -4463,8 +4467,8 @@ public class DimensionsEventHandler {
 </code></pre>
 <p>同样的，这里你可以通过<code>neutrino:obsidian_block</code>来指定你的物品。</p>
 <p>可能很多读者，对于原版的<code>Loot_table</code>很难理解，这里我可以举个例子，你就把<code>Loot_table</code>当作是在赌场里抽奖，里面配置的信息不过就是奖品是什么，可以抽几次，什么条件下可以抽，什么情况下可以多抽几次。</p>
-<h1><a class="header" href="#data-generator" id="data-generator">Data Generator</a></h1>
-<h1><a class="header" href="#命令" id="命令">命令</a></h1>
+<h1 id="data-generator"><a class="header" href="#data-generator">Data Generator</a></h1>
+<h1 id="命令"><a class="header" href="#命令">命令</a></h1>
 <p>在这节中，我们将来学习如何向Minecraft中添加一个命令。首先要明确的是命令是一个服务端只在服务端存在的东西（虽然也有客户端的命令，但是我在写这段时<a href="https://github.com/MinecraftForge/MinecraftForge/pull/6670">还没有实现</a>）。</p>
 <p>接下来开始我们的实现吧。</p>
 <pre><code>/neurino test
@@ -4520,9 +4524,9 @@ public class CommandEventHandler {
 <p>至此，我们的命令已经完成。打开游戏输入命令试试吧。</p>
 <p><img src="command/command.assets/image-20200515151824363.png" alt="image-20200515151824363" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/command">源代码</a></p>
-<h1><a class="header" href="#进度" id="进度">进度</a></h1>
+<h1 id="进度"><a class="header" href="#进度">进度</a></h1>
 <p>关于进度可以参照原版数据包的<a href="https://zhangshenxing.gitee.io/vanillamodtutorial/#2.4_%E8%BF%9B%E5%BA%A6">教程</a>。</p>
-<h1><a class="header" href="#配置文件" id="配置文件">配置文件</a></h1>
+<h1 id="配置文件"><a class="header" href="#配置文件">配置文件</a></h1>
 <p>在这节中，我们将要来学习配置文件的编写。在1.12之后，Forge将配置文件格式改成Toml。</p>
 <p>现在我们开始吧</p>
 <p>为了理解方便，我先把最后生成出的配置文件格式粘贴出来</p>
@@ -4549,7 +4553,7 @@ public class CommandEventHandler {
 <p>我们先来看静态代码块中的内容。</p>
 <p>首先我们调用<code>ForgeConfigSpec.Builder()</code>创建了一个<code>Builder</code>。</p>
 <p>接下来的<code>push</code>和<code>pop</code>是一组方法，必须配合使用，每一个<code>comment</code>对应了配置文件中一个节（也就是中括号的部分），其中的<code>push</code>规定了节的名字，<code>comment</code>则是添加了注释。</p>
-<p><code>ForgeConfigSpec.IntValue</code>规定了我们的值，这里的值的允许的种类可以有：EnumValue、LongValue、IntValue、BoolenValue、DoubleValue。</p>
+<p><code>ForgeConfigSpec.IntValue</code>规定了我们的值，这里的值的允许的种类可以有：EnumValue、LongValue、IntValue、BooleanValue、DoubleValue。</p>
 <p>我们在这里通过<code>defineInRange</code>方法定义了我们配置文件中选项的名字，默认值，以及值的范围。</p>
 <p>最后我们通过<code>COMMON_BUILDER.build()</code>，构建出了我们配置文件的实例。</p>
 <p>当然，你还需要注册这个配置文件，回到你的Mod主类的构造方法中，添加</p>
@@ -4578,8 +4582,8 @@ public class CommandEventHandler {
 <p><img src="configure/configure.assets/image-20200516101413181.png" alt="image-20200516101413181" /></p>
 <p><img src="configure/configure.assets/image-20200516101637019.png" alt="image-20200516101637019" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/configure">源代码</a></p>
-<h1><a class="header" href="#药水" id="药水">药水</a></h1>
-<h1><a class="header" href="#粒子效果" id="粒子效果">粒子效果</a></h1>
+<h1 id="药水"><a class="header" href="#药水">药水</a></h1>
+<h1 id="粒子效果"><a class="header" href="#粒子效果">粒子效果</a></h1>
 <p>在这节中我们将要来创建一个新的例子效果。</p>
 <p>首先我们来创建例子效果类。</p>
 <pre><code class="language-java">public class ObsidianParticle extends SpriteTexturedParticle {
@@ -4801,7 +4805,7 @@ public class ParticleFactoryRegistry {
 </code></pre>
 <p><img src="paticles/intro.assets/image-20200614202142227.png" alt="image-20200614202142227" /></p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/particle">源代码</a></p>
-<h1><a class="header" href="#音效" id="音效">音效</a></h1>
+<h1 id="音效"><a class="header" href="#音效">音效</a></h1>
 <p>在这节中，我们讲学习如何向给我的Mod添加音效，非常的简单，就让我开始吧。</p>
 <pre><code class="language-java">public class SoundEventRegistry {
     public static final DeferredRegister&lt;SoundEvent&gt; SOUNDS = new DeferredRegister&lt;&gt;(ForgeRegistries.SOUND_EVENTS, &quot;neutrino&quot;);
@@ -4876,7 +4880,7 @@ public class ParticleFactoryRegistry {
 </code></pre>
 <p>打开游戏试试吧，我们应该成功添加了音效。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/sounds">源代码</a></p>
-<h1><a class="header" href="#用户输入" id="用户输入">用户输入</a></h1>
+<h1 id="用户输入"><a class="header" href="#用户输入">用户输入</a></h1>
 <p>这一节中我们将来学习如何获取用户输入。这里我们将以快捷键举例。请注意，所有的用户输入都是客户端行为。</p>
 <pre><code class="language-java">@Mod.EventBusSubscriber(value = Dist.CLIENT)
 public class KeyBoardInput {
@@ -4914,8 +4918,8 @@ public class KeybindingRegistry {
 <p><img src="io/intro.assets/image-20200516170445384.png" alt="image-20200516170445384" /></p>
 <p>注：因为我的系统时macOS，所以这里显示的是CMD。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/input">源代码</a></p>
-<h1><a class="header" href="#与其他mod的兼容" id="与其他mod的兼容">与其他mod的兼容</a></h1>
-<h1><a class="header" href="#access-transformer" id="access-transformer">Access Transformer</a></h1>
+<h1 id="与其他mod的兼容"><a class="header" href="#与其他mod的兼容">与其他mod的兼容</a></h1>
+<h1 id="access-transformer"><a class="header" href="#access-transformer">Access Transformer</a></h1>
 <p><strong>请注意，在没有确定你必须要使用AT的情况下，请务必不要随意使用AT，会有兼容性风险</strong></p>
 <p>虽然Forge已经为我们做了绝大多数的工作来方便我们开发mod，但是在极少数的情况下，我们会发现Forge没有提供给我们接口让我来修改原版的内容，而原版的方法、字段等又是<code>private</code>的，我们没法调用它们。</p>
 <p>在这种情况下，Forge提供给我了一种叫做<code>Access Transformer</code>（简称<code>AT</code>）的工具，让我们能够修改原版内容的调用权限，把<code>private</code>改成<code>public</code>。</p>
@@ -4993,7 +4997,7 @@ public class ATDemo {
 </code></pre>
 <p>这里我们将原版的一些树叶添加了进去，启动游戏，现在你应该就可以向堆肥器里塞入树叶了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/at">源代码</a></p>
-<h1><a class="header" href="#coremod" id="coremod">CoreMod</a></h1>
+<h1 id="coremod"><a class="header" href="#coremod">CoreMod</a></h1>
 
                     </main>
 

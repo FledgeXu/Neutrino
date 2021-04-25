@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#自定义网络包" id="自定义网络包">自定义网络包</a></h1>
+                        <h1 id="自定义网络包"><a class="header" href="#自定义网络包">自定义网络包</a></h1>
 <p>在这节中我们将要来学习如何自定义数据包。在之前的内容中我们已经讲过了如何利用Minecraft原版内置的功能来实现数据的同步，但是这些功能或多或少都有限制。在某些时候我们不得不自己来解决数据同步的问题，在这时我们就得使用自定义数据包了。幸运的是Forge已经提供了一个类，让我们能够简单而且方便地自定义数据包，这个类就是<code>SimpleChannel</code>，我们将学习如何使用它。</p>
 <p>这一节的内容可能有些无聊，因为我们做出的物品并不能在游戏中产生实际的效果，但是这不代表的这节的内容不重要，让我们开始吧。</p>
 <p>首先我们讲一下发包的过程，具体过程如下:</p>
@@ -168,7 +172,7 @@
 <p>在这个过程中，前两项是在你要发送包的端执行的，后两项是在你要接受包的端执行的。</p>
 <p>无论你是想从客户端往服务端发包，还是从服务端往客户端发包，你要做的第一件事就是——构建数据包，这个数据包就是你要发送的具体消息。接下来是序列化成字节流，因为在网络中所有的数据都是以字节流的形式传输的，你的数据包也不例外，而又因为数据包的内容是你自己定义的，你得自己实现序列化操作。</p>
 <p>接下来数据流已经传输到了接受包的一端，你在接受时，接收的同样也是字节流，你需要从字节流中获取数据并恢复数据，重建你的数据包。让你的数据包恢复成功，接下来你就可以利用这些数据来执行操作了。</p>
-<p>在Mod开发里，所有的数据包都是通过<code>SimpleChannel</code>管理的，正如这个名字暗示的那样，我们构建的数据包将通过一个个自定义的「Channle（频道）」传输。</p>
+<p>在Mod开发里，所有的数据包都是通过<code>SimpleChannel</code>管理的，正如这个名字暗示的那样，我们构建的数据包将通过一个个自定义的「Channel（频道）」传输。</p>
 <p>接下来我们来注册数据包<code>Networking</code>:</p>
 <pre><code class="language-java">package com.tutorial.neutrino.network;
 
@@ -350,7 +354,7 @@ public class CommonEventHandler {
 <p><img src="custompack.assets/image-20200501102439453.png" alt="image-20200501102439453" /></p>
 <p>注：「Server Thread」是服务端，「Render Thread」是客户端。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/network">源代码</a></p>
-<h2><a class="header" href="#编程小课堂" id="编程小课堂">编程小课堂</a></h2>
+<h2 id="编程小课堂"><a class="header" href="#编程小课堂">编程小课堂</a></h2>
 <p>在任何开始接触一个你不熟悉的编程项目，你要做的第一件事永远是通读这个项目的文档（如果有的话），对于我们来说就是<a href="http://mcforge.readthedocs.io/en/latest/">Forge的文档</a>，介于读者可能看不懂英文文档，Forge文档也有中文翻译的，请自行搜索。</p>
 
                     </main>

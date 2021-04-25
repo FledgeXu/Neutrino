@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#配置文件" id="配置文件">配置文件</a></h1>
+                        <h1 id="配置文件"><a class="header" href="#配置文件">配置文件</a></h1>
 <p>在这节中，我们将要来学习配置文件的编写。在1.12之后，Forge将配置文件格式改成Toml。</p>
 <p>现在我们开始吧</p>
 <p>为了理解方便，我先把最后生成出的配置文件格式粘贴出来</p>
@@ -186,7 +190,7 @@
 <p>我们先来看静态代码块中的内容。</p>
 <p>首先我们调用<code>ForgeConfigSpec.Builder()</code>创建了一个<code>Builder</code>。</p>
 <p>接下来的<code>push</code>和<code>pop</code>是一组方法，必须配合使用，每一个<code>comment</code>对应了配置文件中一个节（也就是中括号的部分），其中的<code>push</code>规定了节的名字，<code>comment</code>则是添加了注释。</p>
-<p><code>ForgeConfigSpec.IntValue</code>规定了我们的值，这里的值的允许的种类可以有：EnumValue、LongValue、IntValue、BoolenValue、DoubleValue。</p>
+<p><code>ForgeConfigSpec.IntValue</code>规定了我们的值，这里的值的允许的种类可以有：EnumValue、LongValue、IntValue、BooleanValue、DoubleValue。</p>
 <p>我们在这里通过<code>defineInRange</code>方法定义了我们配置文件中选项的名字，默认值，以及值的范围。</p>
 <p>最后我们通过<code>COMMON_BUILDER.build()</code>，构建出了我们配置文件的实例。</p>
 <p>当然，你还需要注册这个配置文件，回到你的Mod主类的构造方法中，添加</p>

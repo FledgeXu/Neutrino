@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#附加能力提供器" id="附加能力提供器">附加能力提供器</a></h1>
+                        <h1 id="附加能力提供器"><a class="header" href="#附加能力提供器">附加能力提供器</a></h1>
 <p>在之前的章节中，我们已经学习了如何使用能力系统，已经知道了如何从零创建一个能力。在这节中，我们将要来学习，如何为现有的实体、物品等附加能力提供器。</p>
 <p>在这节中，我们会给玩家添加一个新的CapabilityProvider，让玩家可以拥有一套新的等级系统。</p>
 <p>首先我们来创建一个能力，这个能力非常简单。</p>
@@ -286,7 +290,7 @@ public static void onAttachCapabilityEvent(AttachCapabilitiesEvent&lt;Entity&gt;
   }
 }
 </code></pre>
-<p>这里我们监听了<code>AttachCapabilitiesEvent&lt;Entity&gt;</code>事件，我们可以通过这个事件来为特定的对象附加自定义的CapabilityProvider。这里我们就简单了判断了实体是不是玩家，如果是玩家，就附加能力。<strong>请注意：</strong><code>event.addCapability</code>方法，看上去附加的好像不是CapabilityProvider而是Capability，但如果你观察过它的函数签名，你会发现第二个参数需要的类型是<code>ICapabilityProvider</code>，所以在一开始你可以把这个函数理解成成<code>event.addCapabilityProvider</code>。这里的第一个参数是一个标记符，每一个附加的CapabilityProvder都必须是唯一的，<code>ResourceLocation</code>第一个参数一般情况填入你的<code>modId</code>，后一个参数随你喜好填。</p>
+<p>这里我们监听了<code>AttachCapabilitiesEvent&lt;Entity&gt;</code>事件，我们可以通过这个事件来为特定的对象附加自定义的CapabilityProvider。这里我们就简单了判断了实体是不是玩家，如果是玩家，就附加能力。<strong>请注意：</strong><code>event.addCapability</code>方法，看上去附加的好像不是CapabilityProvider而是Capability，但如果你观察过它的函数签名，你会发现第二个参数需要的类型是<code>ICapabilityProvider</code>，所以在一开始你可以把这个函数理解成成<code>event.addCapabilityProvider</code>。这里的第一个参数是一个标记符，每一个附加的CapabilityProvider都必须是唯一的，<code>ResourceLocation</code>第一个参数一般情况填入你的<code>modId</code>，后一个参数随你喜好填。</p>
 <ul>
 <li>Entity</li>
 <li>TileEntity</li>
@@ -336,7 +340,7 @@ public static void onPlayerCloned(PlayerEvent.Clone event) {
 <p><img src="attachcapabilityprovider.assets/image-20200505102131455.png" alt="image-20200505102131455" /></p>
 <p>打开游戏，右键相对应的物品，你就能看到等级被显示了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/entity_capabilityprovider">源代码</a></p>
-<h2><a class="header" href="#编程小课堂" id="编程小课堂">编程小课堂</a></h2>
+<h2 id="编程小课堂"><a class="header" href="#编程小课堂">编程小课堂</a></h2>
 <p>在写Mod的时候，你必须学会看源代码和Debug（比如下断点）等。这些是基本技能。</p>
 
                     </main>

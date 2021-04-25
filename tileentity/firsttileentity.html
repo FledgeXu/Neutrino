@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#第一个方块实体和其数据保存" id="第一个方块实体和其数据保存">第一个方块实体和其数据保存</a></h1>
+                        <h1 id="第一个方块实体和其数据保存"><a class="header" href="#第一个方块实体和其数据保存">第一个方块实体和其数据保存</a></h1>
 <p>在这节中，我们将学习如何创建一个属于自己的方块实体，我们以计数器为例，它唯一的作用就是当你右击方块时它会加一，然后向你的聊天框里发送相对应的值。</p>
 <p>首先我们来创建我们的方块，<code>ObsidianCounter.java</code>：</p>
 <pre><code class="language-java">public class ObsidianCounter extends Block {
@@ -210,7 +214,7 @@
 <p>可以看到，这个方块实体里的内容非常的简单，只有一个构造方法和一个<code>increase</code>方法。<code>increase</code>方法和我们要实现的具体内容有关，这里先按下不表，我们先来看构造方法。</p>
 <pre><code class="language-java">super(TileEntityTypeRegistry.obsidianCounterTileEntity.get());
 </code></pre>
-<p>这里的构造方法，我们向我们的父类传入了一个<code>TilEnttityType</code>，那么这个<code>TilEntityType</code>又是什么东西呢？这个<code>TileEntityType</code>故名思义是方块实体的「类型」，这个「类型」规定了我们的方块实体要怎么创建出来，以及它和哪些方块绑定，接下来我们就来看看我们的<code>TilEntityType</code>是怎么被创建出来和被注册的吧。</p>
+<p>这里的构造方法，我们向我们的父类传入了一个<code>TilEnttityType</code>，那么这个<code>TileEntityType</code>又是什么东西呢？这个<code>TileEntityType</code>故名思义是方块实体的「类型」，这个「类型」规定了我们的方块实体要怎么创建出来，以及它和哪些方块绑定，接下来我们就来看看我们的<code>TilEntityType</code>是怎么被创建出来和被注册的吧。</p>
 <p>接着我们创建了一个新的类叫做<code>TileEntityTypeRegistry</code>:</p>
 <pre><code class="language-java">public class TileEntityTypeRegistry {
     public static final DeferredRegister&lt;TileEntityType&lt;?&gt;&gt; TILE_ENTITY_TYPE_DEFERRED_REGISTER = new DeferredRegister&lt;&gt;(ForgeRegistries.TILE_ENTITIES, &quot;neutrino&quot;);
@@ -321,7 +325,7 @@ public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockP
 </code></pre>
 <p>我们在这里加入了<code>markDirty()</code>方法，这个方法的意思是标记了我们数据被修改，让游戏知道在关闭的时候要保存调用保存方法。这样做是因为相对于CPU的执行速度，硬盘的保存和读写速度是非常慢的，所以如果频繁的进行保存和读写操作会严重拖慢游戏的速度，一个合理的方法就是标记我们需要保存的数据，然后在一个统一的时间点一起保存，<code>markDirty()</code>的作用正是如此。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_tileentity">源代码</a></p>
-<h2><a class="header" href="#编程小课堂" id="编程小课堂">编程小课堂</a></h2>
+<h2 id="编程小课堂"><a class="header" href="#编程小课堂">编程小课堂</a></h2>
 <p>对于CPU来说每个指令大概需要 0.38ns，以此作为基本单位 1s的话，从从磁盘读取 1MB 的连续数据需要 20ms，对比 CPU 的时间是 20 个月，所以磁盘读写速度是非常慢的。</p>
 
                     </main>

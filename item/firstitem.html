@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -128,9 +130,11 @@
                     <h1 class="menu-title">Minecraft Forge Mod Dev tutorial</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                     </div>
                 </div>
@@ -159,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#第一个物品" id="第一个物品">第一个物品</a></h1>
+                        <h1 id="第一个物品"><a class="header" href="#第一个物品">第一个物品</a></h1>
 <p>从现在开始我们就要正式开始写代码了。首先有几件事要说明，本项目的代码都会开源，每节的代码链接我都会放在文章的后面，而为了之后修正和查看方便，<strong>我的代码中可能会有大量重复的类，项目的组织也和正常项目大相径庭，大家请不要照抄，请大家务必手打代码，你复制粘贴代码是学不会的。</strong></p>
 <p>首先我们得明确，创建一个物品需要哪几个步骤。答案是三步：创建自己的物品并继承原版的物品的类，实例化这个物品，最后把这个物品注册进游戏。</p>
 <p>注意上面这些步骤是通用的，很多自定义内容的添加都是遵循着上面的步骤。</p>
@@ -227,7 +231,7 @@ public class Neutrino {
 <p><img src="firstitem.assets/image-20200427102030250.png" alt="image-20200427102030250" /></p>
 <p>虽然这个物品还是很丑，但这就是我们第一个物品了。</p>
 <p><a href="https://github.com/FledgeXu/NeutrinoSourceCode/tree/master/src/main/java/com/tutorial/neutrino/first_item">源码链接</a></p>
-<h2><a class="header" href="#开发小课堂" id="开发小课堂">开发小课堂</a></h2>
+<h2 id="开发小课堂"><a class="header" href="#开发小课堂">开发小课堂</a></h2>
 <p>在开发大型项目的过程中，通过看函数名猜函数功能，这是一个非常重要的能力。当你不清楚一个函数的功能是什么，就翻译翻译它的名字，猜猜看它的功能吧。</p>
 <p>另外一个就是要学会看函数签名，理解一个函数最重要一点就是要理解它的输入是什么（参数），它的输出是什么（返回值）。</p>
 
