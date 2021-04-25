@@ -37,7 +37,7 @@ public class Config {
 
 接下来的`push`和`pop`是一组方法，必须配合使用，每一个`comment`对应了配置文件中一个节（也就是中括号的部分），其中的`push`规定了节的名字，`comment`则是添加了注释。
 
-`ForgeConfigSpec.IntValue`规定了我们的值，这里的值的允许的种类可以有：EnumValue、LongValue、IntValue、BoolenValue、DoubleValue。
+`ForgeConfigSpec.IntValue`规定了我们的值，这里的值的允许的种类可以有：EnumValue、LongValue、IntValue、BooleanValue、DoubleValue。
 
 我们在这里通过`defineInRange`方法定义了我们配置文件中选项的名字，默认值，以及值的范围。
 

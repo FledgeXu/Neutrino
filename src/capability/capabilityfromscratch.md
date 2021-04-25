@@ -26,7 +26,7 @@ class MyTileEntity extends CapabilityProvider
 
 接下来我们会创建两个特殊的方块，分为「上方块」和「下方块」。当你把「上方块」放在「下方块」的上方时，「上方块会输出下方块传来的信息」。
 
-介于篇幅的原因，这里就直接从TilEntity开始了，相关的方块也没什么内容，就只是关联的方块实体而已。
+介于篇幅的原因，这里就直接从TileEntity开始了，相关的方块也没什么内容，就只是关联的方块实体而已。
 
 `ObsidianUpBlockTileEntity`
 
